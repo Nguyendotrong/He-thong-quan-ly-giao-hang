@@ -69,6 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'abaManageShip.wsgi.application'
+AUTH_USER_MODEL ='abaShip.User'
 
 
 # Database
@@ -76,8 +77,11 @@ WSGI_APPLICATION = 'abaManageShip.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'abashipdb',
+        'USER': 'root',
+        'PASSWORD': '1+2+3+0',
+        'HOST': ''
     }
 }
 

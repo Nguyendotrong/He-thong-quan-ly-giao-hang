@@ -1,29 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/he-thong-quan-ly-giao-hang.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaShip/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaShip/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaShip/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaShip/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaShip/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaShip/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaShip/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manageShip/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manageShip/manageShip/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manageShip/manageShip/asgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manageShip/manageShip/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manageShip/manageShip/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manageShip/manageShip/wsgi.py" beforeDir="false" />
+    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model ngày 04/08">
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +34,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -86,8 +75,23 @@
       <updated>1628003814749</updated>
       <workItem from="1628003861114" duration="522000" />
       <workItem from="1628004404740" duration="767000" />
-      <workItem from="1628043960722" duration="3151000" />
+      <workItem from="1628043960722" duration="4632000" />
+      <workItem from="1628083442470" duration="7250000" />
+      <workItem from="1628128486616" duration="6996000" />
+      <workItem from="1628170490604" duration="5262000" />
+      <workItem from="1628428711244" duration="12654000" />
+      <workItem from="1628476706630" duration="4317000" />
+      <workItem from="1628497435782" duration="392000" />
+      <workItem from="1628516999613" duration="3021000" />
     </task>
+    <task id="LOCAL-00001" summary="sữa model ngày 04/08">
+      <created>1628049280021</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628049280023</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +108,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sữa model ngày 04/08" />
+    <option name="LAST_COMMIT_MESSAGE" value="sữa model ngày 04/08" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
