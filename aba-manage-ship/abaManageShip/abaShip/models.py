@@ -1,18 +1,21 @@
 from enum import Enum
-
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from  ckeditor.fields import RichTextField
 
 # Create your models here.
-from django.contrib.auth.models import AbstractUser
+
 
 
 class User (AbstractUser):
-    avatar = models.ImageField(upload_to='avatar/%Y%m')
+    avatar = models.ImageField(upload_to='avatar/%Y/%m')
     phone = models.CharField(max_length=10,null=False)
+    first_name = models.CharField(max_length=50, null=False, blank=False)
+    last_name = models.CharField(max_length=50, null=False, blank=False)
 
     def __str__(self):
-        return "name: {} {}".format(self.first_name, self.last_name)
+        return "name: {}".format(self.username)
 
 class Stock(models.Model):
     address = models.CharField(max_length=150,null=False)
@@ -22,7 +25,7 @@ class Stock(models.Model):
 class IDCard(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     id_card = models.CharField(max_length=12,null=False, unique=True)
-    image_card = models.ImageField(upload_to='idcardimage/%Y/%m')
+    image_card = models.ImageField(upload_to='idcard/%Y/%m')
     mfg_date = models.DateTimeField(null=False)
     exp_date = models.DateTimeField(null=False)
 
@@ -45,7 +48,7 @@ class  Base(models.Model):
 
 class Voucher(Base):
     name =  models.CharField(max_length=200, null=False)
-    decription = models.TextField(null=False, blank=False)
+    description = models.TextField(null=False, blank=False)
     discount = models.FloatField(null=False)
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
@@ -94,7 +97,7 @@ class Post(Base):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
     description = models.TextField(null=False)
-    image = models.ImageField(upload_to='productimage/%Y/%m')
+    # image = models.ImageField(upload_to='item/%Y/%m')
     receive_adress = models.TextField(null=False)
     send_adress = models.TextField(null=True)
     weight = models.FloatField(null=True)
@@ -102,6 +105,14 @@ class Post(Base):
     def __str__(self):
         return "Customer: {} {},\nCreated date: {}".format(self.customer.first_name,
                                                            self.customer.last_name, self.created_date)
+
+class ImageItem(models.Model):
+    post  = models.ForeignKey(Post,on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='item/%Y/%m')
+
+    def __str__(self):
+        return "post: {}".format(self.post.weight)
+
 
 class Auction(Base):
 
@@ -128,7 +139,7 @@ class CommentShipper  (Base):
                                    MaxValueValidator(
                                    limit_value=5, message="Đánh giá nhỏ hơn hoặc bằng 5"),
                                     MinValueValidator(
-                                               limit_value=1, message="đánh giá từ 1 đến 5")
+                                    limit_value=1, message="đánh giá từ 1 đến 5")
                                ])
 
     def __str__(self):
@@ -144,7 +155,7 @@ class CommentShipper  (Base):
 class Deduct(Base):
 
     percent = models.FloatField(
-        validators=[MaxValueValidator(30.0), MinValueValidator(0.0)
+        validators=[MaxValueValidator(40.0), MinValueValidator(0.0)
                     ])
 
     def __str__(self):

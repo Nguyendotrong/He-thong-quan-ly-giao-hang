@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model ngày 04/08">
-      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model, thêm admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" afterDir="false" />
@@ -37,6 +36,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static\css" />
       <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip" />
       <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip" />
     </key>
@@ -83,6 +83,10 @@
       <workItem from="1628476706630" duration="4317000" />
       <workItem from="1628497435782" duration="392000" />
       <workItem from="1628516999613" duration="3021000" />
+      <workItem from="1628559723695" duration="698000" />
+      <workItem from="1628578519928" duration="1000000" />
+      <workItem from="1628599890331" duration="8531000" />
+      <workItem from="1628648534861" duration="5581000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -91,7 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628049280023</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="sữa model, thêm admin">
+      <created>1628559772420</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1628559772420</updated>
+    </task>
+    <task id="LOCAL-00003" summary="sữa model, thêm admin">
+      <created>1628559792636</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1628559792636</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,7 +129,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sữa model ngày 04/08" />
-    <option name="LAST_COMMIT_MESSAGE" value="sữa model ngày 04/08" />
+    <MESSAGE value="sữa model, thêm admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="sữa model, thêm admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
