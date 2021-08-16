@@ -126,6 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = '%s/abaShip/static/image/' %BASE_DIR
+CKEDITOR_UPLOAD_PATH = "image/upload/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

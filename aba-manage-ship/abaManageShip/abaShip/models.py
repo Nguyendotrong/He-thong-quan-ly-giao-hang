@@ -9,7 +9,7 @@ from  ckeditor.fields import RichTextField
 
 
 class User (AbstractUser):
-    avatar = models.ImageField(upload_to='avatar/%Y/%m')
+    avatar = models.ImageField(upload_to='avatar/%Y/%m/')
     phone = models.CharField(max_length=10,null=False)
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
@@ -25,7 +25,8 @@ class Stock(models.Model):
 class IDCard(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     id_card = models.CharField(max_length=12,null=False, unique=True)
-    image_card = models.ImageField(upload_to='idcard/%Y/%m')
+    image_card_front = models.ImageField(upload_to='idcard/%Y/%m/', default=None)
+    image_card_back = models.ImageField(upload_to='idcard/%Y/%m/', default=None)
     mfg_date = models.DateTimeField(null=False)
     exp_date = models.DateTimeField(null=False)
 
@@ -70,6 +71,7 @@ class OrderShip(Base):
     send_stock = models.ForeignKey(Stock, related_name='orders_ship_send',
                                    on_delete=models.PROTECT,null=False)
     active = models.BooleanField(default=True)
+    auction_win = models.OneToOneField('Auction',on_delete=models.PROTECT,null=False)
     shipper = models.ForeignKey(User, related_name='shipper_orders', on_delete=models.PROTECT)
     shipped_date = models.DateTimeField(default=None, null=True)
     status = models.CharField(max_length=30,choices=[(tag, tag.value) for tag in StatusShip ])
@@ -96,7 +98,7 @@ class Post(Base):
 
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
-    description = models.TextField(null=False)
+    description = RichTextField(null=False)
     # image = models.ImageField(upload_to='item/%Y/%m')
     receive_adress = models.TextField(null=False)
     send_adress = models.TextField(null=True)
@@ -108,7 +110,7 @@ class Post(Base):
 
 class ImageItem(models.Model):
     post  = models.ForeignKey(Post,on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='item/%Y/%m')
+    image = models.ImageField(upload_to='item/%Y/%m/')
 
     def __str__(self):
         return "post: {}".format(self.post.weight)
@@ -122,12 +124,12 @@ class Auction(Base):
 
     post = models.ForeignKey(Post,related_name="autions", on_delete=models.CASCADE)
     shipper = models.ForeignKey(User, related_name='autions', on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=12, decimal_places=0, null=False)
+    cost = models.DecimalField(max_digits=14, decimal_places=2, null=False)
     is_win = models.BooleanField(default=False)
-    Active =  models.BooleanField(default=True)
+    active =  models.BooleanField(default=True)
 
     def __str__(self):
-        return "shipper: {},\nprice: {}".format(self.shipper.first_name, self.price)
+        return "shipper: {},\nprice: {}".format(self.shipper.first_name, self.cost)
 
 
 class CommentShipper  (Base):
@@ -171,7 +173,7 @@ class DebtShipper(models.Model):
 
 
 
-class DetpApp(models.Model):
+class DebtApp(models.Model):
     order_ship = models.OneToOneField(OrderShip, on_delete=models.PROTECT)
     shipper = models.ForeignKey(User, on_delete=models.PROTECT)
     deduct = models.ForeignKey(Deduct, on_delete=models.PROTECT)

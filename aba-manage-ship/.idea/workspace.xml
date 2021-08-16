@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model, thêm admin">
+    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model, thêm admin chinh sua abla">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +24,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1wDr59pnuZPUJypZT8w4ZvzDxyk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -87,6 +98,16 @@
       <workItem from="1628578519928" duration="1000000" />
       <workItem from="1628599890331" duration="8531000" />
       <workItem from="1628648534861" duration="5581000" />
+      <workItem from="1628679759340" duration="400000" />
+      <workItem from="1628734849059" duration="5085000" />
+      <workItem from="1628755217070" duration="2323000" />
+      <workItem from="1628772209233" duration="7371000" />
+      <workItem from="1628838519940" duration="3693000" />
+      <workItem from="1628910299699" duration="3694000" />
+      <workItem from="1628946016713" duration="2844000" />
+      <workItem from="1629010904415" duration="5516000" />
+      <workItem from="1629078932147" duration="4053000" />
+      <workItem from="1629101985014" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -109,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628559792636</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="sữa model, thêm admin chinh sua abla">
+      <created>1628679832947</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1628679832947</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +158,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sữa model ngày 04/08" />
     <MESSAGE value="sữa model, thêm admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="sữa model, thêm admin" />
+    <MESSAGE value="sữa model, thêm admin chinh sua abla" />
+    <option name="LAST_COMMIT_MESSAGE" value="sữa model, thêm admin chinh sua abla" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
