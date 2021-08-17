@@ -21,6 +21,10 @@ class AuctionInlineAdmin(admin.StackedInline):
     model = Auction
     fk_name = 'post'
 
+class OrderShipDetailInlineAdmin(admin.StackedInline):
+    model = OrderShipDetail
+
+
 class PostForm(forms.ModelForm):
     description = forms.CharField(widget=CKEditorUploadingWidget)
     class Meta:
@@ -71,29 +75,57 @@ class IDCardAdmin(admin.ModelAdmin):
 
 
 class OrderShipAdmin(admin.ModelAdmin):
-    list_display = ['post', 'receive_stock', 'send_stock', 'post__Auction_win', 'active', 'shipper','shipped_date','status']
-    list_filter =  ['post', 'receive_stock', 'send_stock', 'active', 'shipper','shipped_date','status']
-    search_fields =  ['post__description', 'receive_stock__address', 'send_stock__address', 'active', 'shipper__username','shipped_date','status']
-    # inlines =
+    list_display = [ 'auction_win', 'send_stock','receive_stock',
+                     'active', 'auction_win','shipped_date','status']
+    list_filter =  [ 'auction_win', 'send_stock','receive_stock',
+                     'active', 'auction_win__shipper','shipped_date','status']
+    search_fields =  [ 'receive_stock__address', 'send_stock__address','auction_win__shipper_username', 'active','shipped_date','status']
+    inlines = [OrderShipDetailInlineAdmin,]
 
 
 class AuctionAdmin(admin.ModelAdmin):
     list_display = ['shipper', 'post', 'cost', 'is_win', 'active','created_date']
     list_filter = ['shipper', 'post', 'cost', 'is_win', 'active','created_date']
-    search_fields = ['shipper__username', 'post', 'cost', 'is_win', 'active','created_date']
+    search_fields = ['shipper__username', 'post__description', 'cost', 'is_win', 'active','created_date']
     inlines = [OrderIneLineAdmin,]
 
 
 class ImageItemAdmin(admin.ModelAdmin):
     list_display = ['post', 'image']
     list_filter = ['post', 'image']
-    search_fields = ['post', 'image']
+    search_fields = ['post__description', 'image']
     readonly_fields = ['item',]
 
     def item(self, object):
         return mark_safe("<img src='/static/image/{img_url}' alt='{alt}' width='90px' />".format(
             img_url=object.image.name, alt=object.image.name
         ))
+
+
+class DebtAppAdmin(admin.ModelAdmin):
+    list_display = ['order_ship','shipper','deduct','has_payed',]
+    list_filter =  ['order_ship','shipper','deduct','has_payed',]
+    search_fields = ['shipper__username','deduct__percent','has_payed',]
+
+
+
+class DebtShipperAdmin(admin.ModelAdmin):
+    list_display = ['order_ship', 'shipper', 'deduct', 'has_payed', ]
+    list_filter = ['order_ship', 'shipper', 'deduct', 'has_payed', ]
+    search_fields = ['shipper__username', 'deduct__percent', 'has_payed', ]
+
+
+class DeductAdmin(admin.ModelAdmin):
+    list_display = ['percent',]
+    list_filter = ['percent',]
+    search_fields = ['percent',]
+
+
+
+class VoucherAdmin(admin.ModelAdmin):
+    list_display = ['name','description', 'discount', 'start_date','end_date']
+    list_filter = ['name','description', 'discount', 'start_date','end_date']
+    search_fields = ['name','description', 'discount', 'start_date','end_date']
 
 
 class AbaShipAdminSite(admin.AdminSite):
@@ -104,9 +136,10 @@ admin_site  =  AbaShipAdminSite(name='myadmin')
 
 
 
+
 # admin.site.unregister(User)
 admin_site.register(User, UserAdmin)
-admin_site.register(OrderShip)
+admin_site.register(OrderShip, OrderShipAdmin)
 admin_site.register(OrderShipDetail)
 admin_site.register(Post, PostAdmin)
 admin_site.register(ImageItem, ImageItemAdmin)
@@ -118,5 +151,5 @@ admin_site.register(IDCard,IDCardAdmin)
 admin_site.register(Permission)
 admin_site.register(Deduct)
 admin_site.register(DebtApp)
-# admin_site.register(Detp)
+admin_site.register(DebtShipper)
 

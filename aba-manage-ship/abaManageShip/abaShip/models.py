@@ -22,6 +22,10 @@ class Stock(models.Model):
     name_represent_man = models.CharField(max_length=100, null=False)
     phone = models.CharField(max_length=10, null=False)
 
+    def __str__(self):
+        return "Address: {},\n Represent man: {},\nPhone: {}".format(
+            self.address,self.name_represent_man, self.phone)
+
 class IDCard(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     id_card = models.CharField(max_length=12,null=False, unique=True)
@@ -64,29 +68,27 @@ class StatusShip (Enum):
 
 class OrderShip(Base):
 
-    post = models.OneToOneField('Post', on_delete=models.CASCADE, primary_key=True)
-
+    auction_win = models.OneToOneField('Auction', on_delete=models.PROTECT,primary_key=True)
+    send_stock = models.ForeignKey(Stock, related_name='orders_ship_send',
+                                   on_delete=models.PROTECT, null=False)
     receive_stock = models.ForeignKey(Stock, related_name='orders_ship_receive',
                                       on_delete=models.PROTECT, null=False)
-    send_stock = models.ForeignKey(Stock, related_name='orders_ship_send',
-                                   on_delete=models.PROTECT,null=False)
     active = models.BooleanField(default=True)
-    auction_win = models.OneToOneField('Auction',on_delete=models.PROTECT,null=False)
-    shipper = models.ForeignKey(User, related_name='shipper_orders', on_delete=models.PROTECT)
     shipped_date = models.DateTimeField(default=None, null=True)
-    status = models.CharField(max_length=30,choices=[(tag, tag.value) for tag in StatusShip ])
+    status = models.CharField(max_length=30,choices=[(tag.name, tag.value) for tag in StatusShip ])
 
     def __str__(self):
         return "customer: {},\nshipper: {},\nstatus: {},\ncreated date: {}".format(
-            self.post.customer.first_name + " " + self.post.customer.last_name,
-            self.shipper.first_name + " " + self.shipper.last_name ,
+            self.auction_win.post.customer.username + " " + self.auction_win.post.customer.last_name,
+            self.auction_win.shipper.first_name + " " + self.auction_win.shipper.last_name ,
+            self.status,
             self.created_date)
 
 
 class OrderShipDetail (models.Model):
-    orderShip = models.OneToOneField('Post',on_delete= models.CASCADE, primary_key=True)
+    orderShip = models.OneToOneField(OrderShip,on_delete= models.CASCADE, primary_key=True)
     pay_method = models.CharField(max_length=20,
-                                  choices=[(tag, tag.value) for tag in PayMethod])
+                                  choices=[(tag.name, tag.value) for tag in PayMethod])
 
     voucher = models.ForeignKey(Voucher,on_delete=models.PROTECT)
 
@@ -171,6 +173,10 @@ class DebtShipper(models.Model):
     deduct = models.ForeignKey(Deduct, on_delete=models.PROTECT)
     has_payed = models.BooleanField(default=False)
 
+    def __str__(self):
+        return "Order ship: {},\nShipper: {},\nDeduct: {},\nHas Payed: {}".format(
+            self.order_ship, self.shipper.username, self.has_payed
+        )
 
 
 class DebtApp(models.Model):
@@ -178,8 +184,11 @@ class DebtApp(models.Model):
     shipper = models.ForeignKey(User, on_delete=models.PROTECT)
     deduct = models.ForeignKey(Deduct, on_delete=models.PROTECT)
     has_payed = models.BooleanField(default=False)
-    pay_method = models.CharField(max_length=20,
-                                  choices=[(tag, tag.value) for tag in PayMethod])
+
+    def __str__(self):
+        return "Order ship: {},\nShipper: {},\nDeduct: {},\nHas Payed: {}".format(
+            self.order_ship, self.shipper.username, self.has_payed
+        )
 
 
 
