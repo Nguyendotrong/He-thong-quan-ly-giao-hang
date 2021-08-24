@@ -62,20 +62,17 @@ class Voucher(Base):
         return "name: {},\ndiscount: {}".format(self.name,self.discount)
 
 class StatusShip (Enum):
-    SHIPPED  = 'shipped'
+    NOTYETSHIPPED = 'not yet shipped'
     SHIPPING = 'shipping'
-    NOTYETSHIPPED ='not yet shipped'
+    SHIPPED = 'shipped'
 
 class OrderShip(Base):
 
-    auction_win = models.OneToOneField('Auction', on_delete=models.PROTECT,primary_key=True)
-    send_stock = models.ForeignKey(Stock, related_name='orders_ship_send',
-                                   on_delete=models.PROTECT, null=False)
-    receive_stock = models.ForeignKey(Stock, related_name='orders_ship_receive',
-                                      on_delete=models.PROTECT, null=False)
+    auction_win = models.OneToOneField('Auction',related_name='order_ship', on_delete=models.PROTECT,primary_key=True)
     active = models.BooleanField(default=True)
-    shipped_date = models.DateTimeField(default=None, null=True)
-    status = models.CharField(max_length=30,choices=[(tag.name, tag.value) for tag in StatusShip ])
+    shipped_date = models.DateTimeField(null=True, blank=True)
+    status = models.CharField(max_length=30,choices=[(tag.name, tag.value) for tag in StatusShip ],
+                              default=StatusShip.NOTYETSHIPPED)
 
     def __str__(self):
         return "customer: {},\nshipper: {},\nstatus: {},\ncreated date: {}".format(
@@ -96,22 +93,33 @@ class OrderShipDetail (models.Model):
         return "Pay medthod: {},".format(self.pay_method)
 
 
+class CategoryProductShip(models.Model):
+    category = models.CharField(max_length=100, null=False)
+    description = models.TextField()
+
+    def __str__(self):
+        return "Category: {},\nDescription: {}".format(self.category, self.description)
+
+
 class Post(Base):
 
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
+    category_product_ship = models.ManyToManyField(CategoryProductShip,related_name='posts', null=True, blank=True)
+    send_stock = models.ForeignKey(Stock, related_name='posts_ship_send',
+                                   on_delete=models.PROTECT, null=False, default=None)
+    receive_stock = models.ForeignKey(Stock, related_name='posts_ship_receive',
+                                      on_delete=models.PROTECT, null=False, default=None)
     description = RichTextField(null=False)
     # image = models.ImageField(upload_to='item/%Y/%m')
-    receive_adress = models.TextField(null=False)
-    send_adress = models.TextField(null=True)
     weight = models.FloatField(null=True)
 
     def __str__(self):
-        return "Customer: {} {},\nCreated date: {}".format(self.customer.first_name,
-                                                           self.customer.last_name, self.created_date)
+        return "Customer: {} {},\nCategory product: {},\nCreated date: {}".format(
+            self.customer.first_name, self.customer.last_name,self.category_product_ship, self.created_date)
 
 class ImageItem(models.Model):
-    post  = models.ForeignKey(Post,on_delete=models.CASCADE)
+    post  = models.ForeignKey(Post,related_name='image_items', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='item/%Y/%m/')
 
     def __str__(self):

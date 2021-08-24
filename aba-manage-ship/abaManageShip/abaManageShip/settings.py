@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-()ifq+&_1n^#9p$m1dgeq&1)qm$5kms9s+t#b+b02wb%1s9bwy
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': '2'
+}
 
 # Application definition
 
@@ -39,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'abaShip.apps.AbashipConfig',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
