@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model, thêm admin chin, thêm requirements.txt">
-      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/templates/admin/aba-ship-stats.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0002_remove_ordership_shipper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0003_auto_20210816_2257.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
@@ -54,6 +52,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static\css" />
       <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip" />
@@ -130,7 +131,11 @@
       <workItem from="1629601114801" duration="1189000" />
       <workItem from="1629681885567" duration="11062000" />
       <workItem from="1629775817988" duration="9560000" />
-      <workItem from="1629807279316" duration="3325000" />
+      <workItem from="1629807279316" duration="4897000" />
+      <workItem from="1629815842826" duration="3621000" />
+      <workItem from="1629854134186" duration="5107000" />
+      <workItem from="1629897432461" duration="15377000" />
+      <workItem from="1629941376626" duration="1521000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -174,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629165530669</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="cập nhật ..">
+      <created>1629813585681</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1629813585681</updated>
+    </task>
+    <task id="LOCAL-00008" summary="cập nhật csdl">
+      <created>1629813895300</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1629813895300</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +217,9 @@
     <MESSAGE value="sữa model, thêm admin chinh sua abla" />
     <MESSAGE value="them trong admin" />
     <MESSAGE value="sữa model, thêm admin chin, thêm requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="sữa model, thêm admin chin, thêm requirements.txt" />
+    <MESSAGE value="cập nhật .." />
+    <MESSAGE value="cập nhật csdl" />
+    <option name="LAST_COMMIT_MESSAGE" value="cập nhật csdl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

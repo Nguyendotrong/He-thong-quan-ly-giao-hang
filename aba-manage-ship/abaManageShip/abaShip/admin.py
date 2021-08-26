@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.models import Permission
+from django.contrib.auth.models import Permission, Group
 
 from django.db.models import Count
 from django.template.response import TemplateResponse
@@ -187,4 +187,4 @@ admin_site.register(Deduct)
 admin_site.register(DebtApp)
 admin_site.register(DebtShipper)
 admin_site.register(Permission)
-# admin.site.register(Group)
+admin_site.register(Group)

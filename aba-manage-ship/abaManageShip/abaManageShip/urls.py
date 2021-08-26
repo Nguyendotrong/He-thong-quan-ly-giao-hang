@@ -20,6 +20,7 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
     path('', include('abaShip.urls')),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
 ]

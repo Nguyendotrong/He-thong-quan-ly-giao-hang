@@ -17,6 +17,8 @@ class User (AbstractUser):
     def __str__(self):
         return "name: {}".format(self.username)
 
+
+
 class Stock(models.Model):
     address = models.CharField(max_length=150,null=False)
     name_represent_man = models.CharField(max_length=100, null=False)

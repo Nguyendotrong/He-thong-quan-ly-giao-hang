@@ -28,9 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': '2'
+    'PAGE_SIZE': '2',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'oauth2_provider.contrib.rest_framework.OAuth2Authentication',)
 }
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +44,8 @@ INSTALLED_APPS = [
     'abaShip.apps.AbashipConfig',
     'ckeditor',
     'ckeditor_uploader',
-    'rest_framework'
+    'rest_framework',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
