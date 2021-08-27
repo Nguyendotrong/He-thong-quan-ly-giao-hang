@@ -77,19 +77,19 @@ class PostAdmin(admin.ModelAdmin):
         css= {
             'all': ('/static/css/main.css',)
         }
-    list_display = ["customer",
+    list_display = ["id", "customer",
                     "description", "weight", 'send_stock', 'receive_stock']
-    list_filter = ["customer",'category_product_ship', "send_stock", "receive_stock"]
-    search_fields = ["customer__username",'category_product_ship', "send_stock__address", "receive_stock__address"]
+    list_filter = ["id", "customer",'category_product_ship', "send_stock", "receive_stock"]
+    search_fields = ["id", "customer__username",'category_product_ship', "send_stock__address", "receive_stock__address"]
     form = PostForm
     inlines = [ImageItemInlineAdmin,  ]
 
 
 
 class OrderShipAdmin(admin.ModelAdmin):
-    list_display = [ 'auction_win',
+    list_display = ['auction_win',
                      'active', 'auction_win','shipped_date','status']
-    list_filter =  [ 'auction_win',
+    list_filter =  ['auction_win',
                      'active', 'auction_win__shipper','shipped_date','status']
     search_fields =  ['auction_win__shipper_username', 'active','shipped_date','status']
     inlines = [OrderShipDetailInlineAdmin,]

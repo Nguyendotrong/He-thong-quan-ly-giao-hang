@@ -20,6 +20,7 @@ class User (AbstractUser):
 
 
 class Stock(models.Model):
+    customer = models.ForeignKey(User,on_delete=models.PROTECT, related_name='stocks',default=None)
     address = models.CharField(max_length=150,null=False)
     name_represent_man = models.CharField(max_length=100, null=False)
     phone = models.CharField(max_length=10, null=False)

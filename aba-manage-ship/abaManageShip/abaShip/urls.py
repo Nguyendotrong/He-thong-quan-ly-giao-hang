@@ -14,6 +14,8 @@ urlpatterns = [
     # path('', views.Index.as_view()),
     path('', include(router.urls)),
     path('admin/', admin_site.urls),
+    path('accounts/login/', views.Login.as_view()),
+    path('accounts/logout/', views.logouts),
     path('o/', include('oauth2_provider.urls',
     namespace='oauth2_provider')),
 ]

@@ -36,7 +36,7 @@ CREATE TABLE `abaship_auction` (
   KEY `abaShip_auction_shipper_id_3d568bf1_fk_abaShip_user_id` (`shipper_id`),
   CONSTRAINT `abaShip_auction_post_id_6b882420_fk_abaShip_post_id` FOREIGN KEY (`post_id`) REFERENCES `abaship_post` (`id`),
   CONSTRAINT `abaShip_auction_shipper_id_3d568bf1_fk_abaShip_user_id` FOREIGN KEY (`shipper_id`) REFERENCES `abaship_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `abaship_auction` (
 
 LOCK TABLES `abaship_auction` WRITE;
 /*!40000 ALTER TABLE `abaship_auction` DISABLE KEYS */;
-INSERT INTO `abaship_auction` VALUES (1,'2021-08-19 15:50:01.826996','2021-08-19 15:53:01.730554',12000.00,1,1,2,4),(2,'2021-08-19 15:53:30.713645','2021-08-19 15:53:30.713645',120000.00,0,1,2,5);
+INSERT INTO `abaship_auction` VALUES (3,'2021-08-26 13:44:12.718557','2021-08-26 14:13:09.390837',100000.00,1,1,6,4),(4,'2021-08-26 13:45:51.258046','2021-08-26 13:45:51.258046',200000.00,0,1,7,5),(5,'2021-08-26 14:13:48.197957','2021-08-26 14:13:48.197957',120000.00,0,1,6,5);
 /*!40000 ALTER TABLE `abaship_auction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,7 +234,7 @@ CREATE TABLE `abaship_imageitem` (
   PRIMARY KEY (`id`),
   KEY `abaShip_imageitem_post_id_f9201e8f_fk_abaShip_post_id` (`post_id`),
   CONSTRAINT `abaShip_imageitem_post_id_f9201e8f_fk_abaShip_post_id` FOREIGN KEY (`post_id`) REFERENCES `abaship_post` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +243,7 @@ CREATE TABLE `abaship_imageitem` (
 
 LOCK TABLES `abaship_imageitem` WRITE;
 /*!40000 ALTER TABLE `abaship_imageitem` DISABLE KEYS */;
-INSERT INTO `abaship_imageitem` VALUES (2,'item/2021/08/Luôn_đặt_khách_hàng_làm_trọng_tâm_rVLkOAW.png',2);
+INSERT INTO `abaship_imageitem` VALUES (3,'item/2021/08/207495964_4769054996441488_4147815477131087680_n.jpg',6),(4,'item/2021/08/213897943_1777108715829368_9181823631468435031_n.jpg',7);
 /*!40000 ALTER TABLE `abaship_imageitem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,7 +272,7 @@ CREATE TABLE `abaship_ordership` (
 
 LOCK TABLES `abaship_ordership` WRITE;
 /*!40000 ALTER TABLE `abaship_ordership` DISABLE KEYS */;
-INSERT INTO `abaship_ordership` VALUES ('2021-08-19 15:50:01.830973','2021-08-19 15:50:01.830973',1,1,NULL,'NOTYETSHIPPED'),('2021-08-19 15:53:30.719270','2021-08-19 15:53:30.719270',2,1,NULL,'NOTYETSHIPPED');
+INSERT INTO `abaship_ordership` VALUES ('2021-08-26 14:13:09.395913','2021-08-26 14:13:09.395913',3,1,NULL,'NOTYETSHIPPED');
 /*!40000 ALTER TABLE `abaship_ordership` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,7 +327,7 @@ CREATE TABLE `abaship_post` (
   CONSTRAINT `abaShip_post_customer_id_d4f46beb_fk_abaShip_user_id` FOREIGN KEY (`customer_id`) REFERENCES `abaship_user` (`id`),
   CONSTRAINT `abaShip_post_receive_stock_id_66af681c_fk_abaShip_stock_id` FOREIGN KEY (`receive_stock_id`) REFERENCES `abaship_stock` (`id`),
   CONSTRAINT `abaShip_post_send_stock_id_cb628ae2_fk_abaShip_stock_id` FOREIGN KEY (`send_stock_id`) REFERENCES `abaship_stock` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -336,7 +336,7 @@ CREATE TABLE `abaship_post` (
 
 LOCK TABLES `abaship_post` WRITE;
 /*!40000 ALTER TABLE `abaship_post` DISABLE KEYS */;
-INSERT INTO `abaship_post` VALUES (2,'2021-08-19 14:57:12.477916','2021-08-24 12:46:26.161365',0,'<p>2 c&aacute;i laptop chưa mở hộp</p>',5,2,2,1),(3,'2021-08-23 13:04:02.624827','2021-08-23 13:04:02.624827',1,'2 túi hồ sơ xin việc.',1,2,2,1),(4,'2021-08-23 13:04:52.814896','2021-08-23 13:04:52.814896',1,'2 thỏi son đã đóng gói.',1,2,2,1),(5,'2021-08-23 13:05:17.520505','2021-08-23 13:05:17.520505',1,'chuyển nhà',33,2,2,1);
+INSERT INTO `abaship_post` VALUES (6,'2021-08-26 12:13:52.487768','2021-08-26 13:43:06.650258',1,'<p>hai c&aacute;i tủ gỗ, 1 m&aacute;y lạnh th&aacute;o lắp, 1 m&aacute;y giặt, 1 tủ lạnh.</p>',111,2,5,4),(7,'2021-08-26 12:17:32.795903','2021-08-26 13:42:46.055094',1,'<p>Hai c&aacute;i l&ograve; nướng.</p>',10,3,7,6);
 /*!40000 ALTER TABLE `abaship_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -356,7 +356,7 @@ CREATE TABLE `abaship_post_category_product_ship` (
   KEY `abaShip_post_categor_categoryproductship__35176703_fk_abaShip_c` (`categoryproductship_id`),
   CONSTRAINT `abaShip_post_categor_categoryproductship__35176703_fk_abaShip_c` FOREIGN KEY (`categoryproductship_id`) REFERENCES `abaship_categoryproductship` (`id`),
   CONSTRAINT `abaShip_post_categor_post_id_342420d6_fk_abaShip_p` FOREIGN KEY (`post_id`) REFERENCES `abaship_post` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -365,7 +365,7 @@ CREATE TABLE `abaship_post_category_product_ship` (
 
 LOCK TABLES `abaship_post_category_product_ship` WRITE;
 /*!40000 ALTER TABLE `abaship_post_category_product_ship` DISABLE KEYS */;
-INSERT INTO `abaship_post_category_product_ship` VALUES (2,2,1),(3,3,5),(4,4,4),(5,5,8);
+INSERT INTO `abaship_post_category_product_ship` VALUES (6,6,8),(7,7,2);
 /*!40000 ALTER TABLE `abaship_post_category_product_ship` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,8 +381,11 @@ CREATE TABLE `abaship_stock` (
   `address` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_represent_man` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `customer_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `abaShip_stock_customer_id_bb13cc4b_fk_abaShip_user_id` (`customer_id`),
+  CONSTRAINT `abaShip_stock_customer_id_bb13cc4b_fk_abaShip_user_id` FOREIGN KEY (`customer_id`) REFERENCES `abaship_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -391,7 +394,7 @@ CREATE TABLE `abaship_stock` (
 
 LOCK TABLES `abaship_stock` WRITE;
 /*!40000 ALTER TABLE `abaship_stock` DISABLE KEYS */;
-INSERT INTO `abaship_stock` VALUES (1,'371 NK','nguyễn Chí Tiến','1111111111'),(2,'372 Nk','Trần Hành','2222222222');
+INSERT INTO `abaship_stock` VALUES (3,'371 NK','nguyễn Chí Tiến','1234567890',2),(4,'371 NK','nguyễn Chí Tiến','1234567890',2),(5,'372 Nk','Trần Hành','9876543210',2),(6,'97 Võ Văn Tần','Trần Tỏi','0123698777',3),(7,'98 Võ Văn Tần','Phạm Ớt','0838383399',3);
 /*!40000 ALTER TABLE `abaship_stock` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -418,7 +421,7 @@ CREATE TABLE `abaship_user` (
   `last_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -427,7 +430,7 @@ CREATE TABLE `abaship_user` (
 
 LOCK TABLES `abaship_user` WRITE;
 /*!40000 ALTER TABLE `abaship_user` DISABLE KEYS */;
-INSERT INTO `abaship_user` VALUES (1,'pbkdf2_sha256$260000$qyzANjmmIkSE8uwDWUZvZB$nAmAmSw6IQjVMU1h4RziiVAiBDZom3CSewlzqwF3MMg=','2021-08-24 03:40:22.992195',1,'admin','nguyentrong.it@gmail.com',1,1,'2021-08-19 08:42:52.326422','','','',''),(2,'123456',NULL,0,'customera','1851050159trong@ou.edu.vn',0,1,'2021-08-19 08:57:27.000000','avatar/2021/08/download_1_7Gh9j9E.jpg','0943940261','A','Nguyễn Văn'),(3,'123456',NULL,0,'customerb','tronghk9no@gmail.com',0,1,'2021-08-19 08:59:12.000000','avatar/2021/08/download_2_Kwq4ysw.jpg','0328934415','B','Trần'),(4,'123456',NULL,0,'shipperc','ndt050800@gmail.com',0,1,'2021-08-19 09:00:23.000000','avatar/2021/08/download_3_Qc16cHB.jpg','0382753581','C','Nguyễn Văn'),(5,'123456',NULL,0,'shipperd','Phuc@gmail.com',0,1,'2021-08-19 09:01:47.000000','avatar/2021/08/images_gGFEXEV.jpg','0123456789','D','Trần');
+INSERT INTO `abaship_user` VALUES (1,'pbkdf2_sha256$260000$qyzANjmmIkSE8uwDWUZvZB$nAmAmSw6IQjVMU1h4RziiVAiBDZom3CSewlzqwF3MMg=','2021-08-26 15:27:57.978956',1,'admin','nguyentrong.it@gmail.com',1,1,'2021-08-19 08:42:52.326422','','','',''),(2,'123456',NULL,0,'customera','1851050159trong@ou.edu.vn',0,1,'2021-08-19 08:57:27.000000','avatar/2021/08/download_1_7Gh9j9E.jpg','0943940261','A','Nguyễn Văn'),(3,'123456',NULL,0,'customerb','tronghk9no@gmail.com',0,1,'2021-08-19 08:59:12.000000','avatar/2021/08/download_2_Kwq4ysw.jpg','0328934415','B','Trần'),(4,'123456',NULL,0,'shipperc','ndt050800@gmail.com',0,1,'2021-08-19 09:00:23.000000','avatar/2021/08/download_3_Qc16cHB.jpg','0382753581','C','Nguyễn Văn'),(5,'123456',NULL,0,'shipperd','Phuc@gmail.com',0,1,'2021-08-19 09:01:47.000000','avatar/2021/08/images_gGFEXEV.jpg','0123456789','D','Trần'),(6,'123456',NULL,0,'dotrong','trong@gmail.com',0,1,'2021-08-25 14:00:25.143881','avatar/2021/08/download_nTRnl57.jpg','','Trọng','Đỗ'),(7,'pbkdf2_sha256$260000$cTVvWBVO8Z7fAwVoKmrg3R$/hwsDzJWmnuiB6aTm1aXVezoKpMO3EXU/czXB8MoHaE=',NULL,0,'dotrong2','trong2@gmail.com',0,1,'2021-08-25 14:11:02.217929','avatar/2021/08/images_1_lylUDIx.jpg','','Trọng2','Đỗ2'),(8,'pbkdf2_sha256$260000$X0purRV7GWdCNRHKPugwbq$SlDNHzsDYjzqUmO93JpZ1HYrQR8eS/ckuV02TldEeQs=',NULL,0,'phanhuy','huy@gmail.com',0,1,'2021-08-25 17:37:42.210688','avatar/2021/08/Example-of-AIML-code.png','0123456789','huy','phan');
 /*!40000 ALTER TABLE `abaship_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -538,7 +541,7 @@ CREATE TABLE `auth_group` (
 
 LOCK TABLES `auth_group` WRITE;
 /*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
-INSERT INTO `auth_group` VALUES (1,'customer'),(2,'Shipper');
+INSERT INTO `auth_group` VALUES (1,'customer'),(2,'shipper');
 /*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -586,7 +589,7 @@ CREATE TABLE `auth_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -595,7 +598,7 @@ CREATE TABLE `auth_permission` (
 
 LOCK TABLES `auth_permission` WRITE;
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
-INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add content type',4,'add_contenttype'),(14,'Can change content type',4,'change_contenttype'),(15,'Can delete content type',4,'delete_contenttype'),(16,'Can view content type',4,'view_contenttype'),(17,'Can add session',5,'add_session'),(18,'Can change session',5,'change_session'),(19,'Can delete session',5,'delete_session'),(20,'Can view session',5,'view_session'),(21,'Can add user',6,'add_user'),(22,'Can change user',6,'change_user'),(23,'Can delete user',6,'delete_user'),(24,'Can view user',6,'view_user'),(25,'Can add auction',7,'add_auction'),(26,'Can change auction',7,'change_auction'),(27,'Can delete auction',7,'delete_auction'),(28,'Can view auction',7,'view_auction'),(29,'Can add category product ship',8,'add_categoryproductship'),(30,'Can change category product ship',8,'change_categoryproductship'),(31,'Can delete category product ship',8,'delete_categoryproductship'),(32,'Can view category product ship',8,'view_categoryproductship'),(33,'Can add deduct',9,'add_deduct'),(34,'Can change deduct',9,'change_deduct'),(35,'Can delete deduct',9,'delete_deduct'),(36,'Can view deduct',9,'view_deduct'),(37,'Can add stock',10,'add_stock'),(38,'Can change stock',10,'change_stock'),(39,'Can delete stock',10,'delete_stock'),(40,'Can view stock',10,'view_stock'),(41,'Can add voucher',11,'add_voucher'),(42,'Can change voucher',11,'change_voucher'),(43,'Can delete voucher',11,'delete_voucher'),(44,'Can view voucher',11,'view_voucher'),(45,'Can add id card',12,'add_idcard'),(46,'Can change id card',12,'change_idcard'),(47,'Can delete id card',12,'delete_idcard'),(48,'Can view id card',12,'view_idcard'),(49,'Can add order ship',13,'add_ordership'),(50,'Can change order ship',13,'change_ordership'),(51,'Can delete order ship',13,'delete_ordership'),(52,'Can view order ship',13,'view_ordership'),(53,'Can add post',14,'add_post'),(54,'Can change post',14,'change_post'),(55,'Can delete post',14,'delete_post'),(56,'Can view post',14,'view_post'),(57,'Can add image item',15,'add_imageitem'),(58,'Can change image item',15,'change_imageitem'),(59,'Can delete image item',15,'delete_imageitem'),(60,'Can view image item',15,'view_imageitem'),(61,'Can add comment shipper',16,'add_commentshipper'),(62,'Can change comment shipper',16,'change_commentshipper'),(63,'Can delete comment shipper',16,'delete_commentshipper'),(64,'Can view comment shipper',16,'view_commentshipper'),(65,'Can add debt shipper',17,'add_debtshipper'),(66,'Can change debt shipper',17,'change_debtshipper'),(67,'Can delete debt shipper',17,'delete_debtshipper'),(68,'Can view debt shipper',17,'view_debtshipper'),(69,'Can add debt app',18,'add_debtapp'),(70,'Can change debt app',18,'change_debtapp'),(71,'Can delete debt app',18,'delete_debtapp'),(72,'Can view debt app',18,'view_debtapp'),(73,'Can add order ship detail',19,'add_ordershipdetail'),(74,'Can change order ship detail',19,'change_ordershipdetail'),(75,'Can delete order ship detail',19,'delete_ordershipdetail'),(76,'Can view order ship detail',19,'view_ordershipdetail');
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add content type',4,'add_contenttype'),(14,'Can change content type',4,'change_contenttype'),(15,'Can delete content type',4,'delete_contenttype'),(16,'Can view content type',4,'view_contenttype'),(17,'Can add session',5,'add_session'),(18,'Can change session',5,'change_session'),(19,'Can delete session',5,'delete_session'),(20,'Can view session',5,'view_session'),(21,'Can add user',6,'add_user'),(22,'Can change user',6,'change_user'),(23,'Can delete user',6,'delete_user'),(24,'Can view user',6,'view_user'),(25,'Can add auction',7,'add_auction'),(26,'Can change auction',7,'change_auction'),(27,'Can delete auction',7,'delete_auction'),(28,'Can view auction',7,'view_auction'),(29,'Can add category product ship',8,'add_categoryproductship'),(30,'Can change category product ship',8,'change_categoryproductship'),(31,'Can delete category product ship',8,'delete_categoryproductship'),(32,'Can view category product ship',8,'view_categoryproductship'),(33,'Can add deduct',9,'add_deduct'),(34,'Can change deduct',9,'change_deduct'),(35,'Can delete deduct',9,'delete_deduct'),(36,'Can view deduct',9,'view_deduct'),(37,'Can add stock',10,'add_stock'),(38,'Can change stock',10,'change_stock'),(39,'Can delete stock',10,'delete_stock'),(40,'Can view stock',10,'view_stock'),(41,'Can add voucher',11,'add_voucher'),(42,'Can change voucher',11,'change_voucher'),(43,'Can delete voucher',11,'delete_voucher'),(44,'Can view voucher',11,'view_voucher'),(45,'Can add id card',12,'add_idcard'),(46,'Can change id card',12,'change_idcard'),(47,'Can delete id card',12,'delete_idcard'),(48,'Can view id card',12,'view_idcard'),(49,'Can add order ship',13,'add_ordership'),(50,'Can change order ship',13,'change_ordership'),(51,'Can delete order ship',13,'delete_ordership'),(52,'Can view order ship',13,'view_ordership'),(53,'Can add post',14,'add_post'),(54,'Can change post',14,'change_post'),(55,'Can delete post',14,'delete_post'),(56,'Can view post',14,'view_post'),(57,'Can add image item',15,'add_imageitem'),(58,'Can change image item',15,'change_imageitem'),(59,'Can delete image item',15,'delete_imageitem'),(60,'Can view image item',15,'view_imageitem'),(61,'Can add comment shipper',16,'add_commentshipper'),(62,'Can change comment shipper',16,'change_commentshipper'),(63,'Can delete comment shipper',16,'delete_commentshipper'),(64,'Can view comment shipper',16,'view_commentshipper'),(65,'Can add debt shipper',17,'add_debtshipper'),(66,'Can change debt shipper',17,'change_debtshipper'),(67,'Can delete debt shipper',17,'delete_debtshipper'),(68,'Can view debt shipper',17,'view_debtshipper'),(69,'Can add debt app',18,'add_debtapp'),(70,'Can change debt app',18,'change_debtapp'),(71,'Can delete debt app',18,'delete_debtapp'),(72,'Can view debt app',18,'view_debtapp'),(73,'Can add order ship detail',19,'add_ordershipdetail'),(74,'Can change order ship detail',19,'change_ordershipdetail'),(75,'Can delete order ship detail',19,'delete_ordershipdetail'),(76,'Can view order ship detail',19,'view_ordershipdetail'),(77,'Can add application',20,'add_application'),(78,'Can change application',20,'change_application'),(79,'Can delete application',20,'delete_application'),(80,'Can view application',20,'view_application'),(81,'Can add access token',21,'add_accesstoken'),(82,'Can change access token',21,'change_accesstoken'),(83,'Can delete access token',21,'delete_accesstoken'),(84,'Can view access token',21,'view_accesstoken'),(85,'Can add grant',22,'add_grant'),(86,'Can change grant',22,'change_grant'),(87,'Can delete grant',22,'delete_grant'),(88,'Can view grant',22,'view_grant'),(89,'Can add refresh token',23,'add_refreshtoken'),(90,'Can change refresh token',23,'change_refreshtoken'),(91,'Can delete refresh token',23,'delete_refreshtoken'),(92,'Can view refresh token',23,'view_refreshtoken'),(93,'Can add id token',24,'add_idtoken'),(94,'Can change id token',24,'change_idtoken'),(95,'Can delete id token',24,'delete_idtoken'),(96,'Can view id token',24,'view_idtoken');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -621,7 +624,7 @@ CREATE TABLE `django_admin_log` (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_abaShip_user_id` FOREIGN KEY (`user_id`) REFERENCES `abaship_user` (`id`),
   CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -630,7 +633,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2021-08-19 08:46:09.474784','1','customer',1,'[{\"added\": {}}]',3,1),(2,'2021-08-19 08:46:19.385910','2','Shipper',1,'[{\"added\": {}}]',3,1),(3,'2021-08-19 08:55:00.601856','2','Shipper',2,'[{\"changed\": {\"fields\": [\"Permissions\"]}}]',3,1),(4,'2021-08-19 08:55:11.174719','2','Shipper',2,'[]',3,1),(5,'2021-08-19 08:57:20.735065','1','customer',2,'[{\"changed\": {\"fields\": [\"Permissions\"]}}]',3,1),(6,'2021-08-19 08:59:12.466705','2','name: customera',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 123456789055\"}}]',6,1),(7,'2021-08-19 09:00:22.918841','3','name: customerb',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 234567890123\"}}]',6,1),(8,'2021-08-19 09:01:46.841555','4','name: shipperc',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 456789012345\"}}]',6,1),(9,'2021-08-19 09:03:11.494019','5','name: shipperd',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 333333333333\"}}]',6,1),(10,'2021-08-19 14:15:56.312865','1','Category: Hàng điện tử.,\nDescription: Thiết bị điện tử',1,'[{\"added\": {}}]',8,1),(11,'2021-08-19 14:16:17.052035','2','Category: Hàng gia dụng,\nDescription: Đồ dùng gia đình',1,'[{\"added\": {}}]',8,1),(12,'2021-08-19 14:16:52.836860','3','Category: Thiết bị y tế,\nDescription: các loại trang thiết bị y tế',1,'[{\"added\": {}}]',8,1),(13,'2021-08-19 14:17:08.588948','4','Category: Hàng mỹ phẩm,\nDescription: Mỹ phẩm',1,'[{\"added\": {}}]',8,1),(14,'2021-08-19 14:17:31.696058','5','Category: Hồ sơ, tài liệu,\nDescription: các loại hồ sơ giấy tờ',1,'[{\"added\": {}}]',8,1),(15,'2021-08-19 14:18:00.580802','6','Category: Kho hàng,\nDescription: kho hàng',1,'[{\"added\": {}}]',8,1),(16,'2021-08-19 14:18:23.275882','7','Category: cửa hàng,\nDescription: Chuyển dời cửa hàng',1,'[{\"added\": {}}]',8,1),(17,'2021-08-19 14:18:42.490903','8','Category: Chuyển nhà,\nDescription: Chuyển nhà trọn gói',1,'[{\"added\": {}}]',8,1),(18,'2021-08-19 14:18:59.984126','9','Category: Chuyển văn phòng,\nDescription: trọn gói',1,'[{\"added\": {}}]',8,1),(19,'2021-08-19 14:20:10.338735','1','Address: 371 NK,\n Represent man: nguyễn Chí Tiến,\nPhone: 1111111111',1,'[{\"added\": {}}]',10,1),(20,'2021-08-19 14:20:29.997491','2','Address: 372 Nk,\n Represent man: Trần Hành,\nPhone: 2222222222',1,'[{\"added\": {}}]',10,1),(21,'2021-08-19 14:57:12.492854','2','Customer: A Nguyễn Văn,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-19 14:57:12.477916+00:00',1,'[{\"added\": {}}, {\"added\": {\"name\": \"image item\", \"object\": \"post: 5.0\"}}]',14,1),(22,'2021-08-19 15:50:01.835975','1','shipper: C,\nprice: 12000',1,'[{\"added\": {}}, {\"added\": {\"name\": \"order ship\", \"object\": \"customer: customera Nguy\\u1ec5n V\\u0103n,\\nshipper: C Nguy\\u1ec5n V\\u0103n,\\nstatus: NOTYETSHIPPED,\\ncreated date: 2021-08-19 15:50:01.830973+00:00\"}}]',7,1),(23,'2021-08-19 15:53:01.732267','1','shipper: C,\nprice: 12000.00',2,'[]',7,1),(24,'2021-08-19 15:53:30.723269','2','shipper: D,\nprice: 120000',1,'[{\"added\": {}}, {\"added\": {\"name\": \"order ship\", \"object\": \"customer: customera Nguy\\u1ec5n V\\u0103n,\\nshipper: D Tr\\u1ea7n,\\nstatus: NOTYETSHIPPED,\\ncreated date: 2021-08-19 15:53:30.719270+00:00\"}}]',7,1),(25,'2021-08-24 12:45:47.324566','2','Customer: A Nguyễn Văn,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-19 14:57:12.477916+00:00',2,'[{\"changed\": {\"fields\": [\"Active\"]}}]',14,1);
+INSERT INTO `django_admin_log` VALUES (1,'2021-08-19 08:46:09.474784','1','customer',1,'[{\"added\": {}}]',3,1),(2,'2021-08-19 08:46:19.385910','2','Shipper',1,'[{\"added\": {}}]',3,1),(3,'2021-08-19 08:55:00.601856','2','Shipper',2,'[{\"changed\": {\"fields\": [\"Permissions\"]}}]',3,1),(4,'2021-08-19 08:55:11.174719','2','Shipper',2,'[]',3,1),(5,'2021-08-19 08:57:20.735065','1','customer',2,'[{\"changed\": {\"fields\": [\"Permissions\"]}}]',3,1),(6,'2021-08-19 08:59:12.466705','2','name: customera',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 123456789055\"}}]',6,1),(7,'2021-08-19 09:00:22.918841','3','name: customerb',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 234567890123\"}}]',6,1),(8,'2021-08-19 09:01:46.841555','4','name: shipperc',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 456789012345\"}}]',6,1),(9,'2021-08-19 09:03:11.494019','5','name: shipperd',1,'[{\"added\": {}}, {\"added\": {\"name\": \"id card\", \"object\": \"Id card: 333333333333\"}}]',6,1),(10,'2021-08-19 14:15:56.312865','1','Category: Hàng điện tử.,\nDescription: Thiết bị điện tử',1,'[{\"added\": {}}]',8,1),(11,'2021-08-19 14:16:17.052035','2','Category: Hàng gia dụng,\nDescription: Đồ dùng gia đình',1,'[{\"added\": {}}]',8,1),(12,'2021-08-19 14:16:52.836860','3','Category: Thiết bị y tế,\nDescription: các loại trang thiết bị y tế',1,'[{\"added\": {}}]',8,1),(13,'2021-08-19 14:17:08.588948','4','Category: Hàng mỹ phẩm,\nDescription: Mỹ phẩm',1,'[{\"added\": {}}]',8,1),(14,'2021-08-19 14:17:31.696058','5','Category: Hồ sơ, tài liệu,\nDescription: các loại hồ sơ giấy tờ',1,'[{\"added\": {}}]',8,1),(15,'2021-08-19 14:18:00.580802','6','Category: Kho hàng,\nDescription: kho hàng',1,'[{\"added\": {}}]',8,1),(16,'2021-08-19 14:18:23.275882','7','Category: cửa hàng,\nDescription: Chuyển dời cửa hàng',1,'[{\"added\": {}}]',8,1),(17,'2021-08-19 14:18:42.490903','8','Category: Chuyển nhà,\nDescription: Chuyển nhà trọn gói',1,'[{\"added\": {}}]',8,1),(18,'2021-08-19 14:18:59.984126','9','Category: Chuyển văn phòng,\nDescription: trọn gói',1,'[{\"added\": {}}]',8,1),(19,'2021-08-19 14:20:10.338735','1','Address: 371 NK,\n Represent man: nguyễn Chí Tiến,\nPhone: 1111111111',1,'[{\"added\": {}}]',10,1),(20,'2021-08-19 14:20:29.997491','2','Address: 372 Nk,\n Represent man: Trần Hành,\nPhone: 2222222222',1,'[{\"added\": {}}]',10,1),(21,'2021-08-19 14:57:12.492854','2','Customer: A Nguyễn Văn,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-19 14:57:12.477916+00:00',1,'[{\"added\": {}}, {\"added\": {\"name\": \"image item\", \"object\": \"post: 5.0\"}}]',14,1),(22,'2021-08-19 15:50:01.835975','1','shipper: C,\nprice: 12000',1,'[{\"added\": {}}, {\"added\": {\"name\": \"order ship\", \"object\": \"customer: customera Nguy\\u1ec5n V\\u0103n,\\nshipper: C Nguy\\u1ec5n V\\u0103n,\\nstatus: NOTYETSHIPPED,\\ncreated date: 2021-08-19 15:50:01.830973+00:00\"}}]',7,1),(23,'2021-08-19 15:53:01.732267','1','shipper: C,\nprice: 12000.00',2,'[]',7,1),(24,'2021-08-19 15:53:30.723269','2','shipper: D,\nprice: 120000',1,'[{\"added\": {}}, {\"added\": {\"name\": \"order ship\", \"object\": \"customer: customera Nguy\\u1ec5n V\\u0103n,\\nshipper: D Tr\\u1ea7n,\\nstatus: NOTYETSHIPPED,\\ncreated date: 2021-08-19 15:53:30.719270+00:00\"}}]',7,1),(25,'2021-08-24 12:45:47.324566','2','Customer: A Nguyễn Văn,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-19 14:57:12.477916+00:00',2,'[{\"changed\": {\"fields\": [\"Active\"]}}]',14,1),(26,'2021-08-26 12:11:25.243803','3','Address: 371 NK,\n Represent man: nguyễn Chí Tiến,\nPhone: 1234567890',1,'[{\"added\": {}}]',10,1),(27,'2021-08-26 12:11:25.249800','4','Address: 371 NK,\n Represent man: nguyễn Chí Tiến,\nPhone: 1234567890',1,'[{\"added\": {}}]',10,1),(28,'2021-08-26 12:12:01.480096','5','Address: 372 Nk,\n Represent man: Trần Hành,\nPhone: 9876543210',1,'[{\"added\": {}}]',10,1),(29,'2021-08-26 12:13:52.563091','6','Customer: A Nguyễn Văn,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-26 12:13:52.487768+00:00',1,'[{\"added\": {}}, {\"added\": {\"name\": \"image item\", \"object\": \"post: 111.0\"}}]',14,1),(30,'2021-08-26 12:14:01.890360','6','Customer: A Nguyễn Văn,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-26 12:13:52.487768+00:00',2,'[]',14,1),(31,'2021-08-26 12:15:20.887128','6','Address: 97 Võ Văn Tần,\n Represent man: Trần Tỏi,\nPhone: 0123698777',1,'[{\"added\": {}}]',10,1),(32,'2021-08-26 12:16:36.892070','7','Address: 98 Võ Văn Tần,\n Represent man: Phạm Ớt,\nPhone: 0838383399',1,'[{\"added\": {}}]',10,1),(33,'2021-08-26 12:17:32.810893','7','Customer: B Trần,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-26 12:17:32.795903+00:00',1,'[{\"added\": {}}, {\"added\": {\"name\": \"image item\", \"object\": \"post: 10.0\"}}]',14,1),(34,'2021-08-26 12:17:37.141849','7','Customer: B Trần,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-26 12:17:32.795903+00:00',2,'[]',14,1),(35,'2021-08-26 13:42:46.060171','7','Customer: B Trần,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-26 12:17:32.795903+00:00',2,'[]',14,1),(36,'2021-08-26 13:43:06.655262','6','Customer: A Nguyễn Văn,\nCategory product: abaShip.CategoryProductShip.None,\nCreated date: 2021-08-26 12:13:52.487768+00:00',2,'[]',14,1),(37,'2021-08-26 13:44:12.728172','3','shipper: C,\nprice: 100000',1,'[{\"added\": {}}, {\"added\": {\"name\": \"order ship\", \"object\": \"customer: customera Nguy\\u1ec5n V\\u0103n,\\nshipper: C Nguy\\u1ec5n V\\u0103n,\\nstatus: NOTYETSHIPPED,\\ncreated date: 2021-08-26 13:44:12.724179+00:00\"}}]',7,1),(38,'2021-08-26 13:45:51.268010','4','shipper: D,\nprice: 200000',1,'[{\"added\": {}}, {\"added\": {\"name\": \"order ship\", \"object\": \"customer: customerb Tr\\u1ea7n,\\nshipper: D Tr\\u1ea7n,\\nstatus: NOTYETSHIPPED,\\ncreated date: 2021-08-26 13:45:51.263013+00:00\"}}]',7,1),(39,'2021-08-26 14:11:10.518975','4','customer: customerb Trần,\nshipper: D Trần,\nstatus: NOTYETSHIPPED,\ncreated date: 2021-08-26 13:45:51.263013+00:00',3,'',13,1),(40,'2021-08-26 14:11:10.525520','3','customer: customera Nguyễn Văn,\nshipper: C Nguyễn Văn,\nstatus: NOTYETSHIPPED,\ncreated date: 2021-08-26 13:44:12.724179+00:00',3,'',13,1),(41,'2021-08-26 14:13:09.401830','3','shipper: C,\nprice: 100000.00',2,'[{\"added\": {\"name\": \"order ship\", \"object\": \"customer: customera Nguy\\u1ec5n V\\u0103n,\\nshipper: C Nguy\\u1ec5n V\\u0103n,\\nstatus: NOTYETSHIPPED,\\ncreated date: 2021-08-26 14:13:09.395913+00:00\"}}]',7,1),(42,'2021-08-26 14:13:48.200955','5','shipper: D,\nprice: 120000',1,'[{\"added\": {}}]',7,1),(43,'2021-08-26 16:28:49.213433','2','shipper',2,'[{\"changed\": {\"fields\": [\"Name\"]}}]',3,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -647,7 +650,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -656,7 +659,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (7,'abaShip','auction'),(8,'abaShip','categoryproductship'),(16,'abaShip','commentshipper'),(18,'abaShip','debtapp'),(17,'abaShip','debtshipper'),(9,'abaShip','deduct'),(12,'abaShip','idcard'),(15,'abaShip','imageitem'),(13,'abaShip','ordership'),(19,'abaShip','ordershipdetail'),(14,'abaShip','post'),(10,'abaShip','stock'),(6,'abaShip','user'),(11,'abaShip','voucher'),(1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'contenttypes','contenttype'),(5,'sessions','session');
+INSERT INTO `django_content_type` VALUES (7,'abaShip','auction'),(8,'abaShip','categoryproductship'),(16,'abaShip','commentshipper'),(18,'abaShip','debtapp'),(17,'abaShip','debtshipper'),(9,'abaShip','deduct'),(12,'abaShip','idcard'),(15,'abaShip','imageitem'),(13,'abaShip','ordership'),(19,'abaShip','ordershipdetail'),(14,'abaShip','post'),(10,'abaShip','stock'),(6,'abaShip','user'),(11,'abaShip','voucher'),(1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'contenttypes','contenttype'),(21,'oauth2_provider','accesstoken'),(20,'oauth2_provider','application'),(22,'oauth2_provider','grant'),(24,'oauth2_provider','idtoken'),(23,'oauth2_provider','refreshtoken'),(5,'sessions','session');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -673,7 +676,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -682,7 +685,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2021-08-19 08:36:27.122890'),(2,'contenttypes','0002_remove_content_type_name','2021-08-19 08:36:27.315778'),(3,'auth','0001_initial','2021-08-19 08:36:27.811976'),(4,'auth','0002_alter_permission_name_max_length','2021-08-19 08:36:27.956804'),(5,'auth','0003_alter_user_email_max_length','2021-08-19 08:36:27.968617'),(6,'auth','0004_alter_user_username_opts','2021-08-19 08:36:27.979924'),(7,'auth','0005_alter_user_last_login_null','2021-08-19 08:36:27.991015'),(8,'auth','0006_require_contenttypes_0002','2021-08-19 08:36:27.996089'),(9,'auth','0007_alter_validators_add_error_messages','2021-08-19 08:36:28.006786'),(10,'auth','0008_alter_user_username_max_length','2021-08-19 08:36:28.018335'),(11,'auth','0009_alter_user_last_name_max_length','2021-08-19 08:36:28.030619'),(12,'auth','0010_alter_group_name_max_length','2021-08-19 08:36:28.055145'),(13,'auth','0011_update_proxy_permissions','2021-08-19 08:36:28.066969'),(14,'auth','0012_alter_user_first_name_max_length','2021-08-19 08:36:28.079978'),(15,'abaShip','0001_initial','2021-08-19 08:36:31.485844'),(16,'admin','0001_initial','2021-08-19 08:36:31.820576'),(17,'admin','0002_logentry_remove_auto_add','2021-08-19 08:36:31.847786'),(18,'admin','0003_logentry_add_action_flag_choices','2021-08-19 08:36:31.871792'),(19,'sessions','0001_initial','2021-08-19 08:36:31.927687'),(20,'abaShip','0002_auto_20210819_2136','2021-08-19 14:37:05.370184'),(21,'abaShip','0003_alter_ordership_status','2021-08-19 15:31:06.933243'),(22,'abaShip','0004_auto_20210819_2246','2021-08-19 15:47:00.508509');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2021-08-19 08:36:27.122890'),(2,'contenttypes','0002_remove_content_type_name','2021-08-19 08:36:27.315778'),(3,'auth','0001_initial','2021-08-19 08:36:27.811976'),(4,'auth','0002_alter_permission_name_max_length','2021-08-19 08:36:27.956804'),(5,'auth','0003_alter_user_email_max_length','2021-08-19 08:36:27.968617'),(6,'auth','0004_alter_user_username_opts','2021-08-19 08:36:27.979924'),(7,'auth','0005_alter_user_last_login_null','2021-08-19 08:36:27.991015'),(8,'auth','0006_require_contenttypes_0002','2021-08-19 08:36:27.996089'),(9,'auth','0007_alter_validators_add_error_messages','2021-08-19 08:36:28.006786'),(10,'auth','0008_alter_user_username_max_length','2021-08-19 08:36:28.018335'),(11,'auth','0009_alter_user_last_name_max_length','2021-08-19 08:36:28.030619'),(12,'auth','0010_alter_group_name_max_length','2021-08-19 08:36:28.055145'),(13,'auth','0011_update_proxy_permissions','2021-08-19 08:36:28.066969'),(14,'auth','0012_alter_user_first_name_max_length','2021-08-19 08:36:28.079978'),(15,'abaShip','0001_initial','2021-08-19 08:36:31.485844'),(16,'admin','0001_initial','2021-08-19 08:36:31.820576'),(17,'admin','0002_logentry_remove_auto_add','2021-08-19 08:36:31.847786'),(18,'admin','0003_logentry_add_action_flag_choices','2021-08-19 08:36:31.871792'),(19,'sessions','0001_initial','2021-08-19 08:36:31.927687'),(20,'abaShip','0002_auto_20210819_2136','2021-08-19 14:37:05.370184'),(21,'abaShip','0003_alter_ordership_status','2021-08-19 15:31:06.933243'),(22,'abaShip','0004_auto_20210819_2246','2021-08-19 15:47:00.508509'),(23,'oauth2_provider','0001_initial','2021-08-25 08:14:54.336410'),(24,'oauth2_provider','0002_auto_20190406_1805','2021-08-25 08:14:54.530301'),(25,'oauth2_provider','0003_auto_20201211_1314','2021-08-25 08:14:54.658228'),(26,'oauth2_provider','0004_auto_20200902_2022','2021-08-25 08:14:55.603493'),(27,'abaShip','0005_auto_20210826_1009','2021-08-26 03:52:07.576292');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -708,13 +711,198 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('ssukcapllsptndjr9xjyignphvq6e3ym','.eJxVjEEOwiAURO_C2hA_yCe6dO8ZyPABqRqalHZlvLtt0oVu5703bxWwzDUsPU9hSOqiSB1-twh55raB9EC7j1rGNk9D1Juid9r1bUz5dd3dv4OKXtfaMtiSIxRyxVMSomKEDRXHFnzGCrxIsZ7YsXHwAAuOJ0tsIjn1-QLRejdO:1mINIU:hp_b52kzWZvG0R6nxaJ0xXEgac9P7RuJ1P8ItvWk3kA','2021-09-07 03:40:22.998605');
+INSERT INTO `django_session` VALUES ('ssukcapllsptndjr9xjyignphvq6e3ym','.eJxVjEEOwiAURO_C2hA_yCe6dO8ZyPABqRqalHZlvLtt0oVu5703bxWwzDUsPU9hSOqiSB1-twh55raB9EC7j1rGNk9D1Juid9r1bUz5dd3dv4OKXtfaMtiSIxRyxVMSomKEDRXHFnzGCrxIsZ7YsXHwAAuOJ0tsIjn1-QLRejdO:1mJHIL:lRzFFyYn-lMRgrum18GiuVFgqcSQkSS4MdjJIY9Zh_Y','2021-09-09 15:27:57.989950');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'abashipdb'
+-- Table structure for table `oauth2_provider_accesstoken`
 --
+
+DROP TABLE IF EXISTS `oauth2_provider_accesstoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth2_provider_accesstoken` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expires` datetime(6) NOT NULL,
+  `scope` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `application_id` bigint DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `created` datetime(6) NOT NULL,
+  `updated` datetime(6) NOT NULL,
+  `source_refresh_token_id` bigint DEFAULT NULL,
+  `id_token_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `token` (`token`),
+  UNIQUE KEY `source_refresh_token_id` (`source_refresh_token_id`),
+  UNIQUE KEY `id_token_id` (`id_token_id`),
+  KEY `oauth2_provider_acce_application_id_b22886e1_fk_oauth2_pr` (`application_id`),
+  KEY `oauth2_provider_accesstoken_user_id_6e4c9a65_fk_abaShip_user_id` (`user_id`),
+  CONSTRAINT `oauth2_provider_acce_application_id_b22886e1_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
+  CONSTRAINT `oauth2_provider_acce_id_token_id_85db651b_fk_oauth2_pr` FOREIGN KEY (`id_token_id`) REFERENCES `oauth2_provider_idtoken` (`id`),
+  CONSTRAINT `oauth2_provider_acce_source_refresh_token_e66fbc72_fk_oauth2_pr` FOREIGN KEY (`source_refresh_token_id`) REFERENCES `oauth2_provider_refreshtoken` (`id`),
+  CONSTRAINT `oauth2_provider_accesstoken_user_id_6e4c9a65_fk_abaShip_user_id` FOREIGN KEY (`user_id`) REFERENCES `abaship_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth2_provider_accesstoken`
+--
+
+LOCK TABLES `oauth2_provider_accesstoken` WRITE;
+/*!40000 ALTER TABLE `oauth2_provider_accesstoken` DISABLE KEYS */;
+INSERT INTO `oauth2_provider_accesstoken` VALUES (1,'LelS3AihpXYsGkBXUmvlJmC0j1buOf','2021-08-25 18:54:32.870911','read write',1,1,'2021-08-25 08:54:32.871911','2021-08-25 08:54:32.871911',NULL,NULL),(2,'ObBznu8WlhZaPr7MkerBy5G39xKR6l','2021-08-26 01:39:20.181233','read write',1,1,'2021-08-25 15:39:20.183231','2021-08-25 15:39:20.183231',NULL,NULL),(3,'Ke8HwMjjVFkfFnjfYcVWEczB5xCqd9','2021-08-26 02:10:16.545228','read write',1,1,'2021-08-25 16:10:16.546228','2021-08-25 16:10:16.546228',NULL,NULL),(4,'Nlz1gbGIHXt1DIrcDDZuLLKnxpJqkF','2021-08-26 02:15:43.388595','read write',1,1,'2021-08-25 16:15:43.389595','2021-08-25 16:15:43.389595',NULL,NULL),(5,'ret4DGeUBmUtJXyc6aymQJoDp3Z2sB','2021-08-26 03:00:16.378900','read write',1,7,'2021-08-25 17:00:16.380900','2021-08-25 17:00:16.380900',NULL,NULL),(6,'rJdmiM5CINME40Aq2BaSVslcVIF3fb','2021-08-26 03:08:46.064256','read write',1,1,'2021-08-25 17:08:46.065256','2021-08-25 17:08:46.065256',NULL,NULL),(7,'OHDiWsNGsSNPbV32SMykA3zkJw3YzL','2021-08-26 03:10:44.973966','read write',1,7,'2021-08-25 17:10:44.974966','2021-08-25 17:10:44.974966',NULL,NULL),(8,'UDn5ibgFR6m2dnub1sFsQWEEFFW0K1','2021-08-26 03:43:08.188900','read write',1,8,'2021-08-25 17:43:08.189902','2021-08-25 17:43:08.189902',NULL,NULL);
+/*!40000 ALTER TABLE `oauth2_provider_accesstoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth2_provider_application`
+--
+
+DROP TABLE IF EXISTS `oauth2_provider_application`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth2_provider_application` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `client_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `redirect_uris` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_type` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `authorization_grant_type` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `skip_authorization` tinyint(1) NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `updated` datetime(6) NOT NULL,
+  `algorithm` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `client_id` (`client_id`),
+  KEY `oauth2_provider_application_user_id_79829054_fk_abaShip_user_id` (`user_id`),
+  KEY `oauth2_provider_application_client_secret_53133678` (`client_secret`),
+  CONSTRAINT `oauth2_provider_application_user_id_79829054_fk_abaShip_user_id` FOREIGN KEY (`user_id`) REFERENCES `abaship_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth2_provider_application`
+--
+
+LOCK TABLES `oauth2_provider_application` WRITE;
+/*!40000 ALTER TABLE `oauth2_provider_application` DISABLE KEYS */;
+INSERT INTO `oauth2_provider_application` VALUES (1,'tgnUoY0SERab0qLgk7sLLVeg4cLAkX6u03vQKFM6','','confidential','password','vJPDDldC54M4r5lLDHOQIqW7qyj000kZiCI4XbQUefOQUbsJEgcwXXnxaxIrKgb365uLbXaoOc7Ew9qYTkD6svpqByd2GMDjrDqmyjwM02XQmI6If9y0E9JCjfAASDeS','AbaShipApp',1,0,'2021-08-25 08:43:41.515487','2021-08-25 08:43:41.515487','');
+/*!40000 ALTER TABLE `oauth2_provider_application` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth2_provider_grant`
+--
+
+DROP TABLE IF EXISTS `oauth2_provider_grant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth2_provider_grant` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expires` datetime(6) NOT NULL,
+  `redirect_uri` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `scope` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `application_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `updated` datetime(6) NOT NULL,
+  `code_challenge` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code_challenge_method` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nonce` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `claims` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb3''),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `code` (`code`),
+  KEY `oauth2_provider_gran_application_id_81923564_fk_oauth2_pr` (`application_id`),
+  KEY `oauth2_provider_grant_user_id_e8f62af8_fk_abaShip_user_id` (`user_id`),
+  CONSTRAINT `oauth2_provider_gran_application_id_81923564_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
+  CONSTRAINT `oauth2_provider_grant_user_id_e8f62af8_fk_abaShip_user_id` FOREIGN KEY (`user_id`) REFERENCES `abaship_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth2_provider_grant`
+--
+
+LOCK TABLES `oauth2_provider_grant` WRITE;
+/*!40000 ALTER TABLE `oauth2_provider_grant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauth2_provider_grant` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth2_provider_idtoken`
+--
+
+DROP TABLE IF EXISTS `oauth2_provider_idtoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth2_provider_idtoken` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `jti` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expires` datetime(6) NOT NULL,
+  `scope` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `updated` datetime(6) NOT NULL,
+  `application_id` bigint DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `jti` (`jti`),
+  KEY `oauth2_provider_idto_application_id_08c5ff4f_fk_oauth2_pr` (`application_id`),
+  KEY `oauth2_provider_idtoken_user_id_dd512b59_fk_abaShip_user_id` (`user_id`),
+  CONSTRAINT `oauth2_provider_idto_application_id_08c5ff4f_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
+  CONSTRAINT `oauth2_provider_idtoken_user_id_dd512b59_fk_abaShip_user_id` FOREIGN KEY (`user_id`) REFERENCES `abaship_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth2_provider_idtoken`
+--
+
+LOCK TABLES `oauth2_provider_idtoken` WRITE;
+/*!40000 ALTER TABLE `oauth2_provider_idtoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauth2_provider_idtoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth2_provider_refreshtoken`
+--
+
+DROP TABLE IF EXISTS `oauth2_provider_refreshtoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth2_provider_refreshtoken` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` bigint DEFAULT NULL,
+  `application_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `updated` datetime(6) NOT NULL,
+  `revoked` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `access_token_id` (`access_token_id`),
+  UNIQUE KEY `oauth2_provider_refreshtoken_token_revoked_af8a5134_uniq` (`token`,`revoked`),
+  KEY `oauth2_provider_refr_application_id_2d1c311b_fk_oauth2_pr` (`application_id`),
+  KEY `oauth2_provider_refreshtoken_user_id_da837fce_fk_abaShip_user_id` (`user_id`),
+  CONSTRAINT `oauth2_provider_refr_access_token_id_775e84e8_fk_oauth2_pr` FOREIGN KEY (`access_token_id`) REFERENCES `oauth2_provider_accesstoken` (`id`),
+  CONSTRAINT `oauth2_provider_refr_application_id_2d1c311b_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
+  CONSTRAINT `oauth2_provider_refreshtoken_user_id_da837fce_fk_abaShip_user_id` FOREIGN KEY (`user_id`) REFERENCES `abaship_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth2_provider_refreshtoken`
+--
+
+LOCK TABLES `oauth2_provider_refreshtoken` WRITE;
+/*!40000 ALTER TABLE `oauth2_provider_refreshtoken` DISABLE KEYS */;
+INSERT INTO `oauth2_provider_refreshtoken` VALUES (1,'MgxhST87OHqq6Dxf2letRnVvGjbulD',1,1,1,'2021-08-25 08:54:32.877907','2021-08-25 08:54:32.877907',NULL),(2,'4uKmpolq2zbO63OtYxgnrxGnEz6XAP',2,1,1,'2021-08-25 15:39:20.199222','2021-08-25 15:39:20.199222',NULL),(3,'7YV8Q3fF3F4qx0QTdmdJEftQ00aNET',3,1,1,'2021-08-25 16:10:16.549226','2021-08-25 16:10:16.549226',NULL),(4,'lXpkwTtDcbAD3IwnGMg9ptImGi9N5W',4,1,1,'2021-08-25 16:15:43.392593','2021-08-25 16:15:43.392593',NULL),(5,'9H2eLEkMDnQseH3tTIdOu9y1WZVp9s',5,1,7,'2021-08-25 17:00:16.386894','2021-08-25 17:00:16.386894',NULL),(6,'AsNCj3VY4qCmlASo5K2VEpDBfEFMz9',6,1,1,'2021-08-25 17:08:46.068255','2021-08-25 17:08:46.068255',NULL),(7,'uBYPMWzJhkSa8Tp9pSHtdTYa5E5J07',7,1,7,'2021-08-25 17:10:44.978964','2021-08-25 17:10:44.978964',NULL),(8,'z6KFTsS8ecRbXZojuGsWrZgqa27Hxj',8,1,8,'2021-08-25 17:43:08.194897','2021-08-25 17:43:08.194897',NULL);
+/*!40000 ALTER TABLE `oauth2_provider_refreshtoken` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -725,4 +913,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-24 21:03:47
+-- Dump completed on 2021-08-27 11:09:46
