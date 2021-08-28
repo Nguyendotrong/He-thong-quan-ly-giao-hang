@@ -42,10 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'abaShip.apps.AbashipConfig',
-    'ckeditor',
-    'ckeditor_uploader',
+    # 'ckeditor',
+    # 'ckeditor_uploader',
     'rest_framework',
     'oauth2_provider',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -93,6 +94,12 @@ DATABASES = {
     }
 }
 
+CLOUDINARY = {
+    'cloud_name': 'dfirb1bbt',
+    'api_key': '898561282839112',
+    'api_secret': 'oWUBaFed4Buos_af6XWdpxYCl3k',
+    'secure': True
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

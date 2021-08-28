@@ -1,12 +1,24 @@
 from django.contrib.auth.models import Group
 from rest_framework import serializers
+from rest_framework.fields import ImageField
 from rest_framework.serializers import ModelSerializer
 from .models import *
 
 
 class UserSerializer(ModelSerializer):
-    choice_group = serializers.IntegerField(max_value=2, min_value=1)
+    avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
 
+    class Meta:
+        model = User
+
+        fields = ['id', 'first_name', 'last_name', 'phone', 'email', 'username', 'password', 'avatar']
+        read_only_fields = ["date_joined", 'id']
+
+
+
+class UserRegisterSerializer(ModelSerializer):
+    choice_group = serializers.IntegerField(max_value=2, min_value=1)
+    avatar =  ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
     class Meta:
         model = User
         fields = ['id', 'first_name', 'last_name', 'phone', 'email', 'username', 'password', 'avatar', 'choice_group']
@@ -19,6 +31,7 @@ class UserSerializer(ModelSerializer):
         }
 
     def create(self, validated_data):
+
         choice_group = validated_data.pop("choice_group",None)
         user = User(**validated_data)
         user.set_password(validated_data['password'])
@@ -43,13 +56,23 @@ class UserSerializer(ModelSerializer):
 class StockSerializer(ModelSerializer):
     class Meta:
         model = Stock
-        fields = ['id', 'address', 'name_represent_man', 'phone']
+        fields = ['id', 'customer','address', 'name_represent_man', 'phone']
+        read_only_fields = ["id"]
+
+
+class StockCreateSerializer(ModelSerializer):
+    customer = UserSerializer(required=True)
+    class Meta:
+        model = Stock
+        fields = ['id', 'customer','address', 'name_represent_man', 'phone']
+
 
 
 class ImageItemSerializer(ModelSerializer):
+    image = serializers.ImageField()
     class Meta:
         model = ImageItem
-        fields = ['id', 'image']
+        fields = ['id', 'image', 'post']
 
 
 class PostSerializer(ModelSerializer):

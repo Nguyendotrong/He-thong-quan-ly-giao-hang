@@ -110,7 +110,7 @@ class ImageItemAdmin(admin.ModelAdmin):
 
     def item(self, object):
         return mark_safe("<img src='/static/image/{img_url}' alt='{alt}' width='90px' />".format(
-            img_url=object.image.name, alt=object.image.name
+            img_url=object.image.url, alt=object.image.url
         ))
 
 

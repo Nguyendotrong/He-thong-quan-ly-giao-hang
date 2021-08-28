@@ -8,14 +8,14 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('posts', views.PostViewSet)
 router.register('users',views.UserViewSet)
+router.register('stocks',views.StockViewSet)
 
 urlpatterns = [
 
     # path('', views.Index.as_view()),
     path('', include(router.urls)),
     path('admin/', admin_site.urls),
-    path('accounts/login/', views.Login.as_view()),
-    path('accounts/logout/', views.logouts),
+
     path('o/', include('oauth2_provider.urls',
     namespace='oauth2_provider')),
 ]

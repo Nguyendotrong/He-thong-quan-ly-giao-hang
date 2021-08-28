@@ -2,17 +2,34 @@ from enum import Enum
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from cloudinary.models import CloudinaryField
 from  ckeditor.fields import RichTextField
 
 # Create your models here.
 
+class Notification(models.Model):
 
+    message = models.CharField(max_length=255)
+    seen = models.BooleanField(default=True)
+    active = models.BooleanField(default=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_date", "seen"]
 
 class User (AbstractUser):
-    avatar = models.ImageField(upload_to='avatar/%Y/%m/')
+
+    class Meta:
+        ordering = ['id']
+
+    type_gender = (("man", 'man'), ("women", 'women'), ("other", 'other'))
+
+    avatar = CloudinaryField('avatar', null=True)
     phone = models.CharField(max_length=10,null=False)
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
+    gender = models.CharField(max_length=10, choices=type_gender, default=0)
+    notifications = models.ManyToManyField('Notification', blank=True)
 
     def __str__(self):
         return "name: {}".format(self.username)
@@ -32,8 +49,8 @@ class Stock(models.Model):
 class IDCard(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     id_card = models.CharField(max_length=12,null=False, unique=True)
-    image_card_front = models.ImageField(upload_to='idcard/%Y/%m/', default=None)
-    image_card_back = models.ImageField(upload_to='idcard/%Y/%m/', default=None)
+    image_card_front = CloudinaryField('image_card_front', null=True)
+    image_card_back = CloudinaryField('image_card_back', null=True)
     mfg_date = models.DateTimeField(null=False)
     exp_date = models.DateTimeField(null=False)
 
@@ -113,7 +130,7 @@ class Post(Base):
                                    on_delete=models.PROTECT, null=False, default=None)
     receive_stock = models.ForeignKey(Stock, related_name='posts_ship_receive',
                                       on_delete=models.PROTECT, null=False, default=None)
-    description = RichTextField(null=False)
+    description = models.TextField(null=False)
     # image = models.ImageField(upload_to='item/%Y/%m')
     weight = models.FloatField(null=True)
 
@@ -123,7 +140,7 @@ class Post(Base):
 
 class ImageItem(models.Model):
     post  = models.ForeignKey(Post,related_name='image_items', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='item/%Y/%m/')
+    image = CloudinaryField('image', null=True)
 
     def __str__(self):
         return "post: {}".format(self.post.weight)
@@ -135,8 +152,8 @@ class Auction(Base):
         unique_together = ['post','shipper']
         ordering = ['post']
 
-    post = models.ForeignKey(Post,related_name="autions", on_delete=models.CASCADE)
-    shipper = models.ForeignKey(User, related_name='autions', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,related_name="auctions", on_delete=models.CASCADE)
+    shipper = models.ForeignKey(User, related_name='auctions', on_delete=models.CASCADE)
     cost = models.DecimalField(max_digits=14, decimal_places=2, null=False)
     is_win = models.BooleanField(default=False)
     active =  models.BooleanField(default=True)

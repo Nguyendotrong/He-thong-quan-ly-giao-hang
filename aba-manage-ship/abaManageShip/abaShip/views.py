@@ -16,10 +16,16 @@ class Index(View):
         return render(request, template_name="index.html", context={"oauth2": o})
 
 
-class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.RetrieveAPIView):
+class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.RetrieveAPIView,generics.ListAPIView):
     queryset = User.objects.filter(is_active=True)
-    serializer_class = UserSerializer
+    # serializer_class = UserSerializer
     parser_classes = [MultiPartParser, ]
+
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return UserRegisterSerializer
+        return UserSerializer
 
     def get_permissions(self):
         if self.action == 'retrieve':
@@ -27,11 +33,14 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.RetrieveAPI
 
         return [permissions.AllowAny()]
 
+    def list(self, request, *args, **kwargs):
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.filter(active=True)
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # serializer_class = PostSerializer
+
 
     def get_serializer_class(self):
         if self.action == 'create':
@@ -43,7 +52,7 @@ class PostViewSet(viewsets.ModelViewSet):
         if self.action == 'list':
             return [permissions.AllowAny()]
 
-        return [permissions.IsAuthenticated()]
+        return [permissions.AllowAny()]
 
     @action(methods=['post'], detail=True, url_path='hide-post',
             url_name='hide-post')
@@ -58,46 +67,42 @@ class PostViewSet(viewsets.ModelViewSet):
         return Response(data=PostSerializer(post, context={'request': reuqest}).data, status=status.HTTP_200_OK)
 
     def create(self, request, *args, **kwargs):
+
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        imgs = request.Files.get('image_items', None)
+        imgs = request.FILES.getlist('image_items', None)
+        print(imgs)
         instance_post = serializer.save(**{'customer': self.request.user})
         for img in imgs:
-            serializer_img = ImageItemSerializer(data=img)
+            print(img)
+            serializer_img = ImageItemSerializer(data={"image":img,'post':instance_post.id})
             serializer_img.is_valid(raise_exception=True)
             instance_img = serializer_img.save()
-            instance_post.image_items.add(instance_img)
+            # instance_post.image_items.add(instance_img)
 
         headers = self.get_success_headers(serializer.data)
-        return Response(PostSerializer(instance=instance_post).data, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(PostSerializer(instance=instance_post).data,
+                        status=status.HTTP_201_CREATED, headers=headers)
 
-    def perform_create(self, serializer):
-        return serializer.save(**{'customer': self.request.user})
-
-
-# class StockViewSet(viewsets.ModelViewSet):
-#     queryset = Stock.objects.filter()
+    # def perform_create(self, serializer):
+    #     return serializer.save(**{'customer': self.request.user})
 
 
-class Login(View):
+class StockViewSet(viewsets.ModelViewSet):
+    queryset = Stock.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = StockSerializer
 
-    def get(self, request):
-        return render(request, template_name='login.html')
-
-    def post(self, request):
-        username = request.POST['username']
-        password = request.POST['password']
-        print('before login: username: ' + username, 'password: ' + password)
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            next_to = request.GET.get("next")
-            if next_to is not None:
-                return redirect(next_to)
-            return redirect('/')
-        return redirect('/accounts/login')
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = serializer.save(**{'customer': self.request.user})
+        headers = self.get_success_headers(serializer.data)
+        return  Response(StockSerializer(instance=instance).data,
+                         status=status.HTTP_201_CREATED, headers=headers)
 
 
-def logouts(request):
-    logout(request)
-    return redirect("/accounts/login")
+
+
+
