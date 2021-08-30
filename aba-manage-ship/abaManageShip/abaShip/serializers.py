@@ -21,7 +21,9 @@ class UserRegisterSerializer(ModelSerializer):
     avatar =  ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
     class Meta:
         model = User
-        fields = ['id', 'first_name', 'last_name', 'phone', 'email', 'username', 'password', 'avatar', 'choice_group']
+        fields = ['id', 'first_name', 'last_name', 'phone', 'email',
+                  'username', 'password', 'avatar', 'choice_group',
+                  'gender']
         extra_kwargs = {
             'password': {
                 'write_only': True,
@@ -54,6 +56,7 @@ class UserRegisterSerializer(ModelSerializer):
 
 
 class StockSerializer(ModelSerializer):
+    customer = UserSerializer(required=True)
     class Meta:
         model = Stock
         fields = ['id', 'customer','address', 'name_represent_man', 'phone']
@@ -73,6 +76,9 @@ class ImageItemSerializer(ModelSerializer):
     class Meta:
         model = ImageItem
         fields = ['id', 'image', 'post']
+
+
+
 
 
 class PostSerializer(ModelSerializer):
