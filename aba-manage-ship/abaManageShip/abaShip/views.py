@@ -85,7 +85,6 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
 
-
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         imgs = request.FILES.getlist('image_items', None)
@@ -109,7 +108,11 @@ class PostViewSet(viewsets.ModelViewSet):
 class StockViewSet(viewsets.ModelViewSet):
     queryset = Stock.objects.all()
     permission_classes = [permissions.IsAuthenticated]
-    serializer_class = StockSerializer
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return  StockCreateSerializer
+        return StockSerializer
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

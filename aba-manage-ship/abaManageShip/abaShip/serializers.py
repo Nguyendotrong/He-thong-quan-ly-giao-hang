@@ -64,11 +64,17 @@ class StockSerializer(ModelSerializer):
 
 
 class StockCreateSerializer(ModelSerializer):
-    customer = UserSerializer(required=True)
+
     class Meta:
         model = Stock
-        fields = ['id', 'customer','address', 'name_represent_man', 'phone']
+        fields = ['address', 'name_represent_man', 'phone']
+        read_only_fields = ["id"]
 
+    # def create(self, validated_data):
+    #     stock = Stock(**validated_data)
+    #     stock.customer = self.request.user
+    #     stock.save()
+    #     return stock
 
 
 class ImageItemSerializer(ModelSerializer):
@@ -76,7 +82,6 @@ class ImageItemSerializer(ModelSerializer):
     class Meta:
         model = ImageItem
         fields = ['id', 'image', 'post']
-
 
 
 
@@ -92,15 +97,15 @@ class PostSerializer(ModelSerializer):
         fields = ["id", 'customer', "category_product_ship", 'description',
                   "created_date", 'update_date', "send_stock",
                   'receive_stock', 'weight', 'active', 'image_items']
+        read_only_fields =  ['id', 'customer']
 
 
 class PostCreateSerializer(ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ["id", "category_product_ship", 'description'
-                  , "send_stock",
-                  'receive_stock', 'weight',]
+        fields = ["id", "category_product_ship", 'description',
+                  "send_stock", 'receive_stock', 'weight',]
         read_only_fields = ["id"]
 
     

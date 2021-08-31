@@ -30,6 +30,8 @@ class User (AbstractUser):
     last_name = models.CharField(max_length=50, null=False, blank=False)
     gender = models.CharField(max_length=10, choices=type_gender, default=0)
     notifications = models.ManyToManyField('Notification', blank=True)
+    address = models.CharField(max_length=255, default=None)
+    date_of_birth = models.DateField(default=None)
 
     def __str__(self):
         return "name: {}".format(self.username)
