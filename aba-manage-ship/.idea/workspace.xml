@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model, thêm admin chin, thêm requirements.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Dat" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -131,7 +133,8 @@
       <workItem from="1629941376626" duration="15803000" />
       <workItem from="1630030035260" duration="17435000" />
       <workItem from="1630123513325" duration="4651000" />
-      <workItem from="1630290696050" duration="3987000" />
+      <workItem from="1630290696050" duration="8764000" />
+      <workItem from="1630381840777" duration="2776000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -217,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630291513631</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="thheem api stock">
+      <created>1630326736602</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1630326736602</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +257,8 @@
     <MESSAGE value="cập nhật db" />
     <MESSAGE value="thêm api stock, sữa api post" />
     <MESSAGE value="cap nhat csdl them notification, .." />
-    <option name="LAST_COMMIT_MESSAGE" value="cap nhat csdl them notification, .." />
+    <MESSAGE value="thheem api stock" />
+    <option name="LAST_COMMIT_MESSAGE" value="thheem api stock" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

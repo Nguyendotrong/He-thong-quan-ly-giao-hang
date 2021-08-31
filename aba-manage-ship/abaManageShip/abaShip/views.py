@@ -27,15 +27,32 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.RetrieveAPI
             return UserRegisterSerializer
         return UserSerializer
 
-    def get_permissions(self):
-        if self.action == 'retrieve':
-            return [permissions.IsAuthenticated()]
+    @action(methods=['get'], detail=False, url_path='current-user')
+    def current_user(self, request):
+        return Response(self.get_serializer(request.user).data)
 
+    def get_permissions(self):
+        if self.action == 'current_user':
+            return [permissions.IsAuthenticated()]
         return [permissions.AllowAny()]
+
 
     def list(self, request, *args, **kwargs):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = serializer.save()
+        headers = self.get_success_headers(instance)
+        return Response(UserSerializer(instance).data, status=status.HTTP_201_CREATED, headers=headers)
+
+    @action(methods=["GET"], detail=False, url_path="logout", name="logout")
+    def logout(self, request, *args, **kwargs):
+        logout(request)
+        if request.auth:
+            request.auth.revoke()
+        return Response(status=status.HTTP_200_OK)
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.filter(active=True)

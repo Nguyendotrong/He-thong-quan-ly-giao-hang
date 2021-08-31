@@ -29,11 +29,11 @@ class OrderShipDetailInlineAdmin(admin.StackedInline):
     model = OrderShipDetail
 
 
-class PostForm(forms.ModelForm):
-    description = forms.CharField(widget=CKEditorUploadingWidget)
-    class Meta:
-        model = Post
-        fields = '__all__'
+# class PostForm(forms.ModelForm):
+#     description = forms.CharField(widget=CKEditorUploadingWidget)
+#     class Meta:
+#         model = Post
+#         fields = '__all__'
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -81,7 +81,7 @@ class PostAdmin(admin.ModelAdmin):
                     "description", "weight", 'send_stock', 'receive_stock']
     list_filter = ["id", "customer",'category_product_ship', "send_stock", "receive_stock"]
     search_fields = ["id", "customer__username",'category_product_ship', "send_stock__address", "receive_stock__address"]
-    form = PostForm
+    # form = PostForm
     inlines = [ImageItemInlineAdmin,  ]
 
 

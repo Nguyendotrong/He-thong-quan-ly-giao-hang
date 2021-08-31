@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'oauth2_provider',
     'cloudinary',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+# OAUTH2_PROVIDER = {
+#     'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+# }
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
