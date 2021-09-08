@@ -16,7 +16,7 @@ class Index(View):
         return render(request, template_name="index.html", context={"oauth2": o})
 
 
-class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.RetrieveAPIView,generics.ListAPIView):
+class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView):
     queryset = User.objects.filter(is_active=True)
     # serializer_class = UserSerializer
     parser_classes = [MultiPartParser, ]
@@ -57,6 +57,18 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.RetrieveAPI
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.filter(active=True)
     # serializer_class = PostSerializer
+
+
+    def list(self, request, *args, **kwargs):
+        queryset = Post.objects.filter(customer = self.request.user)
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 
     def get_serializer_class(self):

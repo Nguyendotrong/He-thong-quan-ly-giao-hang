@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="sữa model, thêm admin chin, thêm requirements.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" afterDir="false" />
     </list>
@@ -43,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Dat" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -133,7 +132,10 @@
       <workItem from="1630030035260" duration="17435000" />
       <workItem from="1630123513325" duration="4651000" />
       <workItem from="1630290696050" duration="8764000" />
-      <workItem from="1630381840777" duration="7059000" />
+      <workItem from="1630381840777" duration="7317000" />
+      <workItem from="1630500266578" duration="3045000" />
+      <workItem from="1631024438309" duration="4853000" />
+      <workItem from="1631065594459" duration="5704000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -233,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630424204762</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="cập nhật stock">
+      <created>1630428606677</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1630428606677</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +274,8 @@
     <MESSAGE value="cap nhat csdl them notification, .." />
     <MESSAGE value="thheem api stock" />
     <MESSAGE value="logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="logout" />
+    <MESSAGE value="cập nhật stock" />
+    <option name="LAST_COMMIT_MESSAGE" value="cập nhật stock" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
