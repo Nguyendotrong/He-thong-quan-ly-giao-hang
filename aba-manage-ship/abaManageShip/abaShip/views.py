@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
 from .serializers import *
 from .view import *
+from .permission import *
 
 
 class Index(View):
@@ -18,7 +19,7 @@ class Index(View):
         return render(request, template_name="index.html", context={"oauth2": o})
 
 
-class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView):
+class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView, generics.UpdateAPIView):
     queryset = User.objects.filter(is_active=True)
     # serializer_class = UserSerializer
     parser_classes = [MultiPartParser, ]
@@ -29,15 +30,14 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView)
             return UserRegisterSerializer
         return UserSerializer
 
+    def get_permissions(self):
+        if self.action in ['current-user', 'update']:
+            return [PermissionUserViewInfo(),]
+        return [permissions.AllowAny(),]
+
     @action(methods=['get'], detail=False, url_path='current-user')
     def current_user(self, request):
         return Response(self.get_serializer(request.user).data)
-
-    def get_permissions(self):
-        if self.action == 'current_user':
-            return [permissions.IsAuthenticated()]
-        return [permissions.AllowAny()]
-
 
     def list(self, request, *args, **kwargs):
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -48,6 +48,17 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView)
         instance = serializer.save()
         headers = self.get_success_headers(instance)
         return Response(UserSerializer(instance).data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def update(self, request, *args, **kwargs):
+        print(type(kwargs.get('pk')))
+        if str(request.user.id) == kwargs.get("pk"):
+            return super().update(request, *args, **kwargs)
+        raise PermissionDenied()
+
+    @action(methods=["PATCH"], detail=False, url_path='change_password', name="change_password")
+    def changePassword(self,request, *args, **kwargs):
+        if str(request.user.id) == kwargs.get("pk"):
+            pass
 
     @action(methods=["GET"], detail=False, url_path="logout", name="logout")
     def logout(self, request, *args, **kwargs):
@@ -63,19 +74,20 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView)
 class ImageItemViewSet(viewsets.ModelViewSet):
     queryset = ImageItem.objects.all()
     permission_classes = [permissions.IsAuthenticated]
-    serializer_class = [ImageItemSerializer]
+    serializer_class = ImageItemSerializer
+    parser_classes = [MultiPartParser,]
 
 
-    def list(self, request, *args, **kwargs):
-        queryset = ImageItem.objects.all()
-
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
+    # def list(self, request, *args, **kwargs):
+    #     queryset = ImageItem.objects.all()
+    #
+    #     page = self.paginate_queryset(queryset)
+    #     if page is not None:
+    #         serializer = self.get_serializer(page, many=True)
+    #         return self.get_paginated_response(serializer.data)
+    #
+    #     serializer = self.get_serializer(queryset, many=True)
+    #     return Response(serializer.data)
 
     # def get_serializer_class(self):
     #     # if (self.action == "create"):

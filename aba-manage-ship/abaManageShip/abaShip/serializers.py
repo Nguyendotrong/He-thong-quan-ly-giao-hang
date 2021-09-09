@@ -80,16 +80,18 @@ class StockCreateSerializer(ModelSerializer):
 
 
 class ImageItemSerializer(ModelSerializer):
-    image = serializers.ImageField()
+    image = ImageField(required=True, error_messages={'required': 'Hình ảnh không được để trống'})
+
     class Meta:
         model = ImageItem
         fields = ['id', 'image', 'post']
 
-# class ImageItemCreatSerializer(ModelSerializer):
-#     image = serializers.ImageField()
-#     class Meta:
-#         model = ImageItem
-#         fields = ['id', 'image', 'post']
+class ImageItemCreatSerializer(ModelSerializer):
+
+    image = ImageField(required=True, error_messages={'required': 'Hình ảnh không được để trống'})
+    class Meta:
+        model = ImageItem
+        fields = ['id', 'image', 'post']
 
 
 class PostSerializer(ModelSerializer):
