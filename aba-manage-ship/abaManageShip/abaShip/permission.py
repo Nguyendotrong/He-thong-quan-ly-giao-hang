@@ -1,110 +1,116 @@
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, OR
 
-class PermissionUser(IsAuthenticated):
+class PermissionViewUser(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_user','abaship.change_user'])
+               and request.user.has_perms(['abaship.view_user',])
+
+class PermissionChangeUser(IsAuthenticated):
+    def has_permission(self, request, view):
+        return super().has_permission(self,request,view)\
+            and request.user.has_perms(['abaship.change_user'])
+
 
 
 class PermissionViewPost(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request,view)\
-                and request.user.has_perms(['abaship.view_post',])
+                and request.user.has_perms(['abaShip.view_post',])
 
 
 class PermissionPost(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request,view)\
-                and request.user.has_perms(['abaship.change_post','abaship.delete_post', 'abship.add_post'])
+                and request.user.has_perms(['abaShip.change_post','abaShip.delete_post', 'abaShip.add_post'])
 
 
 class PermissionViewAution(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request,view)\
-            and request.user.has_perms(['abaship.view_auction'])
+            and request.user.has_perms(['abaShip.view_auction'])
 
 class PermissionAuction(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request,view)\
-                and request.user.has_perms(['abaship.change_auction','abaship.delete_auction', 'abship.add_astockuction'])
+                and request.user.has_perms(['abaShip.change_auction','abaShip.delete_auction', 'abaShip.add_auction'])
 
 
 class PermissionViewStock(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_stock'])
+               and request.user.has_perms(['abaShip.view_stock'])
 
 
 class PermissionStock(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.change_stock', 'abaship.delete_stock', 'abship.add_stock'])
+               and request.user.has_perms(['abaShip.change_stock', 'abaShip.delete_stock', 'abaShip.add_stock'])
 
 
 class PermissionViewIdCard(IsAuthenticated):
 
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_idcard', ])
+               and request.user.has_perms(['abaShip.view_idcard', ])
 
 
 class PermissionIdCard(IsAuthenticated):
 
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.change_idcard','abaship.add_idcard', 'abaship.delete_idcard' ])
+               and request.user.has_perms(['abaShip.change_idcard','abaShip.add_idcard', 'abaShip.delete_idcard' ])
 
 
 class PermissionViewImageItem(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_imageitem'])
+               and request.user.has_perms(['abaShip.view_imageitem'])
 
 
 class PermissionImageItem(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.change_imageitem', 'abaship.delete_imageitem', 'abship.add_imageitem'])
+               and request.user.has_perms(['abaShip.change_imageitem', 'abaShip.delete_imageitem', 'abShip.add_imageitem'])
 
 
 class PermissionViewOrderShip(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_ordership'])
+               and request.user.has_perms(['abaShip.view_ordership'])
 
 
 class PermissionOrderShip(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.change_ordership', 'abaship.delete_ordership', 'abship.add_ordership'])
+               and request.user.has_perms(['abaShip.change_ordership', 'abaShip.delete_ordership', 'abaShip.add_ordership'])
 
 
 class PermissionViewOrderShipDetail(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_ordershipdetail'])
+               and request.user.has_perms(['abaShip.view_ordershipdetail'])
 
 
 class PermissionOrderShipDetail(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.change_ordershipdetail', 'abaship.delete_ordershipdetail', 'abship.add_ordershipdetail'])
+               and request.user.has_perms(['abaShip.change_ordershipdetail', 'abaShip.delete_ordershipdetail', 'abaShip.add_ordershipdetail'])
 
 
 class PermissionViewNotification(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_notification'])
+               and request.user.has_perms(['abaShip.view_notification'])
 
 
 class PermissionViewCommentShipper(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_auction'])
+               and request.user.has_perms(['abaShip.view_auction'])
 
 
 class PermissionCommentShipper(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.change_commentshipper', 'abaship.delete_commentshipper', 'abship.add_commentshipper'])
+               and request.user.has_perms(['abaShip.change_commentshipper', 'abaShip.delete_commentshipper', 'abShip.add_commentshipper'])
 

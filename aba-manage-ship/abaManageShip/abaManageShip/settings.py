@@ -150,3 +150,7 @@ CKEDITOR_UPLOAD_PATH = "image/upload/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# OAUTH2_INFO = {
+#     "client_id": "tgnUoY0SERab0qLgk7sLLVeg4cLAkX6u03vQKFM6",
+#     "client_secret": "vJPDDldC54M4r5lLDHOQIqW7qyj000kZiCI4XbQUefOQUbsJEgcwXXnxaxIrKgb365uLbXaoOc7Ew9qYTkD6svpqByd2GMDjrDqmyjwM02XQmI6If9y0E9JCjfAASDeS"
+# }

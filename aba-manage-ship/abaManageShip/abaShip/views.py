@@ -7,9 +7,12 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
+from rest_framework.views import APIView
+
 from .serializers import *
 from .view import *
 from .permission import *
+# from ..abaManageShip import settings
 
 
 class Index(View):
@@ -31,8 +34,10 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView,
         return UserSerializer
 
     def get_permissions(self):
-        if self.action in ['current-user', 'update']:
-            return [PermissionUserViewInfo(),]
+        if self.action == 'current-user':
+            return [PermissionViewUser(),]
+        elif self.action == 'update':
+            return [PermissionChangeUser(),]
         return [permissions.AllowAny(),]
 
     @action(methods=['get'], detail=False, url_path='current-user')
@@ -49,6 +54,8 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView,
         headers = self.get_success_headers(instance)
         return Response(UserSerializer(instance).data, status=status.HTTP_201_CREATED, headers=headers)
 
+
+    # http://127.0.0.1:8000/users/8/
     def update(self, request, *args, **kwargs):
         print(type(kwargs.get('pk')))
         if str(request.user.id) == kwargs.get("pk"):
@@ -68,6 +75,9 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView,
         return Response(status=status.HTTP_200_OK)
 
 
+# class OauthInfo(APIView):
+#     def get(self,request):
+#         return Response(settings.OAUTH2_INFO, status=status.HTTP_200_OK)
 
 
 

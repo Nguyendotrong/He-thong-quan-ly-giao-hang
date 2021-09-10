@@ -4,6 +4,7 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 
 from ..models import Post
+from ..permission import PermissionViewPost, PermissionPost
 from ..serializers import ImageItemSerializer, PostSerializer, PostCreateSerializer
 
 
@@ -11,8 +12,22 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.filter(active=True)
     # serializer_class = PostSerializer
 
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return PostCreateSerializer
+        return PostSerializer
+
+    def get_permissions(self):
+
+        if self.action == 'list':
+            return [PermissionViewPost(),]
+
+        return [PermissionPost(),]
+
 
     def list(self, request, *args, **kwargs):
+
+        #Ghi đè lại lấy theo list post theo user hiện tại
         queryset = Post.objects.filter(customer = self.request.user)
 
         page = self.paginate_queryset(queryset)
@@ -26,24 +41,11 @@ class PostViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         # xóa bài viết của chính user đó nếu khác thì không đc
         instance = self.get_object()
-        if instance.user_id == request.user.id:
+        if instance.customer == request.user:
             self.perform_destroy(instance)
             return Response(status=status.HTTP_204_NO_CONTENT)
         raise PermissionDenied()
 
-
-
-    def get_serializer_class(self):
-        if self.action == 'create':
-            return PostCreateSerializer
-        return PostSerializer
-
-    def get_permissions(self):
-
-        if self.action == 'list':
-            return [permissions.AllowAny()]
-
-        return [permissions.AllowAny()]
 
     @action(methods=['post'], detail=True, url_path='hide-post',
             url_name='hide-post')
