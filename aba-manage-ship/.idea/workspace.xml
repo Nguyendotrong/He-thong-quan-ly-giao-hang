@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +139,8 @@
       <workItem from="1631116733206" duration="70000" />
       <workItem from="1631153259397" duration="20154000" />
       <workItem from="1631257150177" duration="2591000" />
-      <workItem from="1631263391469" duration="6588000" />
+      <workItem from="1631263391469" duration="11539000" />
+      <workItem from="1631538701151" duration="3149000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -271,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631202108670</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="sữa lỗi sai tên app trong peermission ,">
+      <created>1631281498359</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1631281498359</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +311,8 @@
     <MESSAGE value="cập nhật lấy post theo user" />
     <MESSAGE value="tách các view cho gọn. chưa sữa image, chưa thêm api post cho shipper" />
     <MESSAGE value="cập nhật permission.py, cập nhật put user" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật permission.py, cập nhật put user" />
+    <MESSAGE value="sữa lỗi sai tên app trong peermission ," />
+    <option name="LAST_COMMIT_MESSAGE" value="sữa lỗi sai tên app trong peermission ," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

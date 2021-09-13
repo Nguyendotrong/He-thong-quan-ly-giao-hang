@@ -3,12 +3,12 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser, OR
 class PermissionViewUser(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaship.view_user',])
+               and request.user.has_perms(['abaShip.view_user',])
 
 class PermissionChangeUser(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(self,request,view)\
-            and request.user.has_perms(['abaship.change_user'])
+            and request.user.has_perms(['abaShip.change_user'])
 
 
 

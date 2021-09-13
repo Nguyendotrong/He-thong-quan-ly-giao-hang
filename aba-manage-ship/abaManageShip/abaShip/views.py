@@ -57,7 +57,7 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView,
 
     # http://127.0.0.1:8000/users/8/
     def update(self, request, *args, **kwargs):
-        print(type(kwargs.get('pk')))
+        # print(type(kwargs.get('pk')))
         if str(request.user.id) == kwargs.get("pk"):
             return super().update(request, *args, **kwargs)
         raise PermissionDenied()
