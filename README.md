@@ -1,5 +1,6 @@
 # he-thong-quan-ly-giao-hang
-ABASHIP DELIVERY MANAGEMENT SYSTEM
+ABASHIP DELIVERY MANAGEMENT SYSTEM.
+
 Design Database and  develop API for system functions using Python Django. Delivery by auction shipping.
 - Language: Python.
 - Database: MySql.
