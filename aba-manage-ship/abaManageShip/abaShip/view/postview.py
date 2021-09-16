@@ -3,14 +3,15 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 
-from ..models import Post
+from ..models import Post, CategoryProductShip
 from ..permission import PermissionViewPost, PermissionPost
 from ..serializers import ImageItemSerializer, PostSerializer, PostCreateSerializer
-
+from  ..Paginator import BasePagination
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.filter(active=True)
     # serializer_class = PostSerializer
+    pagination_class = BasePagination
 
     def get_serializer_class(self):
         if self.action == 'create':
@@ -24,19 +25,19 @@ class PostViewSet(viewsets.ModelViewSet):
 
         return [PermissionPost(),]
 
+    def get_queryset(self):
+        post = Post.objects.filter(active=True)
+        category = self.request.query_params.get('category')
+        if category is not None:
+            post = CategoryProductShip.posts.filter(active=True)
 
-    def list(self, request, *args, **kwargs):
+        # print(self.request.user.groups)
+        if self.action in ["list","retrieve"]:
+            if self.request.user.groups.filter(name='customer').exists():
+                return post.filter(customer = self.request.user)
+        return post
 
-        #Ghi đè lại lấy theo list post theo user hiện tại
-        queryset = Post.objects.filter(customer = self.request.user)
 
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
 
     def destroy(self, request, *args, **kwargs):
         # xóa bài viết của chính user đó nếu khác thì không đc
@@ -71,7 +72,7 @@ class PostViewSet(viewsets.ModelViewSet):
             serializer_img = ImageItemSerializer(data={"image":img,'post':instance_post.id})
             serializer_img.is_valid(raise_exception=True)
             instance_img = serializer_img.save()
-            # instance_post.image_items.add(instance_img)
+            instance_post.image_items.add(instance_img)
 
         headers = self.get_success_headers(serializer.data)
         return Response(PostSerializer(instance=instance_post).data,

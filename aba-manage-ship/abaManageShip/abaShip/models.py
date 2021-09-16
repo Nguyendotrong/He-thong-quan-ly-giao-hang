@@ -34,7 +34,7 @@ class User (AbstractUser):
     date_of_birth = models.DateField(default=None)
 
     def __str__(self):
-        return "name: {}".format(self.username)
+        return "username: {}".format(self.username)
 
 
 
@@ -90,7 +90,7 @@ class StatusShip (Enum):
 
 class OrderShip(Base):
 
-    auction_win = models.OneToOneField('Auction',related_name='order_ship', on_delete=models.PROTECT,primary_key=True)
+    auction_win = models.OneToOneField('auction',related_name='order_ship', on_delete=models.PROTECT,primary_key=True)
     active = models.BooleanField(default=True)
     shipped_date = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=30,choices=[(tag.name, tag.value) for tag in StatusShip ],
@@ -166,7 +166,12 @@ class Auction(Base):
 
 class CommentShipper  (Base):
 
-    order_ship = models.OneToOneField(OrderShip, on_delete= models.PROTECT, primary_key=True)
+    class Meta:
+        unique_together = ('customer','shipper')
+
+
+    customer = models.ForeignKey(User, related_name='customer', on_delete=models.PROTECT,default=None)
+    shipper = models.ForeignKey(User, related_name='shipper', on_delete=models.PROTECT, default=None)
     content = models.TextField(null=False, blank=False)
     rate = models.IntegerField(default=1, null=False,
                                validators=[

@@ -5,6 +5,11 @@ from rest_framework.serializers import ModelSerializer
 from .models import *
 
 
+class ShipperSerializer(ModelSerializer):
+    class Meta:
+        model =User
+        fields = ['first_name', 'last_name',]
+
 class UserSerializer(ModelSerializer):
     avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
 
