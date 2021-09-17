@@ -22,7 +22,7 @@ class User (AbstractUser):
     class Meta:
         ordering = ['id']
 
-    type_gender = (("Man", 'Man'), ("Women", 'Women'), ("Other", 'Other'))
+    type_gender = (("Male", 'Male'), ("Female", 'Female'), ("Other", 'Other'))
 
     avatar = CloudinaryField('avatar', null=True)
     phone = models.CharField(max_length=10,null=False)
