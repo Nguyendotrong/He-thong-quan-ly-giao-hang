@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user" />
+    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +144,7 @@
       <workItem from="1631689543831" duration="8475000" />
       <workItem from="1631759634363" duration="14633000" />
       <workItem from="1631797135475" duration="11739000" />
-      <workItem from="1631864643112" duration="7987000" />
+      <workItem from="1631864643112" duration="9564000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -325,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631884718917</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="thêm mấy id trong sẻializer của shipper, tạo bảng rate">
+      <created>1631885253200</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1631885253200</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +378,8 @@
     <MESSAGE value="thêm thuộc tính group" />
     <MESSAGE value="thêm mấy cái của shipper" />
     <MESSAGE value="thêm mấy cái của shipper, tạo bảng rate" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm mấy cái của shipper, tạo bảng rate" />
+    <MESSAGE value="thêm mấy id trong sẻializer của shipper, tạo bảng rate" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm mấy id trong sẻializer của shipper, tạo bảng rate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

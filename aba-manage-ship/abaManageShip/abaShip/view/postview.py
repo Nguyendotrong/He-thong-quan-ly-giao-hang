@@ -90,7 +90,7 @@ class PostViewSet(viewsets.ModelViewSet):
                         status=status.HTTP_201_CREATED, headers=headers)
 
     def update(self, request, *args, **kwargs):
-        # print(type(kwargs.get('pk')))
+        print(kwargs.get('pk'))
         if str(request.user.id) == kwargs.get("pk"):
             return super().update(request, *args, **kwargs)
         raise PermissionDenied()
@@ -103,7 +103,7 @@ class PostViewSet(viewsets.ModelViewSet):
         except Http404:
             return Response(status=status.HTTP_404_NOT_FOUND)
         else:
-
+            # auc_serializer =
             auction = Auction(**request.data)
             auction.post = post
             auction.shipper = self.request.user
