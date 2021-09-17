@@ -8,6 +8,7 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
 from rest_framework.views import APIView
+from django.conf import settings
 
 from .serializers import *
 from .view import *
@@ -75,9 +76,9 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView,
         return Response(status=status.HTTP_200_OK)
 
 
-# class OauthInfo(APIView):
-#     def get(self,request):
-#         return Response(settings.OAUTH2_INFO, status=status.HTTP_200_OK)
+class OauthInfo(APIView):
+    def get(self,request):
+        return Response(settings.OAUTH2_INFO, status=status.HTTP_200_OK)
 
 
 

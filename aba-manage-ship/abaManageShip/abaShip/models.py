@@ -169,7 +169,6 @@ class CommentShipper  (Base):
     class Meta:
         unique_together = ('customer','shipper')
 
-
     customer = models.ForeignKey(User, related_name='customer', on_delete=models.PROTECT,default=None)
     shipper = models.ForeignKey(User, related_name='shipper', on_delete=models.PROTECT, default=None)
     content = models.TextField(null=False, blank=False)

@@ -9,7 +9,7 @@ from ..serializers import StockSerializer, StockCreateSerializer
 
 class StockViewSet(viewsets.ModelViewSet):
     queryset = Stock.objects.all()
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_serializer_class(self):
         if self.action == 'create':
@@ -28,6 +28,8 @@ class StockViewSet(viewsets.ModelViewSet):
         if self.action in ["list", "retrieve"]:
             if self.request.user.groups.filter(name='customer').exists():
                 return stock.filter(customer=self.request.user)
+
+
         return stock
 
     def create(self, request, *args, **kwargs):
@@ -53,7 +55,13 @@ class StockViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
             # xóa stock của chính user đó nếu khác thì không đc
         instance = self.get_object()
-        if instance.user_id == request.user.id:
+        if instance.customer.id == request.user.id:
             self.perform_destroy(instance)
             return Response(status=status.HTTP_204_NO_CONTENT)
+        raise PermissionDenied()
+
+    def update(self, request, *args, **kwargs):
+        # print(type(kwargs.get('pk')))
+        if str(request.user.id) == kwargs.get("pk"):
+            return super().update(request, *args, **kwargs)
         raise PermissionDenied()

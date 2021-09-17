@@ -14,6 +14,7 @@ router.register('posts', views.PostViewSet)
 router.register('users',views.UserViewSet)
 router.register('stocks',views.StockViewSet)
 router.register('image-item',views.ImageItemViewSet)
+router.register('shippers',views.ShipperViewSet)
 
 
 
@@ -37,6 +38,7 @@ urlpatterns = [
 
     # path('', views.Index.as_view()),
     path('', include(router.urls)),
+    path('oauth2-info/', views.OauthInfo.as_view()),
     path('admin/', admin_site.urls),
 
     path('o/', include('oauth2_provider.urls',

@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
-      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/Paginator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0002_auto_20210819_2136.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0003_alter_ordership_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0004_auto_20210819_2246.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0005_auto_20210826_1009.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0006_auto_20210827_2026.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0007_alter_user_avatar.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0008_auto_20210827_2231.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0009_auto_20210831_2240.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/stockview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/stockview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo-django" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -157,7 +152,9 @@
       <workItem from="1631538701151" duration="4325000" />
       <workItem from="1631624492702" duration="8306000" />
       <workItem from="1631689543831" duration="8475000" />
-      <workItem from="1631759634363" duration="14191000" />
+      <workItem from="1631759634363" duration="14633000" />
+      <workItem from="1631797135475" duration="11739000" />
+      <workItem from="1631864643112" duration="3793000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -299,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631542412444</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction.">
+      <created>1631786772700</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1631786772700</updated>
+    </task>
+    <task id="LOCAL-00022" summary="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction.">
+      <created>1631786922687</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1631786922687</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +348,8 @@
     <MESSAGE value="cập nhật permission.py, cập nhật put user" />
     <MESSAGE value="sữa lỗi sai tên app trong peermission ," />
     <MESSAGE value="hình như ko có gì thay đổi á o" />
-    <option name="LAST_COMMIT_MESSAGE" value="hình như ko có gì thay đổi á o" />
+    <MESSAGE value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
+    <option name="LAST_COMMIT_MESSAGE" value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

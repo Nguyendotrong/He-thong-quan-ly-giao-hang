@@ -6,9 +6,11 @@ from .models import *
 
 
 class ShipperSerializer(ModelSerializer):
+    avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
     class Meta:
         model =User
-        fields = ['first_name', 'last_name',]
+        fields = ['first_name', 'last_name','avatar']
+        read_only_fields = ["date_joined", 'id', 'username']
 
 class UserSerializer(ModelSerializer):
     avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
@@ -98,18 +100,30 @@ class ImageItemCreatSerializer(ModelSerializer):
         model = ImageItem
         fields = ['id', 'image', 'post']
 
+class AuctionSerializer(ModelSerializer):
+    shipper = ShipperSerializer
+
+    class Meta:
+        model =  Auction
+        fields= ['post','shipper', 'cost','is_win','active']
+
+class AuctionCreateSerializer(ModelSerializer):
+    class Meta:
+        model =  Auction
+        fields= ['cost',]
 
 class PostSerializer(ModelSerializer):
     send_stock = StockSerializer(required=True)
     receive_stock = StockSerializer(required=True)
     image_items = ImageItemSerializer(many=True)
     customer = UserSerializer(required=True)
+    auctions = AuctionSerializer(many=True)
 
     class Meta:
         model = Post
         fields = ["id", 'customer', "category_product_ship", 'description',
                   "created_date", 'update_date', "send_stock",
-                  'receive_stock', 'weight', 'active', 'image_items']
+                  'receive_stock', 'weight', 'active', 'image_items', 'auctions']
         read_only_fields =  ['id', 'customer']
 
 
@@ -121,4 +135,4 @@ class PostCreateSerializer(ModelSerializer):
                   "send_stock", 'receive_stock', 'weight',]
         read_only_fields = ["id"]
 
-    
+
