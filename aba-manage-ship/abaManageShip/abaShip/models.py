@@ -135,6 +135,7 @@ class Post(Base):
     description = models.TextField(null=False)
     # image = models.ImageField(upload_to='item/%Y/%m')
     weight = models.FloatField(null=True)
+    is_finish = models.BooleanField(default=False)
 
     def __str__(self):
         return "Customer: {} {},\nCategory product: {},\nCreated date: {}".format(

@@ -99,21 +99,36 @@ class PostViewSet(viewsets.ModelViewSet):
         raise PermissionDenied()
 
     @action(methods=['post'], detail=True, url_path='auctions' )
-    def add_auction(self,request, pk):
+    def add_auction(self,request,):
+        """
+        shipper thêm 1 auction
+        :param request:
+        :param pk:
+        :return:
+        """
         try:
             post = self.get_object()
-            print(post)
+            # print(post)
         except Http404:
             return Response(status=status.HTTP_404_NOT_FOUND)
         else:
-            # auc_serializer = AuctionSerializer(data={})
-            auction = Auction(**request.data)
-            auction.post = post
-            auction.shipper = self.request.user
-            instance_auc = Auction.objects.create(auction)
-            post.auctions.add(instance_auc)
+            try:
+                auc_serializer = AuctionSerializer(data=request.data)
+                auc_serializer.is_valid(raise_exception=True)
 
-            return Response(self.serializer_class(post), status=status.HTTP_201_CREATED)
+                auc_instance = auc_serializer.save(**{'shipper':request.user, 'post':post})
+                # post.auctions.add(auc_instance)
+                # post.save()
+            except:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
 
+
+            return Response(AuctionSerializer(auc_serializer).data, status=status.HTTP_200_OK)
+
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    @action(methods=['get'], detail=True, url_path='auctions')
+    def list_auction(self, request, pk):
+        pass
     # def perform_create(self, serializer):
     #     return serializer.save(**{'customer': self.request.user})
