@@ -172,7 +172,7 @@ class Rate  (Base):
     customer = models.ForeignKey(User, related_name='customer', on_delete=models.PROTECT,default=None)
     shipper = models.ForeignKey(User, related_name='shipper', on_delete=models.PROTECT, default=None)
     content = models.TextField(null=False, blank=False)
-    rate = models.IntegerField(default=1, null=False,
+    rate = models.PositiveIntegerField(default=1, null=False,
                                validators=[
                                    MaxValueValidator(
                                    limit_value=5, message="Đánh giá nhỏ hơn hoặc bằng 5"),

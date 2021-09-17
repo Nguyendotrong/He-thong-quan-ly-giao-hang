@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
-    </list>
+    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +141,7 @@
       <workItem from="1631689543831" duration="8475000" />
       <workItem from="1631759634363" duration="14633000" />
       <workItem from="1631797135475" duration="11739000" />
-      <workItem from="1631864643112" duration="6479000" />
+      <workItem from="1631864643112" duration="7337000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -314,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631882423314</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="thêm mấy cái của shipper">
+      <created>1631884060455</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1631884060455</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +359,8 @@
     <MESSAGE value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
     <MESSAGE value="thêm api lấy danh sách shipper" />
     <MESSAGE value="thêm thuộc tính group" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm thuộc tính group" />
+    <MESSAGE value="thêm mấy cái của shipper" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm mấy cái của shipper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
