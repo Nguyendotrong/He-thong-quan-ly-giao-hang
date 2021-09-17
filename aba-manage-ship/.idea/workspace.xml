@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/stockview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/stockview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +145,7 @@
       <workItem from="1631689543831" duration="8475000" />
       <workItem from="1631759634363" duration="14633000" />
       <workItem from="1631797135475" duration="11739000" />
-      <workItem from="1631864643112" duration="3793000" />
+      <workItem from="1631864643112" duration="5669000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -310,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631786922687</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="thêm api lấy danh sách shipper">
+      <created>1631869552862</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1631869552862</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +347,8 @@
     <MESSAGE value="sữa lỗi sai tên app trong peermission ," />
     <MESSAGE value="hình như ko có gì thay đổi á o" />
     <MESSAGE value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
+    <MESSAGE value="thêm api lấy danh sách shipper" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm api lấy danh sách shipper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

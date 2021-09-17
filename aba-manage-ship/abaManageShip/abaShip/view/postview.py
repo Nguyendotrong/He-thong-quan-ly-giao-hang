@@ -30,7 +30,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
     def get_queryset(self):
-        post = self.get_queryset()
+        post = self.queryset
         category = self.request.query_params.get('category')
         if category is not None:
             post = CategoryProductShip.posts.filter(active=True)

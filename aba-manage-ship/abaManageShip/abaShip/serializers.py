@@ -20,8 +20,8 @@ class UserSerializer(ModelSerializer):
 
         fields = ['id', 'username', 'first_name', 'last_name', 'phone', 'email',
                    'avatar', 'gender', 'address',
-                  'date_of_birth']
-        read_only_fields = ["date_joined", 'id','username']
+                  'date_of_birth','groups']
+        read_only_fields = ["date_joined", 'id','username','groups']
 
 
 
