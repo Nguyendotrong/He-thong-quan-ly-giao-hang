@@ -9,7 +9,7 @@ class ShipperSerializer(ModelSerializer):
     avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
     class Meta:
         model =User
-        fields = ['first_name', 'last_name','avatar','date_of_birth', 'gender', 'phone', 'address', 'email',]
+        fields = ['id','first_name', 'last_name','avatar','date_of_birth', 'gender', 'phone', 'address', 'email',]
         read_only_fields = ["date_joined", 'id', 'username']
 
 class UserSerializer(ModelSerializer):
