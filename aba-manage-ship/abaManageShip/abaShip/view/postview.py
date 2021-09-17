@@ -6,7 +6,7 @@ from django.http import Http404
 
 from ..models import Post, CategoryProductShip, Auction
 from ..permission import PermissionViewPost, PermissionPost, PermissionAddAuctionIntoPost
-from ..serializers import ImageItemSerializer, PostSerializer, PostCreateSerializer
+from ..serializers import ImageItemSerializer, PostSerializer, PostCreateSerializer, AuctionSerializer
 from  ..Paginator import BasePagination
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -90,8 +90,11 @@ class PostViewSet(viewsets.ModelViewSet):
                         status=status.HTTP_201_CREATED, headers=headers)
 
     def update(self, request, *args, **kwargs):
-        print(kwargs.get('pk'))
-        if str(request.user.id) == kwargs.get("pk"):
+        # print(self)
+        # print(request.user.id)
+
+        if request.user.id == self.get_object().customer.id:
+            # print("vô dc nè")
             return super().update(request, *args, **kwargs)
         raise PermissionDenied()
 
@@ -103,7 +106,7 @@ class PostViewSet(viewsets.ModelViewSet):
         except Http404:
             return Response(status=status.HTTP_404_NOT_FOUND)
         else:
-            # auc_serializer =
+            # auc_serializer = AuctionSerializer(data={})
             auction = Auction(**request.data)
             auction.post = post
             auction.shipper = self.request.user

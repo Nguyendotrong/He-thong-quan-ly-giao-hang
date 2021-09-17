@@ -62,6 +62,7 @@ class StockViewSet(viewsets.ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         # print(type(kwargs.get('pk')))
-        if str(request.user.id) == kwargs.get("pk"):
+        instance = self.get_object()
+        if request.user.id == instance.customer.id:
             return super().update(request, *args, **kwargs)
         raise PermissionDenied()
