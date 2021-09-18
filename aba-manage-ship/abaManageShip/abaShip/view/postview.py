@@ -121,15 +121,19 @@ class PostViewSet(viewsets.ModelViewSet):
         """
         if request.method == 'POST':
             post = self.get_object()
-            auc_serializer = AuctionCreateSerializer(
-                data={'shipper': request.user.pk, 'post': post.pk, 'cost': request.data.get('cost')})
-            auc_serializer.is_valid(raise_exception=True)
+            if not post.auctions.filter(is_win=True).exists():
 
-            auc_instance = auc_serializer.save()
+                auc_serializer = AuctionCreateSerializer(
+                    data={'shipper': request.user.pk, 'post': post.pk, 'cost': request.data.get('cost')})
+                auc_serializer.is_valid(raise_exception=True)
 
-            post.customer.email_user(subject= "[AbaShip][New Auction]",
-                                     message='bài đấu giá "{description}..." có một đấu giá mới'.format(description=post.description[0:50] ))
-            return Response(AuctionSerializer(auc_instance).data, status=status.HTTP_200_OK)
+                auc_instance = auc_serializer.save()
+
+                post.customer.email_user(subject= "[AbaShip][New Auction]",
+                                         message='bài đấu giá "{description}..." có một đấu giá mới'.format(description=post.description[0:50] ))
+                return Response(AuctionSerializer(auc_instance).data, status=status.HTTP_200_OK)
+            raise PermissionDenied()
+
 
 
         if request.method == 'GET':
@@ -138,5 +142,6 @@ class PostViewSet(viewsets.ModelViewSet):
                 auctions = post.auctions.filter(active=True)
                 return Response(AuctionSerializer(auctions, many=True).data, status=status.HTTP_200_OK)
             return Response(status=status.HTTP_403_FORBIDDEN)
+
 
 

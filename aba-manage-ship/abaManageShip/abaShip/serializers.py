@@ -101,7 +101,7 @@ class ImageItemCreatSerializer(ModelSerializer):
         fields = ['id', 'image', 'post']
 
 class AuctionSerializer(ModelSerializer):
-    shipper = ShipperSerializer
+    shipper = ShipperSerializer(required=True)
 
     class Meta:
         model =  Auction
