@@ -10,7 +10,7 @@ from drf_yasg import openapi
 
 
 router = DefaultRouter()
-router.register('posts', views.PostViewSet)
+router.register('posts', views.PostViewSet, 'posts')
 router.register('users',views.UserViewSet)
 router.register('stocks',views.StockViewSet)
 router.register('image-item',views.ImageItemViewSet)

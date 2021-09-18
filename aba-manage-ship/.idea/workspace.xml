@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +146,8 @@
       <workItem from="1631689543831" duration="8475000" />
       <workItem from="1631759634363" duration="14633000" />
       <workItem from="1631797135475" duration="11739000" />
-      <workItem from="1631864643112" duration="19362000" />
+      <workItem from="1631864643112" duration="24711000" />
+      <workItem from="1631929113131" duration="379000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -364,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631889179937</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="- Add field is_finish to post&#10;- Alter field gender on user&#10;- add_auction (nằm ở file postview á nha ô)">
+      <created>1631897123026</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1631897123026</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +392,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sữa model, thêm admin chinh sua abla" />
     <MESSAGE value="them trong admin" />
     <MESSAGE value="sữa model, thêm admin chin, thêm requirements.txt" />
     <MESSAGE value="cập nhật .." />
@@ -408,7 +416,8 @@
     <MESSAGE value="thêm mấy id trong sẻializer của shipper, tạo bảng rate" />
     <MESSAGE value="sữa từ viết hoa của gender" />
     <MESSAGE value="sữa api cập nhật post và stock" />
-    <option name="LAST_COMMIT_MESSAGE" value="sữa api cập nhật post và stock" />
+    <MESSAGE value="- Add field is_finish to post&#10;- Alter field gender on user&#10;- add_auction (nằm ở file postview á nha ô)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Add field is_finish to post&#10;- Alter field gender on user&#10;- add_auction (nằm ở file postview á nha ô)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

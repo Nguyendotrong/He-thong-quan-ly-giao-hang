@@ -27,7 +27,12 @@ class PermissionPost(IsAuthenticated):
 class PermissionViewAution(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request,view)\
-            and request.user.has_perms(['abaShip.view_auction'])
+            and request.user.has_perms(['abaShip.view_auction',])
+
+class PermissionViewListionAuction(IsAuthenticated):
+    def has_permission(self, request, view):
+        return super().has_permission(request, view)\
+                and request.user.has_perm('abaShip.view_list_auction')
 
 class PermissionAuction(IsAuthenticated):
     def has_permission(self, request, view):
