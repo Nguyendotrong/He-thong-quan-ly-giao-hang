@@ -1,2 +1,39 @@
+from django.db.models import Q
+from requests import Response
+from rest_framework import viewsets,generics
+from rest_framework.exceptions import PermissionDenied
 
-# class Auction
+
+from ..models import Auction
+from ..permission import PermissionViewDetailAuction, PermissionViewListAuctionOfShipper
+from ..serializers import AuctionSerializer
+
+
+class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView, generics.RetrieveAPIView):
+    queryset = Auction.objects.filter(active=True)
+
+    def get_serializer_class(self):
+        return AuctionSerializer
+
+    def get_permissions(self):
+        if self.action == "retrieve":
+            return [PermissionViewDetailAuction(),]
+        if self.action == "list":
+            return [PermissionViewListAuctionOfShipper(),]
+
+    def get_queryset(self):
+        if self.action == "list":
+            if self.request.user.groups.filter(name='customer').exists():
+                return self.queryset.filter(post__customer_id=self.request.user.pk)
+            return self.queryset.filter(shipper=self.request.user)
+
+        return self.queryset
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if   request.user.pk in [instance.post.customer.pk, instance.shipper.pk]:
+            return super().retrieve(request, *args, **kwargs)
+        raise PermissionDenied()
+
+
+

@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaManageShip/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Charity_Social_Network" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -147,7 +151,7 @@
       <workItem from="1631759634363" duration="14633000" />
       <workItem from="1631797135475" duration="11739000" />
       <workItem from="1631864643112" duration="24711000" />
-      <workItem from="1631929113131" duration="379000" />
+      <workItem from="1631929113131" duration="11297000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -373,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631897123026</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="get auctions">
+      <created>1631938012731</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1631938012731</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +403,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="them trong admin" />
     <MESSAGE value="sữa model, thêm admin chin, thêm requirements.txt" />
     <MESSAGE value="cập nhật .." />
     <MESSAGE value="cập nhật csdl" />
@@ -417,7 +427,8 @@
     <MESSAGE value="sữa từ viết hoa của gender" />
     <MESSAGE value="sữa api cập nhật post và stock" />
     <MESSAGE value="- Add field is_finish to post&#10;- Alter field gender on user&#10;- add_auction (nằm ở file postview á nha ô)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Add field is_finish to post&#10;- Alter field gender on user&#10;- add_auction (nằm ở file postview á nha ô)" />
+    <MESSAGE value="get auctions" />
+    <option name="LAST_COMMIT_MESSAGE" value="get auctions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

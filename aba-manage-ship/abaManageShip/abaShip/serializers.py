@@ -111,7 +111,7 @@ class AuctionSerializer(ModelSerializer):
 class AuctionCreateSerializer(ModelSerializer):
     class Meta:
         model =  Auction
-        fields= ['cost',]
+        fields= ['cost','post', 'shipper']
 
 class PostSerializer(ModelSerializer):
     send_stock = StockSerializer(required=True)

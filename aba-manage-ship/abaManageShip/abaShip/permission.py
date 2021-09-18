@@ -24,15 +24,21 @@ class PermissionPost(IsAuthenticated):
                 and request.user.has_perms(['abaShip.change_post','abaShip.delete_post', 'abaShip.add_post'])
 
 
-class PermissionViewAution(IsAuthenticated):
+class PermissionViewDetailAuction(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request,view)\
-            and request.user.has_perms(['abaShip.view_auction',])
+            and request.user.has_perm('abaShip.view_detail_auction')
 
-class PermissionViewListionAuction(IsAuthenticated):
+class PermissionViewListAuctionOnPost(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view)\
-                and request.user.has_perm('abaShip.view_list_auction')
+                and request.user.has_perm('abaShip.view_list_auction_on_post')
+
+class PermissionViewListAuctionOfShipper(IsAuthenticated):
+    def has_permission(self, request, view):
+        return super().has_permission(request, view)\
+                and request.user.has_perm('abaShip.view_list_auction_of_shipper')
+
 
 class PermissionAuction(IsAuthenticated):
     def has_permission(self, request, view):

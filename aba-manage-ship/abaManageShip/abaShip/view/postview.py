@@ -5,8 +5,16 @@ from rest_framework.response import Response
 from django.http import Http404
 
 from ..models import Post, CategoryProductShip, Auction
-from ..permission import PermissionViewPost, PermissionPost, PermissionAddAuctionIntoPost
-from ..serializers import ImageItemSerializer, PostSerializer, PostCreateSerializer, AuctionSerializer
+from ..permission import (PermissionViewPost,
+                          PermissionPost,
+                          PermissionAddAuctionIntoPost,
+                          PermissionViewListAuctionOnPost,
+                          )
+from ..serializers import (ImageItemSerializer,
+                           PostSerializer,
+                           PostCreateSerializer,
+                           AuctionSerializer,
+    AuctionCreateSerializer)
 from  ..Paginator import BasePagination
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -24,8 +32,11 @@ class PostViewSet(viewsets.ModelViewSet):
 
         if self.action in ['list','retrieve'] :
             return [PermissionViewPost(),]
-        if self.action == 'add_auction':
-            return [PermissionAddAuctionIntoPost(),]
+        if self.action == 'auctions':
+            if self.request.method == 'POST':
+                return [PermissionAddAuctionIntoPost(),]
+            if self.request.method == 'GET':
+                return  [PermissionViewListAuctionOnPost(),]
         # if self.action == ''
 
         return [PermissionPost(),]
@@ -100,37 +111,32 @@ class PostViewSet(viewsets.ModelViewSet):
             return super().update(request, *args, **kwargs)
         raise PermissionDenied()
 
-    @action(methods=['post'], detail=True, url_path='auctions' )
-    def add_auction(self,request,pk):
+    @action(methods=['POST', 'GET'], detail=True, url_path='auctions' )
+    def auctions(self,request,pk):
         """
         shipper thêm 1 auction vào post
         :param request:
         :param pk:
         :return:
         """
-        try:
-            post = Post.objects.get(pk=pk)
-            # print(post)
-        except Http404:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-        else:
-            try:
-                auc_serializer = AuctionSerializer(data=request.data)
-                auc_serializer.is_valid(raise_exception=True)
+        if request.method == 'POST':
+            post = self.get_object()
+            auc_serializer = AuctionCreateSerializer(
+                data={'shipper': request.user.pk, 'post': post.pk, 'cost': request.data.get('cost')})
+            auc_serializer.is_valid(raise_exception=True)
 
-                auc_instance = auc_serializer.save(**{'shipper': request.user, 'post': post})
-                return Response(AuctionSerializer(auc_instance).data, status=status.HTTP_200_OK)
+            auc_instance = auc_serializer.save()
 
-            except:
-                return Response(status=status.HTTP_400_BAD_REQUEST)
+            post.customer.email_user(subject= "[AbaShip][New Auction]",
+                                     message='bài đấu giá "{description}..." có một đấu giá mới'.format(description=post.description[0:50] ))
+            return Response(AuctionSerializer(auc_instance).data, status=status.HTTP_200_OK)
 
 
-    @action(methods=['get'], detail=True, url_path='auctionss')
-    def get_auction(self, request,pk):
-        if(request.user == self.get_object().customer):
-            post=  self.get_object()
-            auctions = post.auctions.filter(active=True)
-            return Response(AuctionSerializer(auctions, many=True).data, status=status.HTTP_200_OK)
-        raise PermissionDenied()
+        if request.method == 'GET':
+            if(request.user == self.get_object().customer):
+                post = self.get_object()
+                auctions = post.auctions.filter(active=True)
+                return Response(AuctionSerializer(auctions, many=True).data, status=status.HTTP_200_OK)
+            return Response(status=status.HTTP_403_FORBIDDEN)
 
 

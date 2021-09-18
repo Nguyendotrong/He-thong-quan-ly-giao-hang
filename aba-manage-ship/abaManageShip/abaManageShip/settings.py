@@ -154,3 +154,9 @@ OAUTH2_INFO = {
     "client_id": "GAoIoyXnX6pX6SwLNxeFWmcSyFY7lRfnDzKEDJDI",
     "client_secret": "jszRNc5BqGwiJ4bt8a2JixeCEWUb2OiAm2cxYbWatnClTfNRWn8IgBy8nOP57wluThd3qiKdn4xUtko8nySFWxjS2TfiH9HlyUzee4s99srowoQ1UQ9t4ccdb2HnDSMe"
 }
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'charitysocialnetwork@gmail.com'
+EMAIL_HOST_PASSWORD = 'Tinice@123'
+EMAIL_PORT = 587
