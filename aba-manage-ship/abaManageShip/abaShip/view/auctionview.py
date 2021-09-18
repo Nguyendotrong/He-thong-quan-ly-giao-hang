@@ -5,11 +5,12 @@ from rest_framework.exceptions import PermissionDenied
 
 
 from ..models import Auction
-from ..permission import PermissionViewDetailAuction, PermissionViewListAuctionOfShipper
+from ..permission import PermissionViewDetailAuction, PermissionViewListAuctionOfShipper, PermissionAuction
 from ..serializers import AuctionSerializer
 
 
-class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView, generics.RetrieveAPIView):
+class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView,
+                     generics.RetrieveAPIView, generics.UpdateAPIView,generics.DestroyAPIView):
     queryset = Auction.objects.filter(active=True)
 
     def get_serializer_class(self):
@@ -20,6 +21,7 @@ class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView, generics.RetrieveAPI
             return [PermissionViewDetailAuction(),]
         if self.action == "list":
             return [PermissionViewListAuctionOfShipper(),]
+        return [PermissionAuction(),]
 
     def get_queryset(self):
         if self.action == "list":
@@ -35,5 +37,7 @@ class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView, generics.RetrieveAPI
             return super().retrieve(request, *args, **kwargs)
         raise PermissionDenied()
 
+    # def update(self, request, *args, **kwargs):
+    #     if not (self.get_object().post.auctions.filter(is_win=True)) and
 
 

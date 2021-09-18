@@ -4,12 +4,18 @@ from rest_framework.fields import ImageField
 from rest_framework.serializers import ModelSerializer
 from .models import *
 
-
-class ShipperSerializer(ModelSerializer):
+class BaseUserSerializer(ModelSerializer):
     avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
+
     class Meta:
-        model =User
-        fields = ['id','first_name', 'last_name','avatar','date_of_birth', 'gender', 'phone', 'address', 'email',]
+        model = User
+        fields = ['id', 'first_name', 'last_name', 'avatar', 'username' ]
+        read_only_fields = ["date_joined", 'id', 'username']
+class ShipperSerializer(BaseUserSerializer):
+
+    class Meta:
+        model = BaseUserSerializer.Meta.model
+        fields =BaseUserSerializer.Meta.fields + ['date_of_birth', 'gender', 'phone', 'address', 'email',]
         read_only_fields = ["date_joined", 'id', 'username']
 
 class UserSerializer(ModelSerializer):
@@ -101,7 +107,7 @@ class ImageItemCreatSerializer(ModelSerializer):
         fields = ['id', 'image', 'post']
 
 class AuctionSerializer(ModelSerializer):
-    shipper = ShipperSerializer(required=True)
+    shipper = BaseUserSerializer(required=True)
 
     class Meta:
         model =  Auction

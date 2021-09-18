@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,7 @@
       <workItem from="1631759634363" duration="14633000" />
       <workItem from="1631797135475" duration="11739000" />
       <workItem from="1631864643112" duration="24711000" />
-      <workItem from="1631929113131" duration="14405000" />
+      <workItem from="1631929113131" duration="16417000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -385,7 +386,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631963841925</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="thay id shipper thành đối tượng shipper trong auction">
+      <created>1631972259044</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1631972259044</updated>
+    </task>
+    <task id="LOCAL-00036" summary="bổ sung các trường trong AuctionSerializer">
+      <created>1631972710008</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1631972710008</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,8 +419,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cập nhật .." />
-    <MESSAGE value="cập nhật csdl" />
     <MESSAGE value="api user" />
     <MESSAGE value="cập nhật db" />
     <MESSAGE value="thêm api stock, sữa api post" />
@@ -429,7 +442,9 @@
     <MESSAGE value="- Add field is_finish to post&#10;- Alter field gender on user&#10;- add_auction (nằm ở file postview á nha ô)" />
     <MESSAGE value="get auctions" />
     <MESSAGE value="cập nhật api list auction thêm api retrieve" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật api list auction thêm api retrieve" />
+    <MESSAGE value="thay id shipper thành đối tượng shipper trong auction" />
+    <MESSAGE value="bổ sung các trường trong AuctionSerializer" />
+    <option name="LAST_COMMIT_MESSAGE" value="bổ sung các trường trong AuctionSerializer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
