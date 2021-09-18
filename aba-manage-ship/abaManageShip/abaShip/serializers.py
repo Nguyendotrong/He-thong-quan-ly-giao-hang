@@ -105,8 +105,8 @@ class AuctionSerializer(ModelSerializer):
 
     class Meta:
         model =  Auction
-        fields= ['id', 'post','shipper', 'cost','is_win','active']
-        read_only_fields = ['id', 'post','shipper']
+        fields= ['id', 'post','shipper', 'cost','is_win','active', 'created_date', 'update_date']
+        read_only_fields = ['id', 'post','shipper', 'created_date', 'update_date','is_win','active']
 
 class AuctionCreateSerializer(ModelSerializer):
     class Meta:
