@@ -37,7 +37,14 @@ class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView,
             return super().retrieve(request, *args, **kwargs)
         raise PermissionDenied()
 
-    # def update(self, request, *args, **kwargs):
-    #     if not (self.get_object().post.auctions.filter(is_win=True)) and
+    def update(self, request, *args, **kwargs):
+        auction = self.get_object()
+        if not auction.post.auctions.filter(is_win=True).exists() and request.user.id == auction.shipper.id:
+            return super().update(request, *args, **kwargs)
+        raise PermissionDenied()
 
-
+    def destroy(self, request, *args, **kwargs):
+        auction = self.get_object()
+        if not auction.post.auctions.filter(is_win=True).exists() and request.user.id == auction.shipper.id:
+            return super().destroy(request, *args, **kwargs)
+        raise PermissionDenied()

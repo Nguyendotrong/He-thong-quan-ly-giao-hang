@@ -4,7 +4,9 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 from django.http import Http404
 
+
 from ..models import Post, CategoryProductShip, Auction
+from .auctionview import AuctionViewSet
 from ..permission import (PermissionViewPost,
                           PermissionPost,
                           PermissionAddAuctionIntoPost,
@@ -58,10 +60,14 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         # xóa bài viết của chính user đó nếu khác thì không đc
-        instance = self.get_object()
-        if instance.customer == request.user:
-            self.perform_destroy(instance)
-            return Response(status=status.HTTP_204_NO_CONTENT)
+        post = self.get_object()
+        if not post.auctions.filter(is_win=True).exists() and post.customer == request.user:
+            auctions = post.auctions.all()
+            if auctions is not None:
+                for auc in auctions:
+                    AuctionViewSet.destroy(auc)
+            image_items = post.image_items.all()
+            return super().destroy(request, *args, **kwargs)
         raise PermissionDenied()
 
 
@@ -103,10 +109,9 @@ class PostViewSet(viewsets.ModelViewSet):
                         status=status.HTTP_201_CREATED, headers=headers)
 
     def update(self, request, *args, **kwargs):
-        # print(self)
-        # print(request.user.id)
+        post = self.get_object()
 
-        if request.user.id == self.get_object().customer.id:
+        if not post.auctions.filter(is_win=True) and request.user.id == post.customer.id:
             # print("vô dc nè")
             return super().update(request, *args, **kwargs)
         raise PermissionDenied()
