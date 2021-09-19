@@ -89,12 +89,17 @@ class StatusShip (Enum):
     SHIPPED = 'shipped'
 
 class OrderShip(Base):
+    NOTYETSHIPPED, SHIPPING, SHIPPED  =range(3)
+    STATUS = [
+        (NOTYETSHIPPED, 'not yet shipped' ),
+        (SHIPPING, 'shipping'),
+        (SHIPPED, 'shipped')
+    ]
 
     auction_win = models.OneToOneField('auction',related_name='order_ship', on_delete=models.PROTECT,primary_key=True)
     active = models.BooleanField(default=True)
     shipped_date = models.DateTimeField(null=True, blank=True)
-    status = models.CharField(max_length=30,choices=[(tag.name, tag.value) for tag in StatusShip ],
-                              default=StatusShip.NOTYETSHIPPED)
+    status = models.PositiveSmallIntegerField(choices=STATUS, default=NOTYETSHIPPED)
 
     def __str__(self):
         return "customer: {},\nshipper: {},\nstatus: {},\ncreated date: {}".format(

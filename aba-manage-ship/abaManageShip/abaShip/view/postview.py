@@ -45,28 +45,33 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
     def get_queryset(self):
-        post = self.queryset
-        category = self.request.query_params.get('category')
-        if category is not None:
-            post = CategoryProductShip.posts.filter(active=True)
+        post = self.queryset.order_by('created_date')
+        cate = self.request.query_params.get('category')
+        if cate is not None:
+            instance_category = CategoryProductShip.objects.get(name__icontains=cate)
+            post = instance_category.posts.filter(active=True)
 
         # print(self.request.user.groups)
-        if self.action in ["list","retrieve"]:
-            if self.request.user.groups.filter(name='customer').exists():
-                return post.filter(customer = self.request.user)
-        return post
 
+        if self.request.user.groups.filter(name='customer').exists():
+            return post.filter(customer=self.request.user)
+        return post.exclude(is_finish = True)
 
+    def retrieve(self, request, *args, **kwargs):
+        post = self.get_object()
+        if request.user.pk == post.customer.pk or request.user.groups.filter(name='shipper').exists():
+           return super().retrieve(request, *args, **kwargs)
+        raise PermissionDenied()
 
     def destroy(self, request, *args, **kwargs):
         # xóa bài viết của chính user đó nếu khác thì không đc
         post = self.get_object()
         if not post.auctions.filter(is_win=True).exists() and post.customer == request.user:
-            auctions = post.auctions.all()
-            if auctions is not None:
-                for auc in auctions:
-                    AuctionViewSet.destroy(auc)
-            image_items = post.image_items.all()
+            # auctions = post.auctions.all()
+            # if auctions is not None:
+            #     for auc in auctions:
+            #         AuctionViewSet.destroy(auc)
+            # image_items = post.image_items.all()
             return super().destroy(request, *args, **kwargs)
         raise PermissionDenied()
 
@@ -98,7 +103,7 @@ class PostViewSet(viewsets.ModelViewSet):
         instance_post = serializer.save(**{'customer': self.request.user})
 
         for img in imgs:
-            print(img)
+            # print(img)
             serializer_img = ImageItemSerializer(data={"image":img,'post':instance_post.id})
             serializer_img.is_valid(raise_exception=True)
             instance_img = serializer_img.save()
@@ -112,7 +117,20 @@ class PostViewSet(viewsets.ModelViewSet):
         post = self.get_object()
 
         if not post.auctions.filter(is_win=True) and request.user.id == post.customer.id:
-            # print("vô dc nè")
+            image_items_new = request.FILES.getlist('image_items', None)
+
+            if image_items_new is not None:
+                image_items_old = post.image_items.all()
+                for item in image_items_old:
+                    item.delete()
+                for item in image_items_new:
+                    serializer_img = ImageItemSerializer(data={"image": item, 'post': post.id})
+                    serializer_img.is_valid(raise_exception=True)
+                    instance_img = serializer_img.save()
+                    post.image_items.add(instance_img)
+
+
+
             return super().update(request, *args, **kwargs)
         raise PermissionDenied()
 
@@ -138,8 +156,6 @@ class PostViewSet(viewsets.ModelViewSet):
                                          message='bài đấu giá "{description}..." có một đấu giá mới'.format(description=post.description[0:50] ))
                 return Response(AuctionSerializer(auc_instance).data, status=status.HTTP_200_OK)
             raise PermissionDenied()
-
-
 
         if request.method == 'GET':
             if(request.user == self.get_object().customer):

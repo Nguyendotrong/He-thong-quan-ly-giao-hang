@@ -18,26 +18,25 @@ class ShipperSerializer(BaseUserSerializer):
         fields =BaseUserSerializer.Meta.fields + ['date_of_birth', 'gender', 'phone', 'address', 'email',]
         read_only_fields = ["date_joined", 'id', 'username']
 
-class UserSerializer(ModelSerializer):
-    avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
+class UserSerializer(BaseUserSerializer):
+
 
     class Meta:
-        model = User
+        model = BaseUserSerializer.Meta.model
 
-        fields = ['id', 'username', 'first_name', 'last_name', 'phone', 'email',
-                   'avatar', 'gender', 'address',
+        fields = BaseUserSerializer.Meta.fields + ['phone', 'email', 'avatar', 'gender', 'address',
                   'date_of_birth','groups']
         read_only_fields = ["date_joined", 'id','username','groups']
 
 
 
-class UserRegisterSerializer(ModelSerializer):
+class UserRegisterSerializer(BaseUserSerializer):
     choice_group = serializers.IntegerField(max_value=2, min_value=1)
-    avatar =  ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
+
     class Meta:
-        model = User
-        fields = ['id', 'first_name', 'last_name', 'phone', 'email',
-                  'username', 'password', 'avatar', 'choice_group',
+        model = BaseUserSerializer.Meta.model
+        fields = BaseUserSerializer.Meta.fields + [ 'phone', 'email',
+                   'password', 'choice_group',
                   'gender', 'address', 'date_of_birth']
         extra_kwargs = {
             'password': {
@@ -106,23 +105,10 @@ class ImageItemCreatSerializer(ModelSerializer):
         model = ImageItem
         fields = ['id', 'image', 'post']
 
-class AuctionSerializer(ModelSerializer):
-    shipper = BaseUserSerializer(required=True)
-
-    class Meta:
-        model =  Auction
-        fields= ['id', 'post','shipper', 'cost','is_win','active', 'created_date', 'update_date']
-        read_only_fields = ['id', 'post','shipper', 'created_date', 'update_date','is_win','active']
-
-class AuctionCreateSerializer(ModelSerializer):
-    class Meta:
-        model =  Auction
-        fields= ['cost','post', 'shipper']
-
 class PostSerializer(ModelSerializer):
     send_stock = StockSerializer(required=True)
     receive_stock = StockSerializer(required=True)
-    image_items = ImageItemSerializer(many=True)
+    image_items = ImageItemSerializer(many=True,required=True)
     customer = UserSerializer(required=True)
 
 
@@ -130,8 +116,8 @@ class PostSerializer(ModelSerializer):
         model = Post
         fields = ["id", 'customer', "category_product_ship", 'description',
                   "created_date", 'update_date', "send_stock",
-                  'receive_stock', 'weight', 'active', 'image_items', 'auctions']
-        read_only_fields =  ['id', 'customer']
+                  'receive_stock', 'weight', 'active', 'image_items', 'is_finish']
+        read_only_fields =  ['id', 'customer', 'active',"created_date", 'update_date',]
 
 
 class PostCreateSerializer(ModelSerializer):
@@ -142,4 +128,37 @@ class PostCreateSerializer(ModelSerializer):
                   "send_stock", 'receive_stock', 'weight',]
         read_only_fields = ["id"]
 
+class AuctionCreateSerializer(ModelSerializer):
+    class Meta:
+        model =  Auction
+        fields= ['cost','post', 'shipper']
+        # read_only_fields = ['id', 'post', 'shipper', 'created_date', 'update_date', 'is_win', 'active']
 
+class AuctionSerializer(AuctionCreateSerializer):
+    shipper = BaseUserSerializer(required=True)
+
+    class Meta:
+        model =  AuctionCreateSerializer.Meta.model
+        fields= AuctionCreateSerializer.Meta.fields + ['id', 'active', 'created_date', 'update_date', 'is_win']
+
+
+class AutionDetailPostSerializer(AuctionSerializer):
+    shipper = UserSerializer(required=True)
+    Post = PostSerializer(required=True)
+    class Meta:
+        model = AuctionSerializer.Meta.model
+        fields = AuctionSerializer.Meta.fields
+
+class OrderCreateSerializer(ModelSerializer):
+
+    class Meta:
+        model = OrderShip
+        fields = ['auction_win', 'active','shipped_date', 'status', ]
+        read_only_fields = ['auction_win_id','active','shipped_date',]
+
+class OrderSerializer(OrderCreateSerializer):
+    auction_win = AuctionSerializer(required=True)
+    class Meta:
+        model = OrderCreateSerializer.Meta.model
+        fields = OrderCreateSerializer.Meta.fields
+        read_only_fields = ['auction_win', 'active', 'shipped_date', ]

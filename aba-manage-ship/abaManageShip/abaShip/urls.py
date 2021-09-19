@@ -16,6 +16,7 @@ router.register('stocks',views.StockViewSet)
 router.register('image-item',views.ImageItemViewSet)
 router.register('shippers',views.ShipperViewSet)
 router.register('auctions',views.AuctionViewSet)
+router.register('orders',views.OrderShipViewSet)
 
 
 
