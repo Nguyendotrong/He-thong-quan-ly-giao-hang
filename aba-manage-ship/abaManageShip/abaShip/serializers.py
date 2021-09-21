@@ -150,6 +150,10 @@ class AutionDetailPostSerializer(AuctionSerializer):
         fields = AuctionSerializer.Meta.fields
 
 class OrderCreateSerializer(ModelSerializer):
+    def to_representation(self, instance):
+        rep = super().to_representation(instance)
+        rep['status'] = OrderShip.STATUS[rep.get('status')][1] or None
+        return rep
 
     class Meta:
         model = OrderShip
@@ -162,3 +166,30 @@ class OrderSerializer(OrderCreateSerializer):
         model = OrderCreateSerializer.Meta.model
         fields = OrderCreateSerializer.Meta.fields
         read_only_fields = ['auction_win', 'active', 'shipped_date', ]
+
+
+class VoucherSerializer(ModelSerializer):
+    class Meta:
+        model = Voucher
+        fields = "__all__"
+
+
+class OrderDetailSerializer(ModelSerializer):
+    voucher = VoucherSerializer(required=True)
+
+    class Meta:
+        model = OrderShipDetail
+        fields = "__all__"
+
+class OrderDetailCreateSerializer(ModelSerializer):
+
+
+    class Meta:
+        model = OrderShipDetail
+        fields = "__all__"
+        read_only_fields=['orderShip']
+
+    def to_representation(self, instance):
+        rep = super().to_representation(instance)
+        rep['pay_method'] = OrderShipDetail.PAY_METHOD[rep.get('pay_method')][1] or None
+        return rep

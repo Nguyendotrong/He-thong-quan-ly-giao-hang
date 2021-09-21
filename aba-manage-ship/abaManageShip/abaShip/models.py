@@ -59,10 +59,7 @@ class IDCard(models.Model):
     def __str__(self):
         return "Id card: {}".format(self.id_card)
 
-class PayMethod (Enum):
-    ZALO = 'ZALO'
-    MOMO = 'MOMO'
-    TIENMAT = 'TIENMAT'
+
 
 class  Base(models.Model):
 
@@ -80,13 +77,11 @@ class Voucher(Base):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
 
+    class Meta:
+        ordering = ['start_date', 'end_date']
     def __str__(self):
         return "name: {},\ndiscount: {}".format(self.name,self.discount)
 
-class StatusShip (Enum):
-    NOTYETSHIPPED = 'not yet shipped'
-    SHIPPING = 'shipping'
-    SHIPPED = 'shipped'
 
 class OrderShip(Base):
     NOTYETSHIPPED, SHIPPING, SHIPPED  =range(3)
@@ -110,9 +105,15 @@ class OrderShip(Base):
 
 
 class OrderShipDetail (models.Model):
+    ZALOPAY, MOMO, CASH = range(3)
+    PAY_METHOD = [
+        (ZALOPAY,'Zalo pay'),
+        (MOMO, 'Momo'),
+        (CASH, 'Cash')
+    ]
+
     orderShip = models.OneToOneField(OrderShip,on_delete= models.CASCADE, primary_key=True)
-    pay_method = models.CharField(max_length=20,
-                                  choices=[(tag.name, tag.value) for tag in PayMethod])
+    pay_method = models.PositiveSmallIntegerField(choices=PAY_METHOD, default=CASH)
 
     voucher = models.ForeignKey(Voucher,on_delete=models.PROTECT)
 

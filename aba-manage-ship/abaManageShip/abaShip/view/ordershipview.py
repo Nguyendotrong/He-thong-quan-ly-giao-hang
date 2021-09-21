@@ -6,7 +6,7 @@ from ..serializers import OrderCreateSerializer,OrderSerializer
 from ..permission import PermissionOrderShip,PermissionViewOrderShip
 from django.core.exceptions import ObjectDoesNotExist
 
-class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView):
+class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAPIView, generics.RetrieveAPIView):
     queryset = OrderShip.objects.filter(active=True)
 
     def get_serializer_class(self):
@@ -33,7 +33,7 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView):
         except :
             return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
-            if request.user.id == auction.post.customer.id:
+            if request.user.id == auction.post.customer.id and not auction.post.is_finish:
                 order_serializer = OrderCreateSerializer(data={'auction_win':auction.pk})
                 order_serializer.is_valid(raise_exception=True)
                 order_serializer.save()
@@ -44,6 +44,11 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView):
                 auction.is_win = True
                 auction.save()
                 return Response(order_serializer.data,status=status.HTTP_201_CREATED,headers=headers)
-            raise PermissionDenied
+            raise PermissionDenied()
 
+    def retrieve(self, request, *args, **kwargs):
+        order = self.get_object()
+        if request.user.pk == order.auction_win.post.customer.pk or request.user.id == order.auction_win.shipper.id:
+           return super().retrieve(request, *args, **kwargs)
+        raise PermissionDenied()
 

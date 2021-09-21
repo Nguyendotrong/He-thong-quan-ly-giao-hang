@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/voucherview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipdetailview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipdetailview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Charity_Social_Network" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo-django" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -148,7 +153,7 @@
       <workItem from="1632017066910" duration="23039000" />
       <workItem from="1632080431700" duration="97000" />
       <workItem from="1632103622814" duration="581000" />
-      <workItem from="1632192453742" duration="11962000" />
+      <workItem from="1632192453742" duration="24329000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -437,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632235384867</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="cập nhật api update post (thay đổi stock)">
+      <created>1632236120835</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1632236120835</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
