@@ -118,8 +118,9 @@ class PostViewSet(viewsets.ModelViewSet):
 
         if not post.auctions.filter(is_win=True) and request.user.id == post.customer.id:
             image_items_new = request.FILES.getlist('image_items', None)
+            print(image_items_new)
 
-            if image_items_new is not None:
+            if len(image_items_new) > 0:
                 image_items_old = post.image_items.all()
                 for item in image_items_old:
                     item.delete()
