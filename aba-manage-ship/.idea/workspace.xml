@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +149,7 @@
       <workItem from="1632017066910" duration="23039000" />
       <workItem from="1632080431700" duration="97000" />
       <workItem from="1632103622814" duration="581000" />
-      <workItem from="1632192453742" duration="2715000" />
+      <workItem from="1632192453742" duration="11246000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -423,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632080516819</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="fix lỗi cập nhật ảnh trong postview">
+      <created>1632219204051</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1632219204051</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +450,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cap nhat csdl them notification, .." />
     <MESSAGE value="thheem api stock" />
     <MESSAGE value="logout" />
     <MESSAGE value="cập nhật stock" />
@@ -467,7 +474,8 @@
     <MESSAGE value="cập nhật shipper các trường trong AuctionSerializer" />
     <MESSAGE value="-cập nhật update post&#10;- thêm api update auction&#10;- thêm api destroy  auction" />
     <MESSAGE value="tạo ordership&#10;cập nhật thêm is_finish trong postview" />
-    <option name="LAST_COMMIT_MESSAGE" value="tạo ordership&#10;cập nhật thêm is_finish trong postview" />
+    <MESSAGE value="fix lỗi cập nhật ảnh trong postview" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix lỗi cập nhật ảnh trong postview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

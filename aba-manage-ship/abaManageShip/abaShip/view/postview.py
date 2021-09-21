@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.http import Http404
 
 
-from ..models import Post, CategoryProductShip, Auction
+from ..models import Post, CategoryProductShip, Auction, Stock
 from .auctionview import AuctionViewSet
 from ..permission import (PermissionViewPost,
                           PermissionPost,
@@ -113,12 +113,17 @@ class PostViewSet(viewsets.ModelViewSet):
         return Response(PostSerializer(instance=instance_post).data,
                         status=status.HTTP_201_CREATED, headers=headers)
 
+    def check_stock(id):
+        if Stock.objects.filter(pk=id).exists():
+            return True
+        return False
     def update(self, request, *args, **kwargs):
         post = self.get_object()
 
         if not post.auctions.filter(is_win=True) and request.user.id == post.customer.id:
+
             image_items_new = request.FILES.getlist('image_items', None)
-            print(image_items_new)
+            # print(image_items_new)
 
             if len(image_items_new) > 0:
                 image_items_old = post.image_items.all()
@@ -130,6 +135,23 @@ class PostViewSet(viewsets.ModelViewSet):
                     instance_img = serializer_img.save()
                     post.image_items.add(instance_img)
 
+            send_stock = int(request.data.get('send_stock'))
+            receive_stock = int(request.data.get('receive_stock'))
+
+            if send_stock is not None:
+                print("send tock" + str(send_stock))
+                if Stock.objects.filter(pk=send_stock).exists():
+                    post.send_stock = Stock.objects.get(pk=send_stock)
+                else:
+                    return Response(status=status.HTTP_400_BAD_REQUEST)
+
+            if receive_stock is not None:
+                if Stock.objects.filter(pk=receive_stock).exists():
+                    post.receive_stock = Stock.objects.get(pk=receive_stock)
+                else:
+                    return Response(status=status.HTTP_400_BAD_REQUEST)
+
+            post.save()
 
 
             return super().update(request, *args, **kwargs)
