@@ -135,26 +135,30 @@ class PostViewSet(viewsets.ModelViewSet):
                     instance_img = serializer_img.save()
                     post.image_items.add(instance_img)
 
-            send_stock = int(request.data.get('send_stock'))
-            receive_stock = int(request.data.get('receive_stock'))
+            # send_stock = int(request.data.get('send_stock'))
+            # receive_stock = int(request.data.get('receive_stock'))
+            #
+            # if send_stock is not None:
+            #     print("send tock" + str(send_stock))
+            #     if Stock.objects.filter(pk=send_stock).exists():
+            #         post.send_stock = Stock.objects.get(pk=send_stock)
+            #     else:
+            #         return Response(status=status.HTTP_400_BAD_REQUEST)
+            #
+            # if receive_stock is not None:
+            #     if Stock.objects.filter(pk=receive_stock).exists():
+            #         post.receive_stock = Stock.objects.get(pk=receive_stock)
+            #     else:
+            #         return Response(status=status.HTTP_400_BAD_REQUEST)
+            #
+            # post.save()
 
-            if send_stock is not None:
-                print("send tock" + str(send_stock))
-                if Stock.objects.filter(pk=send_stock).exists():
-                    post.send_stock = Stock.objects.get(pk=send_stock)
-                else:
-                    return Response(status=status.HTTP_400_BAD_REQUEST)
+            serializer = PostCreateSerializer(post,data=request.data,partial=True)
+            serializer.is_valid(raise_exception=True)
+            instance = serializer.save()
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-            if receive_stock is not None:
-                if Stock.objects.filter(pk=receive_stock).exists():
-                    post.receive_stock = Stock.objects.get(pk=receive_stock)
-                else:
-                    return Response(status=status.HTTP_400_BAD_REQUEST)
-
-            post.save()
-
-
-            return super().update(request, *args, **kwargs)
         raise PermissionDenied()
 
     @action(methods=['POST', 'GET'], detail=True, url_path='auctions' )
