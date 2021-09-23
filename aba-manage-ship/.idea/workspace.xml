@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
-      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/voucherview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0002_auto_20210916_1620.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0003_auto_20210917_2016.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0004_auto_20210917_2343.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0005_remove_auction_active.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0006_auction_active.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0007_alter_ordership_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0008_alter_ordershipdetail_pay_method.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0009_auto_20210922_0026.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0010_ordership_status.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipdetailview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipdetailview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo-django" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -153,7 +159,10 @@
       <workItem from="1632017066910" duration="23039000" />
       <workItem from="1632080431700" duration="97000" />
       <workItem from="1632103622814" duration="581000" />
-      <workItem from="1632192453742" duration="24329000" />
+      <workItem from="1632192453742" duration="24453000" />
+      <workItem from="1632298533867" duration="3546000" />
+      <workItem from="1632359303775" duration="629000" />
+      <workItem from="1632361497764" duration="3032000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -449,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632236120835</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="thêm api hiện ds voucher,&#10;cập nhật api tạo orderview&#10;đang set api orderdetail">
+      <created>1632248653698</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1632248653698</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +484,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logout" />
     <MESSAGE value="cập nhật stock" />
     <MESSAGE value="cập nhật lấy post theo user" />
     <MESSAGE value="tách các view cho gọn. chưa sữa image, chưa thêm api post cho shipper" />
@@ -493,7 +508,8 @@
     <MESSAGE value="tạo ordership&#10;cập nhật thêm is_finish trong postview" />
     <MESSAGE value="fix lỗi cập nhật ảnh trong postview" />
     <MESSAGE value="cập nhật api update post (thay đổi stock)" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật api update post (thay đổi stock)" />
+    <MESSAGE value="thêm api hiện ds voucher,&#10;cập nhật api tạo orderview&#10;đang set api orderdetail" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm api hiện ds voucher,&#10;cập nhật api tạo orderview&#10;đang set api orderdetail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

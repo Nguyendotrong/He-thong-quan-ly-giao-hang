@@ -171,7 +171,7 @@ class Auction(Base):
         return "shipper: {},\nprice: {}".format(self.shipper.first_name, self.cost)
 
 
-class Rate  (Base):
+class Rate (Base):
 
     class Meta:
         unique_together = ('customer','shipper')

@@ -161,7 +161,7 @@ class OrderCreateSerializer(ModelSerializer):
         read_only_fields = ['auction_win_id','active','shipped_date',]
 
 class OrderSerializer(OrderCreateSerializer):
-    auction_win = AuctionSerializer(required=True)
+    auction_win = AutionDetailPostSerializer(required=True)
     class Meta:
         model = OrderCreateSerializer.Meta.model
         fields = OrderCreateSerializer.Meta.fields
