@@ -17,7 +17,7 @@ router.register('image-item',views.ImageItemViewSet)
 router.register('shippers',views.ShipperViewSet)
 router.register('auctions',views.AuctionViewSet)
 router.register('orders',views.OrderShipViewSet)
-
+router.register('vouchers',views.VoucherViewSet)
 
 
 schema_view = get_schema_view(

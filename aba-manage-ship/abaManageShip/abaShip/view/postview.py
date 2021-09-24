@@ -120,7 +120,7 @@ class PostViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         post = self.get_object()
 
-        if not post.auctions.filter(is_win=True) and request.user.id == post.customer.id:
+        if not post.auctions.filter().exists() and request.user.id == post.customer.id:
 
             image_items_new = request.FILES.getlist('image_items', None)
             # print(image_items_new)

@@ -144,7 +144,7 @@ class AuctionSerializer(AuctionCreateSerializer):
 
 class AutionDetailPostSerializer(AuctionSerializer):
     shipper = UserSerializer(required=True)
-    Post = PostSerializer(required=True)
+    post = PostSerializer(required=True)
     class Meta:
         model = AuctionSerializer.Meta.model
         fields = AuctionSerializer.Meta.fields
