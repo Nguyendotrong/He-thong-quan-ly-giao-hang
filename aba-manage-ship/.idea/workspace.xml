@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/voucherview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/voucherview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo-django" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -159,7 +155,7 @@
       <workItem from="1632359303775" duration="629000" />
       <workItem from="1632361497764" duration="4405000" />
       <workItem from="1632406516513" duration="1611000" />
-      <workItem from="1632448954436" duration="1923000" />
+      <workItem from="1632448954436" duration="6787000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -469,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632366728714</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="- chỉnh sữa chức năng ko cho cập nhật post khi đã có auction&#10;- thêm url cho voucher">
+      <created>1632451054878</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1632451054878</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +491,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cập nhật lấy post theo user" />
     <MESSAGE value="tách các view cho gọn. chưa sữa image, chưa thêm api post cho shipper" />
     <MESSAGE value="cập nhật permission.py, cập nhật put user" />
     <MESSAGE value="sữa lỗi sai tên app trong peermission ," />
@@ -513,7 +515,8 @@
     <MESSAGE value="cập nhật api update post (thay đổi stock)" />
     <MESSAGE value="thêm api hiện ds voucher,&#10;cập nhật api tạo orderview&#10;đang set api orderdetail" />
     <MESSAGE value="thêm thông tin postcho  order" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm thông tin postcho  order" />
+    <MESSAGE value="- chỉnh sữa chức năng ko cho cập nhật post khi đã có auction&#10;- thêm url cho voucher" />
+    <option name="LAST_COMMIT_MESSAGE" value="- chỉnh sữa chức năng ko cho cập nhật post khi đã có auction&#10;- thêm url cho voucher" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
