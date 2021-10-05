@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import  logout
 from django.shortcuts import render, redirect
 from django.views import View
 from oauth2_provider.models import Application
@@ -23,7 +23,7 @@ class Index(View):
         return render(request, template_name="index.html", context={"oauth2": o})
 
 
-class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView, generics.UpdateAPIView):
+class UserViewSet(viewsets.GenericViewSet, generics.CreateAPIView,generics.ListAPIView, generics.UpdateAPIView):
     queryset = User.objects.filter(is_active=True)
     # serializer_class = UserSerializer
     parser_classes = [MultiPartParser, ]
@@ -49,6 +49,7 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView,generics.ListAPIView,
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request, *args, **kwargs):
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         instance = serializer.save()

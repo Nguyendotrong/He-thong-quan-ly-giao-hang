@@ -24,10 +24,10 @@ class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView,
         return [PermissionAuction(),]
 
     def get_queryset(self):
-        if self.action == "list":
-            if self.request.user.groups.filter(name='customer').exists():
-                return self.queryset.filter(post__customer_id=self.request.user.pk)
-            return self.queryset.filter(shipper=self.request.user)
+
+        if self.request.user.groups.filter(name='customer').exists():
+            return self.queryset.filter(post__customer_id=self.request.user.pk)
+        return self.queryset.filter(shipper=self.request.user)
 
         return self.queryset
 

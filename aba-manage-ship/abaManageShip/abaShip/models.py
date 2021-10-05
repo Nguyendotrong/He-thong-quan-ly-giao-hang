@@ -25,13 +25,13 @@ class User (AbstractUser):
     type_gender = (("Male", 'Male'), ("Female", 'Female'), ("Other", 'Other'))
 
     avatar = CloudinaryField('avatar', null=True)
-    phone = models.CharField(max_length=10,null=False)
-    first_name = models.CharField(max_length=50, null=False, blank=False)
-    last_name = models.CharField(max_length=50, null=False, blank=False)
+    phone = models.CharField(max_length=10,null=True)
+    first_name = models.CharField(max_length=50, null=True, blank=True)
+    last_name = models.CharField(max_length=50, null=True, blank=True)
     gender = models.CharField(max_length=10, choices=type_gender, default=0)
-    notifications = models.ManyToManyField('Notification', blank=True)
-    address = models.CharField(max_length=255, default=None)
-    date_of_birth = models.DateField(default=None)
+    notifications = models.ManyToManyField('Notification', null=True, blank=True)
+    address = models.CharField(max_length=255, null=True, default=None)
+    date_of_birth = models.DateField(null=True, default=None)
 
     def __str__(self):
         return "username: {}".format(self.username)
@@ -91,10 +91,20 @@ class OrderShip(Base):
         (SHIPPED, 'shipped')
     ]
 
+    ZALOPAY, MOMO, CASH = range(3)
+    PAY_METHOD = [
+        (ZALOPAY, 'Zalo pay'),
+        (MOMO, 'Momo'),
+        (CASH, 'Cash')
+    ]
+
     auction_win = models.OneToOneField('auction',related_name='order_ship', on_delete=models.PROTECT,primary_key=True)
     active = models.BooleanField(default=True)
     shipped_date = models.DateTimeField(null=True, blank=True)
     status = models.PositiveSmallIntegerField(choices=STATUS, default=NOTYETSHIPPED)
+    pay_method = models.PositiveSmallIntegerField(choices=PAY_METHOD, default=CASH)
+
+    voucher = models.ForeignKey(Voucher, on_delete=models.PROTECT,null=True)
 
     def __str__(self):
         return "customer: {},\nshipper: {},\nstatus: {},\ncreated date: {}".format(
@@ -104,21 +114,23 @@ class OrderShip(Base):
             self.created_date)
 
 
-class OrderShipDetail (models.Model):
-    ZALOPAY, MOMO, CASH = range(3)
-    PAY_METHOD = [
-        (ZALOPAY,'Zalo pay'),
-        (MOMO, 'Momo'),
-        (CASH, 'Cash')
-    ]
-
-    orderShip = models.OneToOneField(OrderShip,on_delete= models.CASCADE, primary_key=True)
-    pay_method = models.PositiveSmallIntegerField(choices=PAY_METHOD, default=CASH)
-
-    voucher = models.ForeignKey(Voucher,on_delete=models.PROTECT)
-
-    def __str__(self):
-        return "Pay medthod: {},".format(self.pay_method)
+# class OrderShipDetail (models.Model):
+#     ZALOPAY, MOMO, CASH = range(3)
+#     PAY_METHOD = [
+#         (ZALOPAY,'Zalo pay'),
+#         (MOMO, 'Momo'),
+#         (CASH, 'Cash')
+#     ]
+#
+#     order_ship = models.OneToOneField(OrderShip,on_delete= models.PROTECT, related_name='oder_ship_detail',
+#                                       primary_key=True)
+#
+#     pay_method = models.PositiveSmallIntegerField(choices=PAY_METHOD, default=CASH)
+#
+#     voucher = models.ForeignKey(Voucher,on_delete=models.PROTECT)
+#
+#     def __str__(self):
+#         return "Pay medthod: {},".format(self.pay_method)
 
 
 class CategoryProductShip(models.Model):

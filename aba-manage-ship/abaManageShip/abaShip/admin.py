@@ -24,9 +24,9 @@ class OrderIneLineAdmin(admin.StackedInline):
 class AuctionInlineAdmin(admin.StackedInline):
     model = Auction
     fk_name = 'post'
-
-class OrderShipDetailInlineAdmin(admin.StackedInline):
-    model = OrderShipDetail
+#
+# class OrderShipDetailInlineAdmin(admin.StackedInline):
+#     model = OrderShipDetail
 
 
 # class PostForm(forms.ModelForm):
@@ -92,7 +92,7 @@ class OrderShipAdmin(admin.ModelAdmin):
     list_filter =  ['auction_win',
                      'active', 'auction_win__shipper','shipped_date','status']
     search_fields =  ['auction_win__shipper_username', 'active','shipped_date','status']
-    inlines = [OrderShipDetailInlineAdmin,]
+    # inlines = [OrderShipDetailInlineAdmin,]
 
 
 class AuctionAdmin(admin.ModelAdmin):
@@ -175,7 +175,7 @@ admin_site  =  AbaShipAdminSite(name='myadmin')
 admin_site.register(User, UserAdmin)
 admin_site.register(CategoryProductShip,CategoryProductShipADmin)
 admin_site.register(OrderShip, OrderShipAdmin)
-admin_site.register(OrderShipDetail)
+# admin_site.register(OrderShipDetail)
 admin_site.register(Post, PostAdmin)
 admin_site.register(ImageItem, ImageItemAdmin)
 admin_site.register(Auction, AuctionAdmin)

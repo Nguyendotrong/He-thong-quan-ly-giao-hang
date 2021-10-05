@@ -1,4 +1,4 @@
-from rest_framework import status, permissions, viewsets
+from rest_framework import status, permissions, viewsets ,generics
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
@@ -19,7 +19,9 @@ from ..serializers import (ImageItemSerializer,
     AuctionCreateSerializer)
 from  ..Paginator import BasePagination
 
-class PostViewSet(viewsets.ModelViewSet):
+class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
+                  generics.RetrieveAPIView, generics.ListAPIView,
+                  generics.UpdateAPIView):
     queryset = Post.objects.filter(active=True)
     # serializer_class = PostSerializer
     pagination_class = BasePagination
@@ -96,22 +98,25 @@ class PostViewSet(viewsets.ModelViewSet):
         # print( "kho gửi:" + str(send_stock) + " kho nhận: " + str(recieve_stock))
         # if send_stock == recieve_stock:
         #     return Response(status=status.HTTP_400_BAD_REQUEST)
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        imgs = request.FILES.getlist('image_items', None)
-        # print(imgs)
-        instance_post = serializer.save(**{'customer': self.request.user})
+        if request.user.groups.filter(name='customer').exists():
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            imgs = request.FILES.getlist('image_items', None)
+            # print(imgs)
+            instance_post = serializer.save(**{'customer': self.request.user})
 
-        for img in imgs:
-            # print(img)
-            serializer_img = ImageItemSerializer(data={"image":img,'post':instance_post.id})
-            serializer_img.is_valid(raise_exception=True)
-            instance_img = serializer_img.save()
-            instance_post.image_items.add(instance_img)
+            for img in imgs:
+                # print(img)
+                serializer_img = ImageItemSerializer(data={"image":img,'post':instance_post.id})
+                serializer_img.is_valid(raise_exception=True)
+                instance_img = serializer_img.save()
+                instance_post.image_items.add(instance_img)
 
-        headers = self.get_success_headers(serializer.data)
-        return Response(PostSerializer(instance=instance_post).data,
+            headers = self.get_success_headers(serializer.data)
+            return Response(PostSerializer(instance=instance_post).data,
                         status=status.HTTP_201_CREATED, headers=headers)
+        raise PermissionDenied()
+
 
     def check_stock(id):
         if Stock.objects.filter(pk=id).exists():
@@ -153,15 +158,15 @@ class PostViewSet(viewsets.ModelViewSet):
             #
             # post.save()
 
-            serializer = PostCreateSerializer(post,data=request.data,partial=True)
+            serializer = PostSerializer(post,data=request.data,partial=True)
             serializer.is_valid(raise_exception=True)
             instance = serializer.save()
             headers = self.get_success_headers(serializer.data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+            return Response(serializer.data, status=status.HTTP_200_OK, headers=headers)
 
         raise PermissionDenied()
 
-    @action(methods=['POST', 'GET'], detail=True, url_path='auctions' )
+    @action(methods=['POST', 'GET'], detail=True, url_path='auctions',url_name='auctions' )
     def auctions(self,request,pk):
         """
         shipper thêm 1 auction vào post
@@ -171,7 +176,7 @@ class PostViewSet(viewsets.ModelViewSet):
         """
         if request.method == 'POST':
             post = self.get_object()
-            if not post.auctions.filter(is_win=True).exists():
+            if not post.auctions.filter(is_win=True).exists()  and request.user.groups.filter(name='shipper').exists():
 
                 auc_serializer = AuctionCreateSerializer(
                     data={'shipper': request.user.pk, 'post': post.pk, 'cost': request.data.get('cost')})

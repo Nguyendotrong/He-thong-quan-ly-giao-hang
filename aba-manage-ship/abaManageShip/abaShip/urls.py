@@ -18,6 +18,7 @@ router.register('shippers',views.ShipperViewSet)
 router.register('auctions',views.AuctionViewSet)
 router.register('orders',views.OrderShipViewSet)
 router.register('vouchers',views.VoucherViewSet)
+# router.register('order-detail',views.OrderDetailViewSet)
 
 
 schema_view = get_schema_view(

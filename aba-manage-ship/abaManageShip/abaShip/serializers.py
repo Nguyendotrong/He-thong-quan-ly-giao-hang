@@ -1,43 +1,43 @@
 from django.contrib.auth.models import Group
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 from rest_framework.fields import ImageField
 from rest_framework.serializers import ModelSerializer
 from .models import *
+from django.db import IntegrityError
+
 
 class BaseUserSerializer(ModelSerializer):
     avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
 
     class Meta:
         model = User
-        fields = ['id', 'first_name', 'last_name', 'avatar', 'username' ]
-        read_only_fields = ["date_joined", 'id', 'username']
-class ShipperSerializer(BaseUserSerializer):
+        fields = ['id', 'first_name', 'last_name', 'avatar', 'username']
+        # read_only_fields = ["date_joined", 'id', 'username']
 
+
+class ShipperSerializer(BaseUserSerializer):
     class Meta:
         model = BaseUserSerializer.Meta.model
-        fields =BaseUserSerializer.Meta.fields + ['date_of_birth', 'gender', 'phone', 'address', 'email',]
+        fields = BaseUserSerializer.Meta.fields + ['date_of_birth', 'gender', 'phone', 'address', 'email', ]
         read_only_fields = ["date_joined", 'id', 'username']
 
+
 class UserSerializer(BaseUserSerializer):
-
-
     class Meta:
         model = BaseUserSerializer.Meta.model
 
         fields = BaseUserSerializer.Meta.fields + ['phone', 'email', 'avatar', 'gender', 'address',
-                  'date_of_birth','groups']
-        read_only_fields = ["date_joined", 'id','username','groups']
+                                                   'date_of_birth', 'groups']
+        read_only_fields = ["date_joined", 'id', 'username', 'groups']
 
 
-
-class UserRegisterSerializer(BaseUserSerializer):
+class UserRegisterSerializer(ModelSerializer):
     choice_group = serializers.IntegerField(max_value=2, min_value=1)
 
     class Meta:
-        model = BaseUserSerializer.Meta.model
-        fields = BaseUserSerializer.Meta.fields + [ 'phone', 'email',
-                   'password', 'choice_group',
-                  'gender', 'address', 'date_of_birth']
+        model = User
+        fields =  ['id', 'first_name', 'last_name', 'avatar', 'username','phone', 'email','password', 'choice_group', 'gender', 'address', 'date_of_birth']
         extra_kwargs = {
             'password': {
                 'write_only': True,
@@ -48,19 +48,19 @@ class UserRegisterSerializer(BaseUserSerializer):
 
     def create(self, validated_data):
 
-        choice_group = validated_data.pop("choice_group",None)
+        choice_group = validated_data.pop("choice_group", None)
+        print("chuối: ", validated_data)
         user = User(**validated_data)
         user.set_password(validated_data['password'])
         user.save()
 
-        return self.add_group_permission (user=user,choice=choice_group)
-
+        return self.add_group_permission(user=user, choice=str(choice_group))
 
     def add_group_permission(self, user, choice):
-        if(choice == 1):
+        if choice == '1':
             grs = Group.objects.get(name='customer')
-        else:
-            grs =  Group.objects.get(name='shipper')
+        elif choice == '2':
+            grs = Group.objects.get(name='shipper')
         user.groups.add(grs)
         user.save()
         return user
@@ -71,14 +71,14 @@ class UserRegisterSerializer(BaseUserSerializer):
 
 class StockSerializer(ModelSerializer):
     customer = UserSerializer(required=True)
+
     class Meta:
         model = Stock
-        fields = ['id', 'customer','address', 'name_represent_man', 'phone']
+        fields = ['id', 'customer', 'address', 'name_represent_man', 'phone']
         read_only_fields = ["id"]
 
 
 class StockCreateSerializer(ModelSerializer):
-
     class Meta:
         model = Stock
         fields = ['address', 'name_represent_man', 'phone']
@@ -98,56 +98,60 @@ class ImageItemSerializer(ModelSerializer):
         model = ImageItem
         fields = ['id', 'image', 'post']
 
-class ImageItemCreatSerializer(ModelSerializer):
 
+class ImageItemCreatSerializer(ModelSerializer):
     image = ImageField(required=True, error_messages={'required': 'Hình ảnh không được để trống'})
+
     class Meta:
         model = ImageItem
         fields = ['id', 'image', 'post']
 
+
 class PostSerializer(ModelSerializer):
     send_stock = StockSerializer(required=True)
     receive_stock = StockSerializer(required=True)
-    image_items = ImageItemSerializer(many=True,required=True)
+    image_items = ImageItemSerializer(many=True, required=True)
     customer = UserSerializer(required=True)
-
 
     class Meta:
         model = Post
         fields = ["id", 'customer', "category_product_ship", 'description',
                   "created_date", 'update_date', "send_stock",
                   'receive_stock', 'weight', 'active', 'image_items', 'is_finish']
-        read_only_fields =  ['id', 'customer', 'active',"created_date", 'update_date',]
+        read_only_fields = ['id', 'customer', 'active', "created_date", 'update_date', ]
 
 
 class PostCreateSerializer(ModelSerializer):
-
     class Meta:
         model = Post
         fields = ["id", "category_product_ship", 'description',
-                  "send_stock", 'receive_stock', 'weight',]
+                  "send_stock", 'receive_stock', 'weight', ]
         read_only_fields = ["id"]
+
 
 class AuctionCreateSerializer(ModelSerializer):
     class Meta:
-        model =  Auction
-        fields= ['cost','post', 'shipper']
+        model = Auction
+        fields = ['cost', 'post', 'shipper']
         # read_only_fields = ['id', 'post', 'shipper', 'created_date', 'update_date', 'is_win', 'active']
+
 
 class AuctionSerializer(AuctionCreateSerializer):
     shipper = BaseUserSerializer(required=True)
 
     class Meta:
-        model =  AuctionCreateSerializer.Meta.model
-        fields= AuctionCreateSerializer.Meta.fields + ['id', 'active', 'created_date', 'update_date', 'is_win']
+        model = AuctionCreateSerializer.Meta.model
+        fields = AuctionCreateSerializer.Meta.fields + ['id', 'active', 'created_date', 'update_date', 'is_win']
 
 
 class AutionDetailPostSerializer(AuctionSerializer):
     shipper = UserSerializer(required=True)
     post = PostSerializer(required=True)
+
     class Meta:
         model = AuctionSerializer.Meta.model
         fields = AuctionSerializer.Meta.fields
+
 
 class OrderCreateSerializer(ModelSerializer):
     def to_representation(self, instance):
@@ -157,11 +161,13 @@ class OrderCreateSerializer(ModelSerializer):
 
     class Meta:
         model = OrderShip
-        fields = ['auction_win', 'active','shipped_date', 'status', ]
-        read_only_fields = ['auction_win_id','active','shipped_date',]
+        fields = ['auction_win', 'pay_method', 'voucher', 'active', 'shipped_date', 'status', ]
+
+
 
 class OrderSerializer(OrderCreateSerializer):
     auction_win = AutionDetailPostSerializer(required=True)
+
     class Meta:
         model = OrderCreateSerializer.Meta.model
         fields = OrderCreateSerializer.Meta.fields
@@ -173,23 +179,22 @@ class VoucherSerializer(ModelSerializer):
         model = Voucher
         fields = "__all__"
 
-
-class OrderDetailSerializer(ModelSerializer):
-    voucher = VoucherSerializer(required=True)
-
-    class Meta:
-        model = OrderShipDetail
-        fields = "__all__"
-
-class OrderDetailCreateSerializer(ModelSerializer):
-
-
-    class Meta:
-        model = OrderShipDetail
-        fields = "__all__"
-        read_only_fields=['orderShip']
-
-    def to_representation(self, instance):
-        rep = super().to_representation(instance)
-        rep['pay_method'] = OrderShipDetail.PAY_METHOD[rep.get('pay_method')][1] or None
-        return rep
+# class OrderDetailSerializer(ModelSerializer):
+#     # voucher = VoucherSerializer(required=True)
+#
+#     class Meta:
+#         model = OrderShipDetail
+#         fields = ['orderShip','voucher','pay_method']
+#
+# class OrderDetailCreateSerializer(ModelSerializer):
+#
+#
+#     class Meta:
+#         model = OrderShipDetail
+#         fields = ['order_ship','voucher','pay_method']
+#         read_only_fields=['order_ship']
+#
+#     def to_representation(self, instance):
+#         rep = super().to_representation(instance)
+#         rep['pay_method'] = OrderShipDetail.PAY_METHOD[rep.get('pay_method')][1] or None
+#         return rep

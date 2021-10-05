@@ -1,13 +1,20 @@
 from rest_framework import viewsets, generics,status
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.decorators import action
+from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.response import Response
+
+from ..Paginator import BasePagination
 from ..models import OrderShip, User, Auction, Post
-from ..serializers import OrderCreateSerializer,OrderSerializer
-from ..permission import PermissionOrderShip,PermissionViewOrderShip
+from ..serializers import (OrderCreateSerializer,
+                           OrderSerializer,
+                                                     )
+from ..permission import (PermissionOrderShip,
+                          PermissionViewOrderShip)
 from django.core.exceptions import ObjectDoesNotExist
 
 class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAPIView, generics.RetrieveAPIView):
     queryset = OrderShip.objects.filter(active=True)
+    pagination_class = BasePagination
 
     def get_serializer_class(self):
         if self.action == 'create':
@@ -26,17 +33,31 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
             return orderShip.filter(auction_win__shipper_id=self.request.user.pk)
         return orderShip.filter(auction_win__post__customer_id=self.request.user.pk)
 
+    # def list(self, request, *args, **kwargs):
+    #     order = self.queryset
+    #     if request.user
+
     def create(self, request, *args, **kwargs):
+        """
+        Trong phương thức này có ba việc là:
+                - thêm order,
+                - cập trạng thái is_finish = True cho post tương ứng,
+                - cập nhật trạng thái is_win = True cho auction tương ứng
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
         try:
             auction = Auction.objects.get(pk=int(request.data.get('auction_win')))
             print(auction.pk)
         except :
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            raise ValidationError(detail="auction_win field is invalid")
         else:
             if request.user.id == auction.post.customer.id and not auction.post.is_finish:
-                order_serializer = OrderCreateSerializer(data={'auction_win':auction.pk})
+                order_serializer = OrderCreateSerializer(data=request.data)
                 order_serializer.is_valid(raise_exception=True)
-                order_serializer.save()
+                order_serializer.save(**{'active':True})
                 headers = self.get_success_headers(order_serializer.data)
                 post = Post.objects.get(pk=auction.post.pk)
                 post.is_finish = True
@@ -48,7 +69,37 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
 
     def retrieve(self, request, *args, **kwargs):
         order = self.get_object()
-        if request.user.pk == order.auction_win.post.customer.pk or request.user.id == order.auction_win.shipper.id:
+        if request.user.pk == order.auction_win.post.customer.pk or request.user.pk == order.auction_win.shipper.pk:
            return super().retrieve(request, *args, **kwargs)
         raise PermissionDenied()
 
+    # @action(methods=['POST', 'GET'], detail=True, url_path="order-detail",
+    #         url_name="order-detail")
+    # def order_detail(self,request,*args, **kwargs):
+    #     order = self.get_object()
+    #
+    #     if request.method == 'POST':
+    #         if not OrderShipDetail.objects.filter(pk=order.pk).exists() \
+    #             and order.auction_win.post.customer.pk == request.user.pk:
+    #
+    #
+    #             order_Detail_Ser = OrderDetailCreateSerializer(
+    #                 data={
+    #                     'order_ship' : order.pk,
+    #                       'pay_method':request.data.get('pay_method'),
+    #                       'voucher': request.data.get('voucher')
+    #                       })
+    #             order_Detail_Ser.is_valid(raise_exception=True)
+    #             order_Detail_Ser.save()
+    #             return Response(order_Detail_Ser.data,status=status.HTTP_200_OK)
+    #         raise PermissionDenied()
+    #
+    #     if request.method== "GET":
+    #         if request.user.pk in [order.auction_win.shipper.pk, order.auction_win.post.customer.pk]:
+    #             order_detail = OrderShipDetail.objects.filter(pk=order.pk)
+    #
+    #
+    #             return Response(OrderDetailSerializer(order_detail).data,)
+    #
+    #         raise PermissionDenied()
+    #
