@@ -101,6 +101,11 @@ class PermissionOrderShip(IsAuthenticated):
                and request.user.has_perms(['abaShip.change_ordership', 'abaShip.delete_ordership', 'abaShip.add_ordership'])
 
 
+class PermissionUpDateStatusOrder(IsAuthenticated):
+    def has_permission(self, request, view):
+        return super().has_permission(request,view)\
+            and request.user.has_perm('abaShip.update_status_order')
+
 class PermissionViewOrderShipDetail(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \

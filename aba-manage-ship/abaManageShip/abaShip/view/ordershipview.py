@@ -9,7 +9,8 @@ from ..serializers import (OrderCreateSerializer,
                            OrderSerializer,
                                                      )
 from ..permission import (PermissionOrderShip,
-                          PermissionViewOrderShip)
+                          PermissionViewOrderShip,
+                          PermissionUpDateStatusOrder)
 from django.core.exceptions import ObjectDoesNotExist
 
 class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAPIView, generics.RetrieveAPIView):
@@ -24,6 +25,8 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
     def get_permissions(self):
         if self.action in ['list','retrieve']:
             return [PermissionViewOrderShip(),]
+        if self.action == 'update_status':
+            return [PermissionUpDateStatusOrder(),]
         return [PermissionOrderShip(),]
 
 
@@ -72,6 +75,16 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
         if request.user.pk == order.auction_win.post.customer.pk or request.user.pk == order.auction_win.shipper.pk:
            return super().retrieve(request, *args, **kwargs)
         raise PermissionDenied()
+
+    @action(methods=["PATCH"], detail=True, url_name='update-status',url_path='update-status')
+    def update_status(self, request,*args, **kwargs):
+        order = self.get_object()
+        ser = OrderCreateSerializer(order,data={'status':request.data.get('status')}, partial=True)
+        ser.is_valid(raise_exception=True)
+        ser.save()
+        header = self.get_success_headers(ser.data)
+        return Response(ser.data,status=status.HTTP_200_OK,headers=header)
+
 
     # @action(methods=['POST', 'GET'], detail=True, url_path="order-detail",
     #         url_name="order-detail")

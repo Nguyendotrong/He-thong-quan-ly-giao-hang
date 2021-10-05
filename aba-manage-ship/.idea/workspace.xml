@@ -3,19 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/migrations/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipdetailview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipdetailview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/voucherview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/voucherview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +174,7 @@
       <workItem from="1633269742310" duration="1355000" />
       <workItem from="1633276356694" duration="5453000" />
       <workItem from="1633360329602" duration="4908000" />
-      <workItem from="1633398879536" duration="9359000" />
+      <workItem from="1633398879536" duration="20519000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -507,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632483915509</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="cập nhật csdl bỏ model OrderDetail. sữa api tạo order">
+      <created>1633418143403</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1633418143403</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +524,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cập nhật permission.py, cập nhật put user" />
     <MESSAGE value="sữa lỗi sai tên app trong peermission ," />
     <MESSAGE value="hình như ko có gì thay đổi á o" />
     <MESSAGE value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
@@ -551,7 +548,8 @@
     <MESSAGE value="thêm thông tin postcho  order" />
     <MESSAGE value="- chỉnh sữa chức năng ko cho cập nhật post khi đã có auction&#10;- thêm url cho voucher" />
     <MESSAGE value="cập nhật phân quyền cho voucher ai cũng xem  dc" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật phân quyền cho voucher ai cũng xem  dc" />
+    <MESSAGE value="cập nhật csdl bỏ model OrderDetail. sữa api tạo order" />
+    <option name="LAST_COMMIT_MESSAGE" value="cập nhật csdl bỏ model OrderDetail. sữa api tạo order" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

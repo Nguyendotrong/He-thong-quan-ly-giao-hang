@@ -157,6 +157,7 @@ class OrderCreateSerializer(ModelSerializer):
     def to_representation(self, instance):
         rep = super().to_representation(instance)
         rep['status'] = OrderShip.STATUS[rep.get('status')][1] or None
+        rep['pay_method'] = OrderShip.PAY_METHOD[rep.get('pay_method')][1] or None
         return rep
 
     class Meta:
@@ -167,6 +168,8 @@ class OrderCreateSerializer(ModelSerializer):
 
 class OrderSerializer(OrderCreateSerializer):
     auction_win = AutionDetailPostSerializer(required=True)
+
+
 
     class Meta:
         model = OrderCreateSerializer.Meta.model

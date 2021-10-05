@@ -21,7 +21,7 @@ from  ..Paginator import BasePagination
 
 class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
                   generics.RetrieveAPIView, generics.ListAPIView,
-                  generics.UpdateAPIView):
+                  generics.UpdateAPIView, generics.DestroyAPIView):
     queryset = Post.objects.filter(active=True)
     # serializer_class = PostSerializer
     pagination_class = BasePagination

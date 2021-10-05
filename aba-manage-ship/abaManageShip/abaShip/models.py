@@ -103,8 +103,8 @@ class OrderShip(Base):
     shipped_date = models.DateTimeField(null=True, blank=True)
     status = models.PositiveSmallIntegerField(choices=STATUS, default=NOTYETSHIPPED)
     pay_method = models.PositiveSmallIntegerField(choices=PAY_METHOD, default=CASH)
-
     voucher = models.ForeignKey(Voucher, on_delete=models.PROTECT,null=True)
+
 
     def __str__(self):
         return "customer: {},\nshipper: {},\nstatus: {},\ncreated date: {}".format(
@@ -196,7 +196,7 @@ class Rate (Base):
                                    MaxValueValidator(
                                    limit_value=5, message="Đánh giá nhỏ hơn hoặc bằng 5"),
                                     MinValueValidator(
-                                    limit_value=1, message="đánh giá từ 1 đến 5")
+                                    limit_value=1, message="Đánh giá từ 1 đến 5")
                                ])
 
     def __str__(self):
