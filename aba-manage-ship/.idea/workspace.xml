@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
-      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ratingview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/permission.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../python-entrancce-test/Python-Django-to-do-API-set-project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Charity_Social_Network" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -177,7 +173,7 @@
       <workItem from="1633360329602" duration="4908000" />
       <workItem from="1633398879536" duration="26967000" />
       <workItem from="1633487094694" duration="925000" />
-      <workItem from="1633506355312" duration="4592000" />
+      <workItem from="1633506355312" duration="7593000" />
     </task>
     <task id="LOCAL-00001" summary="sữa model ngày 04/08">
       <created>1628049280021</created>
@@ -515,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633445793235</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="cập nhật chức năng rating(thêm, cập nhật, xóa, lấy danh sách theo id shipper">
+      <created>1633513238116</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1633513238116</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +537,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hình như ko có gì thay đổi á o" />
     <MESSAGE value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
     <MESSAGE value="thêm api lấy danh sách shipper" />
     <MESSAGE value="thêm thuộc tính group" />
@@ -559,7 +561,8 @@
     <MESSAGE value="cập nhật phân quyền cho voucher ai cũng xem  dc" />
     <MESSAGE value="cập nhật csdl bỏ model OrderDetail. sữa api tạo order" />
     <MESSAGE value="thêm chức năng cập nhật status của order cho shipper, và thêm chức năng xóa Post" />
-    <option name="LAST_COMMIT_MESSAGE" value="thêm chức năng cập nhật status của order cho shipper, và thêm chức năng xóa Post" />
+    <MESSAGE value="cập nhật chức năng rating(thêm, cập nhật, xóa, lấy danh sách theo id shipper" />
+    <option name="LAST_COMMIT_MESSAGE" value="cập nhật chức năng rating(thêm, cập nhật, xóa, lấy danh sách theo id shipper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

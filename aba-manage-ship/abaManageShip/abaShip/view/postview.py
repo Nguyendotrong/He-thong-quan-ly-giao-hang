@@ -28,7 +28,7 @@ class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
 
 
     def get_serializer_class(self):
-        if self.action == 'create':
+        if self.action in ['create','update']:
             return PostCreateSerializer
         return PostSerializer
 
@@ -138,7 +138,7 @@ class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
                     serializer_img = ImageItemSerializer(data={"image": item, 'post': post.id})
                     serializer_img.is_valid(raise_exception=True)
                     instance_img = serializer_img.save()
-                    post.image_items.add(instance_img)
+                    # post.image_items.add(instance_img)
 
             # send_stock = int(request.data.get('send_stock'))
             # receive_stock = int(request.data.get('receive_stock'))
@@ -162,7 +162,7 @@ class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
             serializer.is_valid(raise_exception=True)
             instance = serializer.save()
             headers = self.get_success_headers(serializer.data)
-            return Response(serializer.data, status=status.HTTP_200_OK, headers=headers)
+            return Response(PostSerializer(instance=instance).data, status=status.HTTP_200_OK, headers=headers)
 
         raise PermissionDenied()
 
