@@ -173,7 +173,7 @@ class OrderSerializer(OrderCreateSerializer):
 
     class Meta:
         model = OrderCreateSerializer.Meta.model
-        fields = OrderCreateSerializer.Meta.fields
+        fields =  OrderCreateSerializer.Meta.fields
         read_only_fields = ['auction_win', 'active', 'shipped_date', ]
 
 
@@ -182,22 +182,14 @@ class VoucherSerializer(ModelSerializer):
         model = Voucher
         fields = "__all__"
 
-# class OrderDetailSerializer(ModelSerializer):
-#     # voucher = VoucherSerializer(required=True)
-#
-#     class Meta:
-#         model = OrderShipDetail
-#         fields = ['orderShip','voucher','pay_method']
-#
-# class OrderDetailCreateSerializer(ModelSerializer):
-#
-#
-#     class Meta:
-#         model = OrderShipDetail
-#         fields = ['order_ship','voucher','pay_method']
-#         read_only_fields=['order_ship']
-#
-#     def to_representation(self, instance):
-#         rep = super().to_representation(instance)
-#         rep['pay_method'] = OrderShipDetail.PAY_METHOD[rep.get('pay_method')][1] or None
-#         return rep
+class RatingCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Rate
+        fields = "__all__"
+        read_only_fields = ['id', 'customer', 'shipper']
+
+class RatingSerializer(RatingCreateSerializer):
+    class Meta:
+        model =  RatingCreateSerializer.Meta.model
+        fields = RatingCreateSerializer.Meta.fields
+        read_only_fields = ['id', 'customer', 'shipper']

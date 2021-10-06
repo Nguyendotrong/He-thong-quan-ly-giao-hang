@@ -106,17 +106,6 @@ class PermissionUpDateStatusOrder(IsAuthenticated):
         return super().has_permission(request,view)\
             and request.user.has_perm('abaShip.update_status_order')
 
-class PermissionViewOrderShipDetail(IsAuthenticated):
-    def has_permission(self, request, view):
-        return super().has_permission(request, view) \
-               and request.user.has_perms(['abaShip.view_ordershipdetail'])
-
-
-class PermissionOrderShipDetail(IsAuthenticated):
-    def has_permission(self, request, view):
-        return super().has_permission(request, view) \
-               and request.user.has_perms(['abaShip.change_ordershipdetail', 'abaShip.delete_ordershipdetail', 'abaShip.add_ordershipdetail'])
-
 
 class PermissionViewNotification(IsAuthenticated):
     def has_permission(self, request, view):
@@ -124,14 +113,14 @@ class PermissionViewNotification(IsAuthenticated):
                and request.user.has_perms(['abaShip.view_notification'])
 
 
-class PermissionViewCommentShipper(IsAuthenticated):
+class PermissionViewRatingShipper(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaShip.view_auction'])
+               and request.user.has_perms(['abaShip.view_rate'])
 
 
-class PermissionCommentShipper(IsAuthenticated):
+class PermissionRatingShipper(IsAuthenticated):
     def has_permission(self, request, view):
         return super().has_permission(request, view) \
-               and request.user.has_perms(['abaShip.change_commentshipper', 'abaShip.delete_commentshipper', 'abShip.add_commentshipper'])
+               and request.user.has_perms(['abaShip.change_rate', 'abaShip.delete_rate', 'abaShip.add_rate'])
 

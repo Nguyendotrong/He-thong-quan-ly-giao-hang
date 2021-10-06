@@ -4,5 +4,6 @@ from .customerview import CustomerViewSet
 from .shipperview import ShipperViewSet
 from .auctionview import  AuctionViewSet
 from .ordershipview import OrderShipViewSet
-from.voucherview import VoucherViewSet
+from .voucherview import VoucherViewSet
+from .ratingview import RatingViewSet
 # from .ordershipdetailview import OrderDetailViewSet
