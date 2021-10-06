@@ -90,3 +90,4 @@ class RatingViewSet(viewsets.ViewSet, generics.CreateAPIView,
             kwargs['partial'] = True
             return self.update(request, *args, **kwargs)
         raise PermissionDenied()
+

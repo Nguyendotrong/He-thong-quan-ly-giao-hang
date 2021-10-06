@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ratingview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ratingview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,14 +175,7 @@
       <workItem from="1633360329602" duration="4908000" />
       <workItem from="1633398879536" duration="26967000" />
       <workItem from="1633487094694" duration="925000" />
-      <workItem from="1633506355312" duration="7593000" />
-    </task>
-    <task id="LOCAL-00001" summary="sữa model ngày 04/08">
-      <created>1628049280021</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1628049280023</updated>
+      <workItem from="1633506355312" duration="11594000" />
     </task>
     <task id="LOCAL-00002" summary="sữa model, thêm admin">
       <created>1628559772420</created>
@@ -518,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633513238116</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="sữa api cập nhật stock cho post">
+      <created>1633528419668</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1633528419669</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +539,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cập nhật api list post cho customer và shipper, cập nhật csdl chức năng auction." />
     <MESSAGE value="thêm api lấy danh sách shipper" />
     <MESSAGE value="thêm thuộc tính group" />
     <MESSAGE value="thêm mấy cái của shipper" />
@@ -562,7 +563,8 @@
     <MESSAGE value="cập nhật csdl bỏ model OrderDetail. sữa api tạo order" />
     <MESSAGE value="thêm chức năng cập nhật status của order cho shipper, và thêm chức năng xóa Post" />
     <MESSAGE value="cập nhật chức năng rating(thêm, cập nhật, xóa, lấy danh sách theo id shipper" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật chức năng rating(thêm, cập nhật, xóa, lấy danh sách theo id shipper" />
+    <MESSAGE value="sữa api cập nhật stock cho post" />
+    <option name="LAST_COMMIT_MESSAGE" value="sữa api cập nhật stock cho post" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

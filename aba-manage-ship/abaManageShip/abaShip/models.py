@@ -188,8 +188,8 @@ class Rate (Base):
     class Meta:
         unique_together = ('customer','shipper')
 
-    customer = models.ForeignKey(User, related_name='customer', on_delete=models.PROTECT,default=None)
-    shipper = models.ForeignKey(User, related_name='shipper', on_delete=models.PROTECT, default=None)
+    customer = models.ForeignKey(User, related_name='customer_rate', on_delete=models.PROTECT,default=None)
+    shipper = models.ForeignKey(User, related_name='rate_shiper', on_delete=models.PROTECT, default=None)
     content = models.TextField(null=False, blank=False)
     rate = models.PositiveIntegerField(default=1, null=False,
                                validators=[
