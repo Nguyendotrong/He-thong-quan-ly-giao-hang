@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ratingview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ratingview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/shipperview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,14 +172,7 @@
       <workItem from="1633360329602" duration="4908000" />
       <workItem from="1633398879536" duration="26967000" />
       <workItem from="1633487094694" duration="925000" />
-      <workItem from="1633506355312" duration="11594000" />
-    </task>
-    <task id="LOCAL-00002" summary="sữa model, thêm admin">
-      <created>1628559772420</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1628559772420</updated>
+      <workItem from="1633506355312" duration="15347000" />
     </task>
     <task id="LOCAL-00003" summary="sữa model, thêm admin">
       <created>1628559792636</created>
@@ -520,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633528419669</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="thêm api rate trung bình /shipper/{id}/average-rate/">
+      <created>1633533177050</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1633533177050</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +536,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thêm api lấy danh sách shipper" />
     <MESSAGE value="thêm thuộc tính group" />
     <MESSAGE value="thêm mấy cái của shipper" />
     <MESSAGE value="thêm mấy cái của shipper, tạo bảng rate" />
@@ -564,7 +560,8 @@
     <MESSAGE value="thêm chức năng cập nhật status của order cho shipper, và thêm chức năng xóa Post" />
     <MESSAGE value="cập nhật chức năng rating(thêm, cập nhật, xóa, lấy danh sách theo id shipper" />
     <MESSAGE value="sữa api cập nhật stock cho post" />
-    <option name="LAST_COMMIT_MESSAGE" value="sữa api cập nhật stock cho post" />
+    <MESSAGE value="thêm api rate trung bình /shipper/{id}/average-rate/" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm api rate trung bình /shipper/{id}/average-rate/" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -158,7 +158,7 @@ class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
             #
             # post.save()
 
-            serializer = PostSerializer(post,data=request.data,partial=True)
+            serializer = PostCreateSerializer(post,data=request.data,partial=True)
             serializer.is_valid(raise_exception=True)
             instance = serializer.save()
             headers = self.get_success_headers(serializer.data)
