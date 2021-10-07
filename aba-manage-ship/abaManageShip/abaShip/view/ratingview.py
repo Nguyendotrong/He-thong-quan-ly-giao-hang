@@ -4,9 +4,12 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.response import Response
 
-from ..models import Rate, OrderShip
+from ..models import Rate, OrderShip, User
 from ..serializers import RatingCreateSerializer, RatingSerializer
 from ..permission import PermissionViewRatingShipper, PermissionRatingShipper
+
+
+
 
 class RatingViewSet(viewsets.ViewSet, generics.CreateAPIView,
                     generics.ListAPIView,generics.RetrieveAPIView,generics.UpdateAPIView):
@@ -96,9 +99,13 @@ class RatingViewSet(viewsets.ViewSet, generics.CreateAPIView,
         customer  =  request.user.pk
         try:
             shipper = int(request.data.get('shipper'))
+
+            rate = Rate.objects.filter(customer=customer, shipper=shipper)
         except:
             ValidationError(detail="shipper input invalid")
         else:
-            if Rate.objects.filter(customer=customer, shipper=shipper).exists():
+            if not User.objects.filter(pk=shipper).exists():
+                raise ValidationError(detail="shipper input invalid")
+            if rate.exists():
                 return Response({'check':True})
             return Response({'check':False})
