@@ -189,6 +189,9 @@ class RatingCreateSerializer(ModelSerializer):
         read_only_fields = ['id', 'customer', 'shipper']
 
 class RatingSerializer(RatingCreateSerializer):
+    customer = BaseUserSerializer(required=True)
+    shipper = BaseUserSerializer(required=True)
+
     class Meta:
         model =  RatingCreateSerializer.Meta.model
         fields = RatingCreateSerializer.Meta.fields
