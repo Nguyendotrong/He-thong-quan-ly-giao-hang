@@ -91,3 +91,14 @@ class RatingViewSet(viewsets.ViewSet, generics.CreateAPIView,
             return self.update(request, *args, **kwargs)
         raise PermissionDenied()
 
+    @action(methods=['POST'], detail=False, url_path='check-rate', url_name='check-rate')
+    def check_rate(self,request, *args, **kwargs):
+        customer  =  request.user.pk
+        try:
+            shipper = int(request.data.get('shipper'))
+        except:
+            ValidationError(detail="shipper input invalid")
+        else:
+            if Rate.objects.filter(customer=customer, shipper=shipper).exists():
+                return Response({'check':True})
+            return Response({'check':False})
