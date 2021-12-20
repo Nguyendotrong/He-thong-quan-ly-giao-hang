@@ -25,7 +25,7 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
     def get_permissions(self):
         if self.action in ['list','retrieve']:
             return [PermissionViewOrderShip(),]
-        if self.action == 'update_status':
+        if self.action == 'update-status':
             return [PermissionUpDateStatusOrder(),]
         return [PermissionOrderShip(),]
 
@@ -76,6 +76,15 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
            return super().retrieve(request, *args, **kwargs)
         raise PermissionDenied()
 
+    def send_mail_status_order (self,order_id, user, status):
+        if status == 1:
+            status_string = "shipping"
+        elif status == 2:
+            status_string = "shipped"
+        subject =  "[AbaShip][order {order_id}] [{status_string}]".format(order_id=order_id, status_string=status_string )
+        message = 'Order {order_id} had be {status_string}'.format(order_id=order_id, status_string=status_string)
+        user.email_user(subject= subject, message=message)
+
     @action(methods=["PATCH"], detail=True, url_name='update-status',url_path='update-status')
     def update_status(self, request,*args, **kwargs):
         order = self.get_object()
@@ -83,7 +92,10 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
         ser.is_valid(raise_exception=True)
         ser.save()
         header = self.get_success_headers(ser.data)
+        self.send_mail_status_order(order.auction_win.id, order.auction_win.post.customer, order.status)
         return Response(ser.data,status=status.HTTP_200_OK,headers=header)
+
+
 
 
     # @action(methods=['POST', 'GET'], detail=True, url_path="order-detail",

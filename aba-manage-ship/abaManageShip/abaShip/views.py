@@ -39,7 +39,9 @@ class UserViewSet(viewsets.GenericViewSet, generics.CreateAPIView,generics.ListA
             return [PermissionViewUser(),]
         elif self.action == 'update':
             return [PermissionChangeUser(),]
-        return [permissions.AllowAny(),]
+        else:
+            return [permissions.AllowAny()]
+
 
     @action(methods=['get'], detail=False, url_path='current-user')
     def current_user(self, request):

@@ -1,10 +1,16 @@
+import datetime
+
 from django.contrib import admin
 from django.contrib.auth.models import Permission, Group
+from django.contrib.auth.views import redirect_to_login
+from django.http import JsonResponse
 
 from django.db.models import Count
 from django.template.response import TemplateResponse
 from django.urls import path
 from django.utils.html import mark_safe
+from rest_framework import status
+
 from .models import *
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
@@ -144,26 +150,76 @@ class AbaShipAdminSite(admin.AdminSite):
 
     def get_urls(self):
         return [
-            path('aba-ship-stats/', self.aba_ship_stats)
+            path('aba-ship-stats-post/', self.aba_ship_stats_post),
+            path('aba-ship-stats-user/', self.aba_ship_stats_user),
+            path('static/',self.api_get_quantity_post_by_month_in_year),
+            path('static/user/', self.api_get_quantity_user_by_month_in_year),
+
         ]  + super().get_urls()
 
-    def aba_ship_stats(self,request):
-        post_count = Post.objects.count()
-        # stats = CategoryProductShip.objects.annotate(post_count=Count('post'))\
-        #     .values('id','category_product_ship', 'post_count')
-        re = CategoryProductShip.objects.raw('''
-            SELECT abaship_categoryproductship.id,category, COUNT(abaship_post.id) as aquantity
-            from  abaship_post inner join abaship_post_category_product_ship inner join abaship_categoryproductship
-            on abaship_post.id = abaship_post_category_product_ship.post_id
-            and abaship_categoryproductship.id = abaship_post_category_product_ship.categoryproductship_id
-            where abaship_post.id in (select id from abaship_post inner join abaship_ordership)
-            group by category
-        ''')
+    def aba_ship_stats_post(self,request, **kwargs):
+        if self.has_permission(request):
+            years = self.get_year_has_post()
 
-        return TemplateResponse(request, 'admin/aba-ship-stats.html',{
-            'post_count': post_count,
-            're':re
-        })
+            return TemplateResponse(request, 'admin/charts.html',context={'years':years})
+
+        return  redirect_to_login(next='/admin/', login_url='/admin/login/')
+
+    def aba_ship_stats_user(self,request, **kwargs):
+        if self.has_permission(request):
+            years = self.get_year_has_user()
+
+            return TemplateResponse(request, 'admin/chart_user_stat.html',context={'years':years})
+
+        return  redirect_to_login(next='/admin/', login_url='/admin/login/')
+
+
+    def api_get_quantity_post_by_month_in_year(self,request):
+        try:
+            year = int(request.GET.get('year'))
+            data =  self.get_quantity_post_by_month_in_year(year=year)
+        except:
+            return JsonResponse({"error": "Năm không hợp lệ"}, status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse(data, status=status.HTTP_200_OK)
+
+    def get_quantity_post_by_month_in_year(self,year=datetime.datetime.now().year):
+        if type(year) is int:
+            data = {"months":{}}
+            month_post  = [i.month  for i in Post.objects.filter(created_date__year=year).dates('created_date', 'month')]
+            print(month_post)
+            for i  in month_post:
+                data['months'][str(i)] = Post.objects.filter(created_date__year=year, created_date__month=i).count()
+            return data
+        return {"data": []}
+
+
+    def api_get_quantity_user_by_month_in_year(self,request):
+        try:
+            year = int(request.GET.get('year'))
+            data =  self.get_quantity_user_by_month_in_year(year=year)
+        except:
+            return JsonResponse({"error": "Năm không hợp lệ"}, status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse(data, status=status.HTTP_200_OK)
+
+    def get_quantity_user_by_month_in_year(self,year=datetime.datetime.now().year):
+        if type(year) is int:
+            data = {"months":{}}
+            month_user  = [i.month  for i in User.objects.filter(date_joined__year=year).dates('date_joined', 'month')]
+            print(month_user)
+            for i  in month_user:
+                data['months'][str(i)] = User.objects.filter(date_joined__year=year, date_joined__month=i).count()
+            return data
+        return {"data": []}
+
+
+    def has_permission(self, request):
+        return request.user.is_active and request.user.is_superuser
+
+    def get_year_has_post(self):
+        return [i.year for i in Post.objects.dates("created_date", "year","DESC")]
+
+    def get_year_has_user(self):
+        return [i.year for i in User.objects.dates("date_joined", "year", "DESC")]
 
 admin_site  =  AbaShipAdminSite(name='myadmin')
 

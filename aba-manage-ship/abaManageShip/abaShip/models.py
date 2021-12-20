@@ -1,5 +1,5 @@
 from enum import Enum
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -29,7 +29,7 @@ class User (AbstractUser):
     first_name = models.CharField(max_length=50, null=True, blank=True)
     last_name = models.CharField(max_length=50, null=True, blank=True)
     gender = models.CharField(max_length=10, choices=type_gender, default=0)
-    notifications = models.ManyToManyField('Notification', null=True, blank=True)
+    notifications = models.ManyToManyField(Notification, null=True, blank=True)
     address = models.CharField(max_length=255, null=True, default=None)
     date_of_birth = models.DateField(null=True, default=None)
 
@@ -97,13 +97,15 @@ class OrderShip(Base):
         (MOMO, 'Momo'),
         (CASH, 'Cash')
     ]
-
+    Group
     auction_win = models.OneToOneField('auction',related_name='order_ship', on_delete=models.PROTECT,primary_key=True)
     active = models.BooleanField(default=True)
     shipped_date = models.DateTimeField(null=True, blank=True)
     status = models.PositiveSmallIntegerField(choices=STATUS, default=NOTYETSHIPPED)
     pay_method = models.PositiveSmallIntegerField(choices=PAY_METHOD, default=CASH)
     voucher = models.ForeignKey(Voucher, on_delete=models.PROTECT,null=True)
+    total = models.DecimalField( max_digits=12, decimal_places=2, default=0)
+    payed  = models.BooleanField(default=False)
 
 
     def __str__(self):

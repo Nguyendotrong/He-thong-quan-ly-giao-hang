@@ -100,7 +100,7 @@ class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
         #     return Response(status=status.HTTP_400_BAD_REQUEST)
         if request.user.groups.filter(name='customer').exists():
             serializer = self.get_serializer(data=request.data)
-            serializer.is_valid(raise_exception=True)
+            serializer .is_valid(raise_exception=True)
             imgs = request.FILES.getlist('image_items', None)
             # print(imgs)
             instance_post = serializer.save(**{'customer': self.request.user})

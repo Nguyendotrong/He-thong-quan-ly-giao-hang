@@ -8,7 +8,7 @@ from django.db import IntegrityError
 
 
 class BaseUserSerializer(ModelSerializer):
-    avatar = ImageField(required=True, error_messages={'required': 'Avatar không được để trống'})
+    avatar = ImageField(required=True, error_messages={'required': 'Lỗi upload avatar'})
 
     class Meta:
         model = User
