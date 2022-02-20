@@ -1,11 +1,17 @@
 from django.contrib.auth.models import Group
 from rest_framework import serializers
+
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import ImageField
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, Serializer, CharField, IntegerField
 from .models import *
 from django.db import IntegrityError
 
+
+
+class MomoPaySerializer(Serializer):
+    auction_id = IntegerField()
+    user_id = IntegerField()
 
 class BaseUserSerializer(ModelSerializer):
     avatar = ImageField(required=True, error_messages={'required': 'Lỗi upload avatar'})
@@ -196,3 +202,4 @@ class RatingSerializer(RatingCreateSerializer):
         model =  RatingCreateSerializer.Meta.model
         fields = RatingCreateSerializer.Meta.fields
         read_only_fields = ['id', 'customer', 'shipper']
+

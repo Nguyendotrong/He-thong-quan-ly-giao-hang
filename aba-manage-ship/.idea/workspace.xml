@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
+      <change afterPath="$PROJECT_DIR$/abaManageShip/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/util/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/util/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/paymentview.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/mykey.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/private_key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abaManageShip/public_key.pem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ratingview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ratingview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +40,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1wDr59pnuZPUJypZT8w4ZvzDxyk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,19 +54,51 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\templates" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static\js\user_stat" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\templates\admin" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static\css" />
-      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip" />
       <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip" />
+      <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static\css" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.momo">
+    <configuration name="charts.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/aba-manage-ship/statistic/charts.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/aba-manage-ship/statistic/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="RSA" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aba-manage-ship" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abaManageShip/abaShip" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abaManageShip/abaShip/RSA.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="aba-manage-ship" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,6 +121,37 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="momo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aba-manage-ship" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abaManageShip/abaShip" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abaManageShip/abaShip/momo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.momo" />
+        <item itemvalue="Python.RSA" />
+        <item itemvalue="Python.RSA" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.charts.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -174,14 +249,37 @@
       <workItem from="1633398879536" duration="26967000" />
       <workItem from="1633487094694" duration="925000" />
       <workItem from="1633506355312" duration="15347000" />
-      <workItem from="1633576604766" duration="7219000" />
-    </task>
-    <task id="LOCAL-00006" summary="sữa model, thêm admin chin, thêm requirements.txt">
-      <created>1629165530669</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1629165530669</updated>
+      <workItem from="1633576604766" duration="8947000" />
+      <workItem from="1633696035955" duration="935000" />
+      <workItem from="1633785355953" duration="1837000" />
+      <workItem from="1634116619267" duration="627000" />
+      <workItem from="1634131398587" duration="1311000" />
+      <workItem from="1634175609356" duration="4294000" />
+      <workItem from="1634258945570" duration="2473000" />
+      <workItem from="1634304235827" duration="592000" />
+      <workItem from="1634351153092" duration="13574000" />
+      <workItem from="1634528075650" duration="3557000" />
+      <workItem from="1634607962363" duration="1194000" />
+      <workItem from="1634648448061" duration="1924000" />
+      <workItem from="1634693624324" duration="11857000" />
+      <workItem from="1634866548427" duration="4660000" />
+      <workItem from="1635125789325" duration="9072000" />
+      <workItem from="1635183284905" duration="1424000" />
+      <workItem from="1635268623916" duration="171000" />
+      <workItem from="1635269574511" duration="3868000" />
+      <workItem from="1635351263449" duration="6541000" />
+      <workItem from="1635426549568" duration="5137000" />
+      <workItem from="1635512619895" duration="592000" />
+      <workItem from="1635623365844" duration="7625000" />
+      <workItem from="1636095686083" duration="3401000" />
+      <workItem from="1636366262334" duration="3489000" />
+      <workItem from="1636366678554" duration="30000" />
+      <workItem from="1639747607052" duration="2885000" />
+      <workItem from="1640010067650" duration="14504000" />
+      <workItem from="1640063075452" duration="2429000" />
+      <workItem from="1640437806951" duration="284000" />
+      <workItem from="1645272708166" duration="9736000" />
+      <workItem from="1645360352640" duration="351000" />
     </task>
     <task id="LOCAL-00007" summary="cập nhật ..">
       <created>1629813585681</created>
@@ -519,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633611533913</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="bắt validate cho shipper của api check-rate">
+      <created>1633615041687</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1633615041687</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +643,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thêm mấy id trong sẻializer của shipper, tạo bảng rate" />
     <MESSAGE value="sữa từ viết hoa của gender" />
     <MESSAGE value="sữa api cập nhật post và stock" />
     <MESSAGE value="- Add field is_finish to post&#10;- Alter field gender on user&#10;- add_auction (nằm ở file postview á nha ô)" />
@@ -563,7 +667,8 @@
     <MESSAGE value="cập nhật stock trong post" />
     <MESSAGE value="tạo api check rate" />
     <MESSAGE value="cập nhật trường content trong rate có thể null, cập nhật shipper và customer trong rate thành đối tượng" />
-    <option name="LAST_COMMIT_MESSAGE" value="cập nhật trường content trong rate có thể null, cập nhật shipper và customer trong rate thành đối tượng" />
+    <MESSAGE value="bắt validate cho shipper của api check-rate" />
+    <option name="LAST_COMMIT_MESSAGE" value="bắt validate cho shipper của api check-rate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -577,6 +682,8 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/aba_manage_ship$momo.coverage" NAME="momo Coverage Results" MODIFIED="1635698099237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/abaManageShip/abaShip" />
     <SUITE FILE_PATH="coverage/aba_manage_ship$main.coverage" NAME="main Coverage Results" MODIFIED="1633168017135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/aba_manage_ship$RSA.coverage" NAME="RSA Coverage Results" MODIFIED="1635697743463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/abaManageShip/abaShip" />
   </component>
 </project>

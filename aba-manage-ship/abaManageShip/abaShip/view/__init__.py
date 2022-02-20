@@ -6,4 +6,5 @@ from .auctionview import  AuctionViewSet
 from .ordershipview import OrderShipViewSet
 from .voucherview import VoucherViewSet
 from .ratingview import RatingViewSet
+from .paymentview import MomoPay
 # from .ordershipdetailview import OrderDetailViewSet

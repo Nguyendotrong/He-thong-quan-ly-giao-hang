@@ -19,6 +19,7 @@ router.register('auctions',views.AuctionViewSet)
 router.register('orders',views.OrderShipViewSet)
 router.register('vouchers',views.VoucherViewSet)
 router.register('rates',views.RatingViewSet)
+router.register('payment',views.MomoPay,basename='payment')
 # router.register('order-detail',views.OrderDetailViewSet)
 
 
