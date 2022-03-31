@@ -55,7 +55,7 @@ class StockViewSet(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
             # xóa stock của chính user đó nếu khác thì không đc
         instance = self.get_object()
-        if instance.customer.id == request.user.id:
+        if instance.user_id == request.user.id:
             self.perform_destroy(instance)
             return Response(status=status.HTTP_204_NO_CONTENT)
         raise PermissionDenied()

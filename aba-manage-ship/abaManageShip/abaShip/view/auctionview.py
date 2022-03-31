@@ -16,12 +16,12 @@ class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView,
     def get_serializer_class(self):
         return AuctionSerializer
 
-    def get_permissions(self):
-        if self.action == "retrieve":
-            return [PermissionViewDetailAuction(),]
-        if self.action == "list":
-            return [PermissionViewListAuctionOfShipper(),]
-        return [PermissionAuction(),]
+    # def get_permissions(self):
+    #     if self.action == "retrieve":
+    #         return [PermissionViewDetailAuction(),]
+    #     # if self.action == "list":
+    #     #     return [PermissionViewListAuctionOfShipper(),]
+    #     return [PermissionAuction(),]
 
     def get_queryset(self):
 
@@ -31,6 +31,8 @@ class AuctionViewSet(viewsets.ViewSet,generics.ListAPIView,
 
         return self.queryset
 
+    # def list(self, request, *args, **kwargs):
+    #
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         if   request.user.pk in [instance.post.customer.pk, instance.shipper.pk]:

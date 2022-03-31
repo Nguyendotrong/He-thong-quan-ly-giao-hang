@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,10 +47,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'oauth2_provider',
     'cloudinary',
-    'drf_yasg'
+    'drf_yasg',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -91,13 +92,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'abashipdb',
         'USER': 'root',
-        'PASSWORD': '1+2+3+0',
+        'PASSWORD': 'Tphuy150200mysql@',
         'HOST': ''
     }
 }
 
 CLOUDINARY = {
-    #tài khoản: nguyendotrong.it@gmail.com
     'cloud_name': 'dfirb1bbt',
     'api_key': '898561282839112',
     'api_secret': 'oWUBaFed4Buos_af6XWdpxYCl3k',
@@ -153,13 +153,14 @@ CKEDITOR_UPLOAD_PATH = "image/upload/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 OAUTH2_INFO = {
-    "client_id": "GAoIoyXnX6pX6SwLNxeFWmcSyFY7lRfnDzKEDJDI",
-    "client_secret": "jszRNc5BqGwiJ4bt8a2JixeCEWUb2OiAm2cxYbWatnClTfNRWn8IgBy8nOP57wluThd3qiKdn4xUtko8nySFWxjS2TfiH9HlyUzee4s99srowoQ1UQ9t4ccdb2HnDSMe"
+    "client_id": "fGB8Dw4LisdjAjNUdWhL0Howw25DZ39LiRdTUTro",
+    "client_secret": "TVZDBuqShhQXxwkrQW6aextygWGIFHX4RjIJWgdo9MOKIJI1xCGWrNz3bWbaV5oaYFgcp3hiI8krwOBqWEmP3zEW5FkEoxsFBse39ozudGaxL7o08UIcRdSGU99puoSW"
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'nguyenngocvuong.hk@gmail.com'
-EMAIL_HOST_PASSWORD = 'Cblcbb,l@cvcbnt1'
+EMAIL_HOST_USER = 'thienkhiem693@gmail.com'
+EMAIL_HOST_PASSWORD = 'Huygmail1502'
 EMAIL_PORT = 587
-

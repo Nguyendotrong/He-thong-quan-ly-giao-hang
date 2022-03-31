@@ -184,13 +184,13 @@ class PostViewSet(viewsets.ViewSet, generics.CreateAPIView,
 
                 auc_instance = auc_serializer.save()
 
-                post.customer.emxail_user(subject= "[AbaShip][New Auction]",
+                post.customer.email_user(subject= "[AbaShip][New Auction]",
                                          message='bài đấu giá "{description}..." có một đấu giá mới'.format(description=post.description[0:50] ))
                 return Response(AuctionSerializer(auc_instance).data, status=status.HTTP_200_OK)
             raise PermissionDenied()
 
         if request.method == 'GET':
-            if(request.user == self.get_object().customer):
+            if(request.user.pk == self.get_object().customer.pk):
                 post = self.get_object()
                 auctions = post.auctions.filter(active=True)
                 return Response(AuctionSerializer(auctions, many=True).data, status=status.HTTP_200_OK)
