@@ -9,19 +9,19 @@ from ..permission import PermissionViewDetailAuction, PermissionViewListAuctionO
 from ..serializers import AuctionSerializer
 
 
-class AuctionViewSet(viewsets.ViewSet,generics.x``,
+class AuctionViewSet(viewsets.ViewSet,generics.CreateAPIView,
                      generics.RetrieveAPIView, generics.UpdateAPIView,generics.DestroyAPIView):
     queryset = Auction.objects.filter(active=True)
 
     def get_serializer_class(self):
         return AuctionSerializer
 
-    # def get_permissions(self):
-    #     if self.action == "retrieve":
-    #         return [PermissionViewDetailAuction(),]
-    #     if self.action == "list":
-    #         return [PermissionViewListAuctionOfShipper(),]
-    #     return [PermissionAuction(),]
+    def get_permissions(self):
+        if self.action == "retrieve":
+            return [PermissionViewDetailAuction(),]
+        if self.action == "list":
+            return [PermissionViewListAuctionOfShipper(),]
+        return [PermissionAuction(),]
 
     def get_queryset(self):
 
@@ -30,16 +30,6 @@ class AuctionViewSet(viewsets.ViewSet,generics.x``,
         return self.queryset.filter(shipper=self.request.user)
 
         return self.queryset
-
-    def list(self, request, *args, **kwargs):
-        post = Post.objects.filter(customer_id=request.user.pk)
-
-
-
-
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()

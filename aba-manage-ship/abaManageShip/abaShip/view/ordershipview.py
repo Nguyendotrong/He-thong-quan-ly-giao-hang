@@ -25,8 +25,8 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
     # def get_permissions(self):
     #     if self.action in ['list','retrieve']:
     #         return [PermissionViewOrderShip(),]
-    #     if self.action == 'update-status':
-    #         return [PermissionUpDateStatusOrder(),]
+    #     # if self.action == 'update-status':
+    #     #     return [PermissionUpDateStatusOrder(),]
     #     return [PermissionOrderShip(),]
 
 
@@ -97,6 +97,14 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
 
 
 
+    def send_mail_status_order(self, order_id, user, status):
+        if status == 1:
+            status_string = "shipping"
+        elif status == 2:
+            status_string = "shipped"
+        subject = "[AbaShip][order {order_id}] [{status_string}]".format(order_id=order_id, status_string=status_string)
+        message = 'Order {order_id} had be {status_string}'.format(order_id=order_id, status_string=status_string)
+        user.email_user(subject=subject, message=message)
 
     # @action(methods=['POST', 'GET'], detail=True, url_path="order-detail",
     #         url_name="order-detail")
