@@ -37,7 +37,6 @@ class User (AbstractUser):
         return "username: {}".format(self.username)
 
 
-
 class Stock(models.Model):
     customer = models.ForeignKey(User,on_delete=models.PROTECT, related_name='stocks',default=None)
     address = models.CharField(max_length=150,null=False)
@@ -47,6 +46,7 @@ class Stock(models.Model):
     def __str__(self):
         return "Address: {},\n Represent man: {},\nPhone: {}".format(
             self.address,self.name_represent_man, self.phone)
+
 
 class IDCard(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
@@ -58,7 +58,6 @@ class IDCard(models.Model):
 
     def __str__(self):
         return "Id card: {}".format(self.id_card)
-
 
 
 class  Base(models.Model):
@@ -97,7 +96,7 @@ class OrderShip(Base):
         (MOMO, 'Momo'),
         (CASH, 'Cash')
     ]
-    Group
+
     auction_win = models.OneToOneField('auction',related_name='order_ship', on_delete=models.PROTECT,primary_key=True)
     active = models.BooleanField(default=True)
     shipped_date = models.DateTimeField(null=True, blank=True)

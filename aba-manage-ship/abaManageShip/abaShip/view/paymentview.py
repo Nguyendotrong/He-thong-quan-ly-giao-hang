@@ -17,7 +17,7 @@ class MomoPay(viewsets.ViewSet, generics.CreateAPIView):
 
     def create(self, request, *args, **kwargs):
         auction_id = request.data.get('auction_id')
-        user_id = request.data.get('user_id')
+        user_id = request.user.pk
         # phonenumber = request.data.get('phonenumber')
         data = request.data.get('momo_token')
 
@@ -34,11 +34,11 @@ class MomoPay(viewsets.ViewSet, generics.CreateAPIView):
         partnerCode = "MOMOIDXP20220219"
         billId = "Kanj-auctionId_%s-commentId_%s" % (auction.id, user.id)  # ma don hang
         storeId = 'QWdaiai149274y44'
-        storeSlug = 'MOMOIDXP20220219-220219221215671baa52'
+        storeSlug = '{0}-{1}'.format(partnerCode,storeId)
         amount = auction.cost
         domain = 'https://test-payment.momo.vn'
 
         signature = create_signature(storeSlug=storeSlug, amount=auction.cost, orderId=billId)
-        url = "https://test-payment.momo.vn/pay/store/{0}?a={1}&b={2}&s={3}".format(storeSlug, auction.cost, billId, signature)
+        url = "https://test-payment.momo.vn/pay/store/{0}?a={1}&b={2}&s={3}".format(storeSlug, amount, billId, signature)
 
         return Response(data={"url": url}, status=status.HTTP_200_OK )

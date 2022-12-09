@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user" />
+    <list default="true" id="41ab0546-f2ec-4408-afe0-a1d1251ce0e5" name="Default Changelist" comment="cập nhật permission.py, cập nhật put user">
+      <change afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/text_to_speed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/auctionview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/ordershipview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/paymentview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/paymentview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" beforeDir="false" afterPath="$PROJECT_DIR$/abaManageShip/abaShip/view/postview.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../exam_fpt_tel/ExamProject" />
     <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="RecentsManager">
@@ -57,7 +65,7 @@
       <recent name="E:\du-lieu-o-E\monhoc\cac-cong-nghe-hien-dai\he-thong-quan-ly-giao-hang\aba-manage-ship\abaManageShip\abaShip\static\css" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.momo">
+  <component name="RunManager" selected="Python.text_to_speed">
     <configuration name="charts.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/aba-manage-ship/statistic/charts.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -130,13 +138,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="text_to_speed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="aba-manage-ship" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abaManageShip/abaShip/view" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abaManageShip/abaShip/view/text_to_speed.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.text_to_speed" />
         <item itemvalue="Python.momo" />
         <item itemvalue="Python.RSA" />
         <item itemvalue="Python.RSA" />
         <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="JavaScript Debug.charts.html" />
       </list>
     </recent_temporary>
   </component>
@@ -266,14 +296,28 @@
       <workItem from="1640063075452" duration="2429000" />
       <workItem from="1640437806951" duration="284000" />
       <workItem from="1645272708166" duration="9736000" />
-      <workItem from="1645360352640" duration="895000" />
-    </task>
-    <task id="LOCAL-00008" summary="cập nhật csdl">
-      <created>1629813895300</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1629813895300</updated>
+      <workItem from="1645360352640" duration="6647000" />
+      <workItem from="1645795042398" duration="6574000" />
+      <workItem from="1645881840561" duration="4636000" />
+      <workItem from="1645929754778" duration="47000" />
+      <workItem from="1645965791043" duration="3086000" />
+      <workItem from="1646141213401" duration="5067000" />
+      <workItem from="1648916463388" duration="87000" />
+      <workItem from="1648919543083" duration="641000" />
+      <workItem from="1648920227372" duration="2019000" />
+      <workItem from="1650182663177" duration="908000" />
+      <workItem from="1651996887200" duration="609000" />
+      <workItem from="1652363125408" duration="595000" />
+      <workItem from="1652616854597" duration="3673000" />
+      <workItem from="1653135248174" duration="3736000" />
+      <workItem from="1653668929272" duration="4270000" />
+      <workItem from="1653979297506" duration="4609000" />
+      <workItem from="1655046748338" duration="4156000" />
+      <workItem from="1655212826906" duration="4339000" />
+      <workItem from="1655220803602" duration="75000" />
+      <workItem from="1665934840324" duration="639000" />
+      <workItem from="1665988010316" duration="5593000" />
+      <workItem from="1666283083849" duration="4161000" />
     </task>
     <task id="LOCAL-00009" summary="api user">
       <created>1629944082051</created>
@@ -611,11 +655,28 @@
       <option name="project" value="LOCAL" />
       <updated>1645361078330</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="[payment]">
+      <created>1645361846715</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1645361846715</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -670,6 +731,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/aba_manage_ship$momo.coverage" NAME="momo Coverage Results" MODIFIED="1635698099237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/abaManageShip/abaShip" />
+    <SUITE FILE_PATH="coverage/aba_manage_ship$text_to_speed.coverage" NAME="text_to_speed Coverage Results" MODIFIED="1653674381295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/abaManageShip/abaShip/view" />
     <SUITE FILE_PATH="coverage/aba_manage_ship$main.coverage" NAME="main Coverage Results" MODIFIED="1633168017135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/aba_manage_ship$RSA.coverage" NAME="RSA Coverage Results" MODIFIED="1635697743463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/abaManageShip/abaShip" />
   </component>

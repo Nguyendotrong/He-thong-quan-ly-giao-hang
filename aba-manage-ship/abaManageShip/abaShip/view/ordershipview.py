@@ -22,12 +22,12 @@ class OrderShipViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAP
             return OrderCreateSerializer
         return OrderSerializer
 
-    def get_permissions(self):
-        if self.action in ['list','retrieve']:
-            return [PermissionViewOrderShip(),]
-        if self.action == 'update-status':
-            return [PermissionUpDateStatusOrder(),]
-        return [PermissionOrderShip(),]
+    # def get_permissions(self):
+    #     if self.action in ['list','retrieve']:
+    #         return [PermissionViewOrderShip(),]
+    #     if self.action == 'update-status':
+    #         return [PermissionUpDateStatusOrder(),]
+    #     return [PermissionOrderShip(),]
 
 
     def get_queryset(self):
